@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF1D2A32-4BE3-4D5F-8394-5EBD9A236BBD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prestamos</RootNamespace>
+    <AssemblyName>Prestamos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FF9BB004BB5C705FB35D94151F3B347265500B71</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Prestamos_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Calendar.DayView">
+      <HintPath>..\..\..\..\..\Downloads\Calendar\Calendar.DayView.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>..\packages\Google.Apis.1.8.1\lib\net40\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>..\packages\Google.Apis.Auth.1.8.1\lib\net40\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices">
+      <HintPath>..\packages\Google.Apis.Auth.1.8.1\lib\net40\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>..\packages\Google.Apis.Core.1.8.1\lib\portable-net4+sl4+wp71+win8\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v2">
+      <HintPath>..\packages\Google.Apis.Drive.v2.1.8.1.1260\lib\portable-net4+sl4+wp71+win8\Google.Apis.Drive.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices">
+      <HintPath>..\packages\Google.Apis.1.8.1\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.1.3\lib\net40\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.1.3\lib\net40\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Simplify.Resources">
+      <HintPath>..\packages\Simplify.Resources.1.0.0\lib\net40\Simplify.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Simplify.Windows.Forms">
+      <HintPath>..\packages\Simplify.Windows.Forms.1.0.0\lib\net40\Simplify.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.7\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.1.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.1.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.1.10\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.7\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.7\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>..\..\..\..\..\Downloads\Binaries\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\packages\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\AccesoDatos.cs" />
+    <Compile Include="Datos\AccesoDatosPostgreSql.cs" />
+    <Compile Include="Datos\ConfBD.cs" />
+    <Compile Include="Datos\ContextDataBase.cs" />
+    <Compile Include="Datos\AccesoDatosComprobacion.cs" />
+    <Compile Include="Datos\IAccesoDatos.cs" />
+    <Compile Include="Formatos\ECuotas.cs" />
+    <Compile Include="Formatos\DAbonos.cs" />
+    <Compile Include="Formatos\EAbonos.cs" />
+    <Compile Include="Formatos\ECierreCaja.cs" />
+    <Compile Include="Formatos\DCierreCaja.cs" />
+    <Compile Include="Formatos\DGastos.cs" />
+    <Compile Include="Formatos\EGastos.cs" />
+    <Compile Include="Formatos\DClientes.cs" />
+    <Compile Include="Formatos\DPrestamos.cs" />
+    <Compile Include="Formatos\DPrestamosCuotas.cs" />
+    <Compile Include="Formatos\EClientes.cs" />
+    <Compile Include="Formatos\EPrestamos.cs" />
+    <Compile Include="Logica\Abonos_CuotasCL.cs" />
+    <Compile Include="Logica\RespaldoCL.cs" />
+    <Compile Include="Logica\ErroresCl.cs" />
+    <Compile Include="Logica\UsuariosCL.cs" />
+    <Compile Include="Logica\GastosCL.cs" />
+    <Compile Include="Logica\PlanillaCL.cs" />
+    <Compile Include="Logica\Postgres\Abonos_CuotasPostgres.cs" />
+    <Compile Include="Logica\Postgres\UsuariosPostgres.cs" />
+    <Compile Include="Logica\Postgres\GastosPostgres.cs" />
+    <Compile Include="Logica\Postgres\PlanillaPostgres.cs" />
+    <Compile Include="Logica\SecuenciasCL.cs" />
+    <Compile Include="Logica\Prestamos_CuotasCL.cs" />
+    <Compile Include="Logica\Postgres\Prestamos_CuotasPostgres.cs" />
+    <Compile Include="Logica\PrestamosCL.cs" />
+    <Compile Include="Logica\Postgres\PrestamosPostgres.cs" />
+    <Compile Include="Logica\SQL\IUsuariosSQL.cs" />
+    <Compile Include="Logica\SQL\IGastosSQL.cs" />
+    <Compile Include="Logica\SQL\IAbonos_CuotasSQL.cs" />
+    <Compile Include="Logica\SQL\IPlanillaSQL.cs" />
+    <Compile Include="Logica\SQL\IPrestamos_CuotasSQL.cs" />
+    <Compile Include="Logica\SQL\IPrestamosSQL.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFechaPreliminarPagoCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFechaPreliminarPagoCuota.Designer.cs">
+      <DependentUpon>frmFechaPreliminarPagoCuota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCargarPlanillaProcesada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCargarPlanillaProcesada.Designer.cs">
+      <DependentUpon>frmCargarPlanillaProcesada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmEdicionCuotaFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmEdicionCuotaFecha.Designer.cs">
+      <DependentUpon>frmEdicionCuotaFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFechaPlanillaProcesar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFechaPlanillaProcesar.Designer.cs">
+      <DependentUpon>frmFechaPlanillaProcesar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmListaUsuarios.Designer.cs">
+      <DependentUpon>frmListaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRecargoPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRecargoPrestamo.Designer.cs">
+      <DependentUpon>frmRecargoPrestamo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRFiltroEstadoCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRFiltroEstadoCuenta.Designer.cs">
+      <DependentUpon>frmRFiltroEstadoCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCierreCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCierreCaja.Designer.cs">
+      <DependentUpon>frmCierreCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCargarPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCargarPlanilla.Designer.cs">
+      <DependentUpon>frmCargarPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmAbonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmAbonos.Designer.cs">
+      <DependentUpon>frmAbonos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmAbonosCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmAbonosCuotas.Designer.cs">
+      <DependentUpon>frmAbonosCuotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCrearPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmCrearPlanilla.Designer.cs">
+      <DependentUpon>frmCrearPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmGastos.Designer.cs">
+      <DependentUpon>frmGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmListaClientes.Designer.cs">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmDashBoard.Designer.cs">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\ClientesCL.cs" />
+    <Compile Include="Logica\Postgres\ClientesPostgres.cs" />
+    <Compile Include="Logica\SQL\IClientesSQL.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Ventanas\frmNuevoAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmNuevoAbono.Designer.cs">
+      <DependentUpon>frmNuevoAbono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmNuevoPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmNuevoPrestamo.Designer.cs">
+      <DependentUpon>frmNuevoPrestamo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmPlanillaCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmPlanillaCobro.Designer.cs">
+      <DependentUpon>frmPlanillaCobro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmPrestamos.Designer.cs">
+      <DependentUpon>frmPrestamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRespaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRespaldo.Designer.cs">
+      <DependentUpon>frmRespaldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRFiltroCuentaCobrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmRFiltroCuentaCobrar.Designer.cs">
+      <DependentUpon>frmRFiltroCuentaCobrar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vista\Reportes\ReportesCierreCajaSinGastos.rdlc" />
+    <EmbeddedResource Include="Vista\Reportes\ReportesCierreCaja.rdlc" />
+    <EmbeddedResource Include="Vista\Reportes\ReportesEstadoCuenta.rdlc" />
+    <EmbeddedResource Include="Vista\Reportes\ReportesClientes.rdlc" />
+    <EmbeddedResource Include="Vista\Reportes\ReportesCuentasCobrar.rdlc" />
+    <EmbeddedResource Include="Vista\Ventanas\frmFechaPreliminarPagoCuota.resx">
+      <DependentUpon>frmFechaPreliminarPagoCuota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmCargarPlanillaProcesada.resx">
+      <DependentUpon>frmCargarPlanillaProcesada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmEdicionCuotaFecha.resx">
+      <DependentUpon>frmEdicionCuotaFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmFechaPlanillaProcesar.resx">
+      <DependentUpon>frmFechaPlanillaProcesar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmListaUsuarios.resx">
+      <DependentUpon>frmListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmRecargoPrestamo.resx">
+      <DependentUpon>frmRecargoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmRFiltroEstadoCuenta.resx">
+      <DependentUpon>frmRFiltroEstadoCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmCierreCaja.resx">
+      <DependentUpon>frmCierreCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmCargarPlanilla.resx">
+      <DependentUpon>frmCargarPlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmAbonos.resx">
+      <DependentUpon>frmAbonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmAbonosCuotas.resx">
+      <DependentUpon>frmAbonosCuotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmCrearPlanilla.resx">
+      <DependentUpon>frmCrearPlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmGastos.resx">
+      <DependentUpon>frmGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmListaClientes.resx">
+      <DependentUpon>frmListaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmDashBoard.resx">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmNuevoAbono.resx">
+      <DependentUpon>frmNuevoAbono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmNuevoPrestamo.resx">
+      <DependentUpon>frmNuevoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmPlanillaCobro.resx">
+      <DependentUpon>frmPlanillaCobro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmPrestamos.resx">
+      <DependentUpon>frmPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmRespaldo.resx">
+      <DependentUpon>frmRespaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\frmRFiltroCuentaCobrar.resx">
+      <DependentUpon>frmRFiltroCuentaCobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Prestamos.Formatos.EAbonos.datasource" />
+    <None Include="Properties\DataSources\Prestamos.Formatos.ECierreCaja.datasource" />
+    <None Include="Properties\DataSources\Prestamos.Formatos.EClientes.datasource" />
+    <None Include="Properties\DataSources\Prestamos.Formatos.ECuotas.datasource" />
+    <None Include="Properties\DataSources\Prestamos.Formatos.EGastos.datasource">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Prestamos.Formatos.EPrestamos.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

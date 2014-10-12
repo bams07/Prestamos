@@ -82,17 +82,24 @@ namespace Prestamos.Vista.Ventanas
 
             if (cmbDiaPago.SelectedIndex == 1)
             {
-
                 fecha = fecha.AddDays(7);
-
             }
 
 
             #endregion
 
+            #region CALCULA LA FEHCA BISEMANAL
+
+            if (this.cmbDiaPago.SelectedIndex == 2)
+            {
+                this.fecha = this.fecha.AddDays(14.0);
+            }
+
+            #endregion
+
             #region CALCULA LA FECHA PARA LAS QUINCENAS
 
-            if (cmbDiaPago.SelectedIndex == 2)
+            if (cmbDiaPago.SelectedIndex == 3)
             {
                 int mes = fecha.Month;
                 int dia = fecha.Day;
@@ -178,9 +185,71 @@ namespace Prestamos.Vista.Ventanas
             }
             #endregion
 
+            #region CALCULA LA FECHA PARA LAS QUINCENAS ESPECIALES
+
+            if (this.cmbDiaPago.SelectedIndex == 4)
+            {
+                int month = this.fecha.Month;
+                int day = this.fecha.Day;
+                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+                {
+                    if (day == 30)
+                    {
+                        this.fecha = this.fecha.AddDays(16.0);
+                    }
+                    if (day == 15)
+                    {
+                        this.fecha = this.fecha.AddDays(15.0);
+                    }
+                }
+                else
+                {
+                    if (month == 4 || month == 6 || month == 9 || month == 11)
+                    {
+                        if (day == 30)
+                        {
+                            this.fecha = this.fecha.AddDays(15.0);
+                        }
+                        if (day == 15)
+                        {
+                            this.fecha = this.fecha.AddDays(15.0);
+                        }
+                    }
+                    else
+                    {
+                        if (month == 2)
+                        {
+                            if (DateTime.IsLeapYear(this.fecha.Year))
+                            {
+                                if (day == 29)
+                                {
+                                    this.fecha = this.fecha.AddDays(15.0);
+                                }
+                                if (day == 15)
+                                {
+                                    this.fecha = this.fecha.AddDays(14.0);
+                                }
+                            }
+                            else
+                            {
+                                if (day == 28)
+                                {
+                                    this.fecha = this.fecha.AddDays(15.0);
+                                }
+                                if (day == 15)
+                                {
+                                    this.fecha = this.fecha.AddDays(13.0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
             #region CALCULA LA FECHA PARA LOS MESES
 
-            if (cmbDiaPago.SelectedIndex == 3)
+            if (cmbDiaPago.SelectedIndex == 5)
             {
 
                 fecha = fecha.AddMonths(1);
@@ -194,7 +263,10 @@ namespace Prestamos.Vista.Ventanas
 
         public bool ComprobarQuincena()
         {
-            if (cmbDiaPago.SelectedIndex == 2)
+
+            // COMPRUEBA LA QUINCENA    
+
+            if (cmbDiaPago.SelectedIndex == 3)
             {
                 int mes = dtFechaInicial.Value.Month;
                 int dia = dtFechaInicial.Value.Day;
@@ -235,8 +307,6 @@ namespace Prestamos.Vista.Ventanas
                         return false;
 
                     }
-
-
 
                 }
 
@@ -284,6 +354,72 @@ namespace Prestamos.Vista.Ventanas
 
 
             }
+
+            // COMPRUEBA LA QUINCENA ESPECIAL
+
+            if (this.cmbDiaPago.SelectedIndex == 4)
+            {
+                int mes = this.dtFechaInicial.Value.Month;
+                int dia = this.dtFechaInicial.Value.Day;
+
+                // MESES CON DIAS 31
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
+                {
+                    if (dia != 15 && dia != 30)
+                    {
+                        MessageBox.Show("Esta fecha no pertenece a una fecha de quincena especial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        return true;
+
+                    }
+                    return false;
+
+                }
+                else
+                {
+                    // MESES CON DIAS 30
+                    if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
+                    {
+                        if (dia != 15 && dia != 30)
+                        {
+                            MessageBox.Show("Esta fecha no pertenece a una fecha de quincena especial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return true;
+
+                        }
+                        return false;
+
+                    }
+                    else
+                    {
+                        //MESES CON DIAS 28 0 29
+                        if (mes == 2)
+                        {
+                            if (DateTime.IsLeapYear(this.dtFechaInicial.Value.Year))
+                            {
+                                if (dia != 15 && dia != 29)
+                                {
+                                    MessageBox.Show("Esta fecha no pertenece a una fecha de quincena especial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                    return true;
+
+                                }
+                                return false;
+
+                            }
+                            else
+                            {
+                                if (dia != 15 && dia != 28)
+                                {
+                                    MessageBox.Show("Esta fecha no pertenece a una fecha de quincena", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                    return true;
+
+                                }
+                                return false;
+
+                            }
+                        }
+                    }
+                }
+            }
+
 
             return false;
 
@@ -384,6 +520,7 @@ namespace Prestamos.Vista.Ventanas
             }
             else
             {
+                // COMPRUEBA SI EL DIA DE PAGO NO ES QUINCENA
                 if (ComprobarQuincena() == false)
                 {
                     cuotasGeneradas = new ArrayList();
@@ -576,6 +713,20 @@ namespace Prestamos.Vista.Ventanas
             }
 
 
+        }
+
+        private void cmbDiaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable oTable = new DataTable();
+
+            DataColumn oColumn = new DataColumn();
+
+            oColumn = oTable.Columns.Add("Numero couta");
+            oColumn = oTable.Columns.Add("Fecha de pago");
+            oColumn = oTable.Columns.Add("Monto");
+            oColumn = oTable.Columns.Add("Saldo");
+
+            dtgCuotas.DataSource = oTable;
         }
 
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoPrestamo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCuotas = new System.Windows.Forms.Label();
             this.lblInteres = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
@@ -257,13 +257,16 @@
             this.cmbDiaPago.Items.AddRange(new object[] {
             "Diario",
             "Semanal",
+            "Bisemanal",
             "Quincenal",
+            "Quincena especial",
             "Mensual"});
             this.cmbDiaPago.Location = new System.Drawing.Point(393, 29);
             this.cmbDiaPago.Name = "cmbDiaPago";
             this.cmbDiaPago.Size = new System.Drawing.Size(121, 25);
             this.cmbDiaPago.TabIndex = 12;
             this.cmbDiaPago.Text = "Diario";
+            this.cmbDiaPago.SelectedIndexChanged += new System.EventHandler(this.cmbDiaPago_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -283,14 +286,14 @@
             this.dtgCuotas.AllowUserToResizeRows = false;
             this.dtgCuotas.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dtgCuotas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCuotas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroCuota,

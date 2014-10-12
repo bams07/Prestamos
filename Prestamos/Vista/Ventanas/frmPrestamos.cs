@@ -129,10 +129,10 @@ namespace Prestamos.Vista.Ventanas
 
         private void recargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cliente == null)
+            if (dtgPrestamos.SelectedRows.Count == 0)
             {
 
-                MessageBox.Show("Debes elegir algun cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar algun prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }

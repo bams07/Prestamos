@@ -63,93 +63,7 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-
-            if (dtgCuotas.RowCount > 0)
-            {
-
-                if (txtMonto.Text == "" || txtInteres.Text == "" || txtCuotas.Text == "")
-                {
-                    MessageBox.Show("Rellene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    PrestamosCL oPrestamos = new PrestamosCL();
-                    Prestamos_CuotasCL oPrestamos_Cuotas = new Prestamos_CuotasCL();
-
-                    double saldo = total;
-                    int dia_pago = cmbDiaPago.SelectedIndex;
-
-                    oPrestamos.InsertarPrestamo(numeroPrestamo, dtFecha.Value, cliente, monto, interes, Convert.ToInt32(txtCuotas.Text), saldo, total, false, dia_pago);
-
-                    foreach (DataRow item in cuotasGeneradas)
-                    {
-
-                        oPrestamos_Cuotas.InsertarPrestamo_Cuotas(
-
-                           numeroPrestamo,
-                           Convert.ToInt32(item.ItemArray[0]),
-                           Convert.ToDateTime(item.ItemArray[1]),
-                           Convert.ToInt32(item.ItemArray[2]),
-                           Convert.ToInt32(item.ItemArray[3])
-
-                            );
-                    }
-
-                    if (oPrestamos.IsError)
-                    {
-                        MessageBox.Show(oPrestamos.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Prestamo creado con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        prestamos.CargarPrestamos();
-                        this.Dispose();
-                    }
-                }
-            }
-            else
-            {
-
-                MessageBox.Show("Genere primero las cuotas antes de crear un prestamo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-        }
-
-        private void txtInteres_TextChanged(object sender, EventArgs e)
-        {
-            txtMonto.Text = txtMonto.Text.Replace(" ", "");
-            txtInteres.Text = txtInteres.Text.Replace(" ", "");
-
-            if (txtInteres.Text == "" || txtMonto.Text == "")
-            {
-                lblValorInteres.Text = "₡ 0000";
-                lblValorTotal.Text = "₡ 0000";
-
-            }
-            else
-            {
-
-
-                monto = Convert.ToDouble(txtMonto.Text.Replace(" ", ""));
-
-                interes = Convert.ToDouble(txtInteres.Text);
-
-                totalInteres = (interes / 100) * monto;
-
-                total = monto + totalInteres;
-
-                lblValorTotal.Text = Convert.ToString("₡ " + total);
-
-                lblValorInteres.Text = Convert.ToString("₡ " + totalInteres);
-
-            }
-        }
-
-        private void btnGenerarCuotas_Click(object sender, EventArgs e)
+        public void GenerarCuotas()
         {
             // COMPRUEBA EL VALOR DE LOS CAMPOS
             if (txtInteres.Text == "" || txtMonto.Text == "" || txtCuotas.Text == "")
@@ -161,9 +75,8 @@ namespace Prestamos.Vista.Ventanas
                 int dia = dtFechaInicial.Value.Day;
                 int mes = dtFechaInicial.Value.Month;
                 int ano = dtFechaInicial.Value.Year;
-                int tipo = cmbDiaPago.SelectedIndex;
+                int tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
                 bool ValidacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
-
 
                 // COMPRUEBA SI EL DIA DE PAGO NO ES QUINCENA
                 if (ValidacionQuincena == false)
@@ -252,8 +165,9 @@ namespace Prestamos.Vista.Ventanas
                             row["Monto"] = valorxcuotas;
                             row["Saldo"] = SaldoCuotas;
 
+                            // CONSULTA LA FECHA SIGUIENTE BASADO EN EL DIA PAGO ESCODIGO
 
-                            fecha = ValidacionesCL.validarFechaPago(dia, mes, ano, fecha, tipo);
+                            fecha = ValidacionesCL.validarFechaPago(fecha.Day, fecha.Month, fecha.Year, fecha, tipo);
 
                             cuotasGeneradas.Add(row);
 
@@ -273,6 +187,106 @@ namespace Prestamos.Vista.Ventanas
 
                 }
             }
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int dia = dtFechaInicial.Value.Day;
+            int mes = dtFechaInicial.Value.Month;
+            int ano = dtFechaInicial.Value.Year;
+            int tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
+            bool ValidacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
+
+            // COMPRUEBA SI EL DIA DE PAGO NO ES QUINCENA
+            if (ValidacionQuincena == false)
+            {
+
+                if (dtgCuotas.RowCount > 0)
+                {
+
+                    if (txtMonto.Text == "" || txtInteres.Text == "" || txtCuotas.Text == "")
+                    {
+                        MessageBox.Show("Rellene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        PrestamosCL oPrestamos = new PrestamosCL();
+                        Prestamos_CuotasCL oPrestamos_Cuotas = new Prestamos_CuotasCL();
+
+                        double saldo = total;
+
+                        oPrestamos.InsertarPrestamo(numeroPrestamo, dtFecha.Value, cliente, monto, interes, Convert.ToInt32(txtCuotas.Text), saldo, total, false, tipo);
+
+                        foreach (DataRow item in cuotasGeneradas)
+                        {
+
+                            oPrestamos_Cuotas.InsertarPrestamo_Cuotas(
+
+                               numeroPrestamo,
+                               Convert.ToInt32(item.ItemArray[0]),
+                               Convert.ToDateTime(item.ItemArray[1]),
+                               Convert.ToInt32(item.ItemArray[2]),
+                               Convert.ToInt32(item.ItemArray[3])
+
+                                );
+                        }
+
+                        if (oPrestamos.IsError)
+                        {
+                            MessageBox.Show(oPrestamos.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+
+                            MessageBox.Show("Prestamo creado con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            prestamos.CargarPrestamos();
+                            this.Dispose();
+                        }
+                    }
+                }
+                else
+                {
+
+                    MessageBox.Show("Genere primero las cuotas antes de crear un prestamo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void txtInteres_TextChanged(object sender, EventArgs e)
+        {
+            txtMonto.Text = txtMonto.Text.Replace(" ", "");
+            txtInteres.Text = txtInteres.Text.Replace(" ", "");
+
+            if (txtInteres.Text == "" || txtMonto.Text == "")
+            {
+                lblValorInteres.Text = "₡ 0000";
+                lblValorTotal.Text = "₡ 0000";
+
+            }
+            else
+            {
+
+
+                monto = Convert.ToDouble(txtMonto.Text.Replace(" ", ""));
+
+                interes = Convert.ToDouble(txtInteres.Text);
+
+                totalInteres = (interes / 100) * monto;
+
+                total = monto + totalInteres;
+
+                lblValorTotal.Text = Convert.ToString("₡ " + total);
+
+                lblValorInteres.Text = Convert.ToString("₡ " + totalInteres);
+
+            }
+        }
+
+        private void btnGenerarCuotas_Click(object sender, EventArgs e)
+        {
+            GenerarCuotas();
         }
 
         private void txtMonto_TextChanged(object sender, EventArgs e)
@@ -327,7 +341,7 @@ namespace Prestamos.Vista.Ventanas
             int dia = dtFechaInicial.Value.Day;
             int mes = dtFechaInicial.Value.Month;
             int ano = dtFechaInicial.Value.Year;
-            int tipo = cmbDiaPago.SelectedIndex;
+            int tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
             bool ValidacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
 
         }
@@ -367,16 +381,7 @@ namespace Prestamos.Vista.Ventanas
 
         private void cmbDiaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable oTable = new DataTable();
-
-            DataColumn oColumn = new DataColumn();
-
-            oColumn = oTable.Columns.Add("Numero couta");
-            oColumn = oTable.Columns.Add("Fecha de pago");
-            oColumn = oTable.Columns.Add("Monto");
-            oColumn = oTable.Columns.Add("Saldo");
-
-            dtgCuotas.DataSource = oTable;
+            GenerarCuotas();
         }
 
 

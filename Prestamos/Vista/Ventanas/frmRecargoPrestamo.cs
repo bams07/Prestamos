@@ -127,7 +127,7 @@ namespace Prestamos.Vista.Ventanas
 
                         DataRow row = dCuotasPre.Rows.Add(numeroCuota);
 
-                            fecha = ValidacionesCL.validarFechaPago(dia, mes, ano, fecha, tipo);
+                        fecha = ValidacionesCL.validarFechaPago(fecha.Day, fecha.Month, fecha.Year, fecha, tipo);
 
                         row["num_cuota"] = numeroCuota;
                         row["fecha_pactada"] = fecha;

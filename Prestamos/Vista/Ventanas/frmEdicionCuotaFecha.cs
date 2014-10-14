@@ -276,7 +276,14 @@ namespace Prestamos.Vista.Ventanas
 
         public void GenerarCuotasPrevias()
         {
-            if (ComprobarQuincena() == false)
+
+            int dia = dtFechaInicial.Value.Day;
+            int mes = dtFechaInicial.Value.Month;
+            int ano = dtFechaInicial.Value.Year;
+            int tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
+            bool ValidacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
+
+            if (ValidacionQuincena == false)
             {
                 fecha = dtFechaInicial.Value;
 
@@ -284,7 +291,7 @@ namespace Prestamos.Vista.Ventanas
                 {
                     item["fecha_pactada"] = fecha.ToShortDateString();
 
-                    ValidarFechaPago();
+                    fecha = ValidacionesCL.validarFechaPago(fecha.Day, fecha.Month, fecha.Year, fecha, tipo);
 
 
                 }

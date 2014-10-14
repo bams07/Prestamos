@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Prestamos.Logica
 {
     public static class ValidacionesCL
@@ -184,6 +185,27 @@ namespace Prestamos.Logica
             {
 
                 return fecha.AddDays(1);
+
+            }
+
+            #endregion
+
+            #region CALCULA LA FECHA PARA DIAS EXCLUYE EL DOMINGO
+
+            if (tipo == 6)
+            {
+                if (fecha.DayOfWeek.ToString() == "Saturday")
+                {
+                    return fecha.AddDays(2);
+
+                }
+                else
+                {
+
+                    return fecha.AddDays(1);
+
+                }
+
 
             }
 
@@ -369,6 +391,56 @@ namespace Prestamos.Logica
         }
 
 
+        // VALIDA EL DIA PAGO Y DEVUELVE UN INDEX RESPECTIVO CON ESTE DIA PAGO DIARIO = 0 , SEMANAL = 1 ...
+        public static int ValidarDiaPagoIndex(string dia_pago)
+        {
+
+            if (dia_pago == "Diario")
+            {
+
+                return 0;
+            }
+
+            if (dia_pago == "Semanal")
+            {
+
+                return 1;
+            }
+
+            if (dia_pago == "Bisemanal")
+            {
+
+                return 2;
+            }
+
+            if (dia_pago == "Quincenal")
+            {
+
+                return 3;
+            }
+
+            if (dia_pago == "Quincena especial")
+            {
+                return 4;
+            }
+
+            if (dia_pago == "Mensual")
+            {
+
+                return 5;
+            }
+            if (dia_pago == "Diario N/Domingos")
+            {
+
+                return 6;
+            }
+
+
+
+            return 0;
+
+
+        }
 
     }
 }

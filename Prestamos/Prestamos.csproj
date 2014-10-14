@@ -198,6 +198,7 @@
     <Compile Include="Logica\Abonos_CuotasCL.cs" />
     <Compile Include="Logica\RespaldoCL.cs" />
     <Compile Include="Logica\ErroresCl.cs" />
+    <Compile Include="Logica\ValidacionesCL.cs" />
     <Compile Include="Logica\UsuariosCL.cs" />
     <Compile Include="Logica\GastosCL.cs" />
     <Compile Include="Logica\PlanillaCL.cs" />

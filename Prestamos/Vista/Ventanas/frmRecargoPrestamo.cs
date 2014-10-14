@@ -68,137 +68,6 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
-
-        // CALCULA LA FECHA PACTADA
-        public void ValidarFechaPactada()
-        {
-
-            #region CALCULA LA FECHA PARA DIAS
-
-            if (dia_pago == 1)
-            {
-
-                fecha = fecha.AddDays(1);
-
-            }
-
-            #endregion
-
-            #region CALCULA LA FECHA PARA LA SEMANAS
-
-            if (dia_pago == 2)
-            {
-
-                fecha = fecha.AddDays(7);
-
-            }
-
-
-            #endregion
-
-            #region CALCULA LA FECHA PARA LAS QUINCENAS
-
-            if (dia_pago == 3)
-            {
-                int mes = fecha.Month;
-                int dia = fecha.Day;
-
-
-                // CALCULA LA FECHA PARA ESTOS MESESS
-
-
-                //MESES CON DIAS 31
-                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
-                {
-
-                    if (dia == 31)
-                    {
-
-                        fecha = fecha.AddDays(15);
-
-                    }
-
-                    if (dia == 15)
-                    {
-
-                        fecha = fecha.AddDays(16);
-
-                    }
-
-
-                }
-                //MESES CON DIAS 30
-                else if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
-                {
-                    if (dia == 30)
-                    {
-                        fecha = fecha.AddDays(15);
-
-                    }
-
-                    if (dia == 15)
-                    {
-                        fecha = fecha.AddDays(15);
-
-                    }
-
-                }
-                //MESES CON DIAS 28 O 29 
-                else if (mes == 2)
-                {
-                    if (DateTime.IsLeapYear(fecha.Year))
-                    {
-                        if (dia == 29)
-                        {
-                            fecha = fecha.AddDays(15);
-                        }
-
-                        if (dia == 15)
-                        {
-                            fecha = fecha.AddDays(14);
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (dia == 28)
-                        {
-                            fecha = fecha.AddDays(15);
-
-                        }
-
-                        if (dia == 15)
-                        {
-
-                            fecha = fecha.AddDays(13);
-
-                        }
-
-                    }
-
-
-
-
-                }
-            }
-            #endregion
-
-            #region CALCULA LA FECHA PARA LOS MESES
-
-            if (dia_pago == 4)
-            {
-
-                fecha = fecha.AddMonths(1);
-
-            }
-
-
-            #endregion
-
-        }
-
-
         public void GenerarCuotasPrevias()
         {
             if (!string.IsNullOrEmpty(txtMonto.Text))
@@ -209,9 +78,13 @@ namespace Prestamos.Vista.Ventanas
                 double oSaldoCuota = saldoPrestamo + Convert.ToDouble(txtMonto.Text);
                 double valorxcuotas = montoCuota;
                 Boolean terminarGenerarCuotas = true;
+                fecha = Convert.ToDateTime(dCuotas.Rows[dCuotas.Rows.Count - 1]["fecha_pactada"]);
                 int contador = 0;
                 int numeroCuota = Convert.ToInt32(dCuotas.Rows[dCuotas.Rows.Count - 1]["num_cuota"]);
-                fecha = Convert.ToDateTime(dCuotas.Rows[dCuotas.Rows.Count - 1]["fecha_pactada"]);
+                int dia = fecha.Day;
+                int mes = fecha.Month;
+                int ano = fecha.Year;
+                int tipo = dia_pago;
 
                 #endregion
 
@@ -254,7 +127,7 @@ namespace Prestamos.Vista.Ventanas
 
                         DataRow row = dCuotasPre.Rows.Add(numeroCuota);
 
-                        ValidarFechaPactada();
+                            fecha = ValidacionesCL.validarFechaPago(dia, mes, ano, fecha, tipo);
 
                         row["num_cuota"] = numeroCuota;
                         row["fecha_pactada"] = fecha;
@@ -341,7 +214,7 @@ namespace Prestamos.Vista.Ventanas
                     MessageBox.Show("Recargo creado con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // EDITA EL PRESTAMO AGREGANDOLE UN NUEVO SALDO Y ESTABLECIENDOLO COMO TIPO RECARGO
-                     oPrestamos.EditarPrestamo_Recargo(prestamo, saldoPrestamo, totalPrestamo, true);
+                    oPrestamos.EditarPrestamo_Recargo(prestamo, saldoPrestamo, totalPrestamo, true);
                     ofrmPrestamos.CargarPrestamos();
                     this.Dispose();
 

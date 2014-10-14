@@ -129,24 +129,30 @@ namespace Prestamos.Vista.Ventanas
 
         private void recargoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dtgPrestamos.SelectedRows.Count == 0)
+            if (this.dtgPrestamos.SelectedRows.Count > 0)
             {
+                int oPrestamo = Convert.ToInt32(this.dtgPrestamos.CurrentRow.Cells["ID"].Value);
+                Prestamos_CuotasCL prestamos_CuotasCL = new Prestamos_CuotasCL();
+                DataSet dataSet = prestamos_CuotasCL.TraerPrestamoCuotas_NoPago(oPrestamo.ToString());
 
-                MessageBox.Show("Debes seleccionar algun prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                if (dataSet.Tables[0].Rows.Count > 0)
+                {
+                    double oMontoCuota = Convert.ToDouble(this.dtgPrestamos.CurrentRow.Cells["Cuotas"].Value);
+                    double oSaldoPrestamo = Convert.ToDouble(this.dtgPrestamos.CurrentRow.Cells["Saldo"].Value);
+                    int oDia_pago = Convert.ToInt32(this.dtgPrestamos.CurrentRow.Cells["dia_pago"].Value);
+                    frmRecargoPrestamo frmRecargoPrestamo = new frmRecargoPrestamo(this, oPrestamo, oMontoCuota, oSaldoPrestamo, oDia_pago, this.lblDescripcion.Text);
+                    frmRecargoPrestamo.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Este prestamo no presenta cuotas pendientes", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
             else
             {
-                cliente = lblDescripcion.Text;
-                int prestramo = Convert.ToInt32(dtgPrestamos.CurrentRow.Cells["ID"].Value);
-                double montoCuota = Convert.ToDouble(dtgPrestamos.CurrentRow.Cells["Cuotas"].Value);
-                double saldo = Convert.ToDouble(dtgPrestamos.CurrentRow.Cells["Saldo"].Value);
-
-                DialogResult dialogResult = new frmRecargoPrestamo(this, prestramo, montoCuota,saldo,1,cliente).ShowDialog();
-
-
+                MessageBox.Show("Debes seleccionar algun prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+
         }
 
         private void ckRecargos_CheckStateChanged(object sender, EventArgs e)

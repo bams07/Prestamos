@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Prestamos.Logica;
 using System.Collections;
 using Prestamos.Logica.Postgres;
+using System.Text.RegularExpressions;
 
 namespace Prestamos.Vista.Ventanas
 {
@@ -83,7 +84,7 @@ namespace Prestamos.Vista.Ventanas
                 {
                     cuotasGeneradas = new ArrayList();
 
-                    #region Valores de la tabla
+                    #region COLUMNAS DE LA TABLA
 
                     DataSet oDatos = new DataSet();
 
@@ -98,7 +99,7 @@ namespace Prestamos.Vista.Ventanas
 
                     #endregion
 
-                    #region Genera las cuotas
+                    #region GENERA LAS CUOTAS
 
 
                     // TOMA LA FECHA INICIAL
@@ -256,30 +257,44 @@ namespace Prestamos.Vista.Ventanas
 
         private void txtInteres_TextChanged(object sender, EventArgs e)
         {
-            txtMonto.Text = txtMonto.Text.Replace(" ", "");
-            txtInteres.Text = txtInteres.Text.Replace(" ", "");
 
-            if (txtInteres.Text == "" || txtMonto.Text == "")
+            if (ValidacionesCL.ValidarSoloNumeros(txtInteres.Text))
             {
-                lblValorInteres.Text = "₡ 0000";
-                lblValorTotal.Text = "₡ 0000";
 
+                // QUITA LOS ESPACIOS EN BLANCO
+                txtMonto.Text = txtMonto.Text.Replace(" ", "");
+                txtInteres.Text = txtInteres.Text.Replace(" ", "");
+
+                if (txtInteres.Text == "" || txtMonto.Text == "")
+                {
+                    lblValorInteres.Text = "₡ 0000";
+                    lblValorTotal.Text = "₡ 0000";
+
+                }
+                else
+                {
+
+
+                    monto = Convert.ToDouble(txtMonto.Text.Replace(" ", ""));
+
+                    // TOMA EL INTERES Y SE LO AGREGA A LA VARIABLE
+                    interes = Convert.ToDouble(txtInteres.Text);
+
+                    totalInteres = (interes / 100) * monto;
+
+                    total = monto + totalInteres;
+
+                    lblValorTotal.Text = Convert.ToString("₡ " + total);
+
+                    lblValorInteres.Text = Convert.ToString("₡ " + totalInteres);
+
+                }
             }
             else
-            {
+            {   // ELIMINA LOS VALOREES ( LETRAS, SIMBOLOS)
 
-
-                monto = Convert.ToDouble(txtMonto.Text.Replace(" ", ""));
-
-                interes = Convert.ToDouble(txtInteres.Text);
-
-                totalInteres = (interes / 100) * monto;
-
-                total = monto + totalInteres;
-
-                lblValorTotal.Text = Convert.ToString("₡ " + total);
-
-                lblValorInteres.Text = Convert.ToString("₡ " + totalInteres);
+                txtInteres.Text = txtInteres.Text.Remove(txtInteres.Text.Length - 1);
+                txtInteres.SelectionStart = txtInteres.Text.Length;
 
             }
         }

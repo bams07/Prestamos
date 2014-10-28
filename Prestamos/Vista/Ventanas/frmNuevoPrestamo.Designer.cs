@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoPrestamo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCuotas = new System.Windows.Forms.Label();
             this.lblInteres = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
@@ -40,7 +40,6 @@
             this.lblValorInteres = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblValorTotal = new System.Windows.Forms.Label();
-            this.txtInteres = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
@@ -63,6 +62,7 @@
             this.ckActivarCuoutaInicial = new System.Windows.Forms.CheckBox();
             this.dtFechaCuotaInicial = new System.Windows.Forms.DateTimePicker();
             this.txtMontoCuotaInicial = new System.Windows.Forms.MaskedTextBox();
+            this.txtInteres = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -180,21 +180,6 @@
             this.lblValorTotal.TabIndex = 22;
             this.lblValorTotal.Text = "₡ 0000";
             // 
-            // txtInteres
-            // 
-            this.txtInteres.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtInteres.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtInteres.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInteres.HidePromptOnLeave = true;
-            this.txtInteres.Location = new System.Drawing.Point(107, 133);
-            this.txtInteres.Mask = "99%";
-            this.txtInteres.Name = "txtInteres";
-            this.txtInteres.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtInteres.Size = new System.Drawing.Size(109, 25);
-            this.txtInteres.TabIndex = 3;
-            this.txtInteres.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtInteres.TextChanged += new System.EventHandler(this.txtInteres_TextChanged);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
@@ -288,14 +273,14 @@
             this.dtgCuotas.AllowUserToResizeRows = false;
             this.dtgCuotas.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dtgCuotas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCuotas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroCuota,
@@ -476,6 +461,15 @@
             this.txtMontoCuotaInicial.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtMontoCuotaInicial.TextChanged += new System.EventHandler(this.txtMontoCuotaInicial_TextChanged);
             // 
+            // txtInteres
+            // 
+            this.txtInteres.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtInteres.Location = new System.Drawing.Point(107, 133);
+            this.txtInteres.Name = "txtInteres";
+            this.txtInteres.Size = new System.Drawing.Size(109, 25);
+            this.txtInteres.TabIndex = 3;
+            this.txtInteres.TextChanged += new System.EventHandler(this.txtInteres_TextChanged);
+            // 
             // frmNuevoPrestamo
             // 
             this.AcceptButton = this.btnGuardar;
@@ -485,6 +479,7 @@
             this.BackColor = System.Drawing.Color.LightBlue;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(555, 599);
+            this.Controls.Add(this.txtInteres);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtCuotas);
             this.Controls.Add(this.txtMonto);
@@ -495,7 +490,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtInteres);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.lblValorInteres);
@@ -535,7 +529,6 @@
         private System.Windows.Forms.Label lblValorInteres;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblValorTotal;
-        private System.Windows.Forms.MaskedTextBox txtInteres;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtFechaInicial;
@@ -558,5 +551,6 @@
         private System.Windows.Forms.CheckBox ckActivarCuoutaInicial;
         private System.Windows.Forms.DateTimePicker dtFechaCuotaInicial;
         private System.Windows.Forms.MaskedTextBox txtMontoCuotaInicial;
+        private System.Windows.Forms.TextBox txtInteres;
     }
 }

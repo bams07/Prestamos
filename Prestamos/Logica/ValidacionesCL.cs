@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,8 @@ namespace Prestamos.Logica
 {
     public static class ValidacionesCL
     {
+
+        #region VALIDACION FECHAS
 
         // COMPRUEBA LA QUINCENA Y DEVUELVE UN FALSE SI LA FECHA NO ES DE TIPO QUINCENA O QUINCENA ESPECIAL
         public static bool validarQuincena(int dia, int mes, int ano, int tipo)
@@ -441,6 +444,26 @@ namespace Prestamos.Logica
 
 
         }
+
+        #endregion
+
+        #region VALIDACION CAMPOS TEXTO
+
+        // VALIDA SOLO NUMEROS Y COMAS EN LOS CAMPOS DE TEXTO
+        public static bool ValidarSoloNumeros(string valor)
+        {
+            Regex soloNumeros = new Regex("^[0-9 ,]*$");
+
+            if (soloNumeros.IsMatch(valor))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        #endregion
 
     }
 }

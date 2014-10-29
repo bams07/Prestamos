@@ -116,17 +116,13 @@ namespace Prestamos.Vista.Ventanas
                 {
                     // ESTABLECE COLOR VERDE SI LA COLUMNA PAGO ESTA CON CHECK
                     row.DefaultCellStyle.BackColor = Color.LightGreen;
-
-
                 }
                 else
                 {
                     // ESTABLECE COLOR SALMON SI LA COLUMNA PAGO ESTA SIN CHECK
                     row.DefaultCellStyle.BackColor = Color.Salmon;
 
-
                 }
-
 
                 // TRAE LOS ABONOS DE UNA CUOTA
                 DataSet oDatosAbonos = oAbonosCuotas.TraerAbono_Cuotas(row.Cells["id"].Value.ToString());

@@ -36,14 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtgCuotas = new System.Windows.Forms.DataGridView();
-            this.NumeroCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaPactada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgCuotasPrevias = new System.Windows.Forms.DataGridView();
             this.num_cuotaPre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +52,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.lblMonto = new System.Windows.Forms.Label();
+            this.NumeroCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaPactada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_prestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCuotas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -143,85 +143,11 @@
             this.dtgCuotas.ReadOnly = true;
             this.dtgCuotas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtgCuotas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgCuotas.ShowCellErrors = false;
             this.dtgCuotas.ShowCellToolTips = false;
             this.dtgCuotas.ShowEditingIcon = false;
             this.dtgCuotas.ShowRowErrors = false;
             this.dtgCuotas.Size = new System.Drawing.Size(522, 107);
             this.dtgCuotas.TabIndex = 0;
-            // 
-            // NumeroCuota
-            // 
-            this.NumeroCuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NumeroCuota.DataPropertyName = "num_cuota";
-            this.NumeroCuota.HeaderText = "Numero cuota";
-            this.NumeroCuota.Name = "NumeroCuota";
-            this.NumeroCuota.ReadOnly = true;
-            this.NumeroCuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.NumeroCuota.Width = 125;
-            // 
-            // FechaPactada
-            // 
-            this.FechaPactada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FechaPactada.DataPropertyName = "fecha_pactada";
-            this.FechaPactada.HeaderText = "Fecha pactada";
-            this.FechaPactada.Name = "FechaPactada";
-            this.FechaPactada.ReadOnly = true;
-            this.FechaPactada.Width = 125;
-            // 
-            // Cuota
-            // 
-            this.Cuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Cuota.DataPropertyName = "monto";
-            this.Cuota.HeaderText = "Monto";
-            this.Cuota.Name = "Cuota";
-            this.Cuota.ReadOnly = true;
-            this.Cuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Saldo
-            // 
-            this.Saldo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Saldo.DataPropertyName = "saldo";
-            this.Saldo.HeaderText = "Saldo";
-            this.Saldo.Name = "Saldo";
-            this.Saldo.ReadOnly = true;
-            this.Saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Saldo.Width = 110;
-            // 
-            // id_cuota
-            // 
-            this.id_cuota.DataPropertyName = "id";
-            this.id_cuota.HeaderText = "ID";
-            this.id_cuota.Name = "id_cuota";
-            this.id_cuota.ReadOnly = true;
-            this.id_cuota.Visible = false;
-            // 
-            // id_prestamo
-            // 
-            this.id_prestamo.DataPropertyName = "id_prestamos";
-            this.id_prestamo.HeaderText = "ID oPrestamo";
-            this.id_prestamo.Name = "id_prestamo";
-            this.id_prestamo.ReadOnly = true;
-            this.id_prestamo.Visible = false;
-            // 
-            // pago
-            // 
-            this.pago.DataPropertyName = "pago";
-            this.pago.HeaderText = "pago";
-            this.pago.Name = "pago";
-            this.pago.ReadOnly = true;
-            this.pago.Visible = false;
-            // 
-            // FechaPago
-            // 
-            this.FechaPago.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FechaPago.DataPropertyName = "fecha_pago";
-            this.FechaPago.HeaderText = "Fecha de pago";
-            this.FechaPago.Name = "FechaPago";
-            this.FechaPago.ReadOnly = true;
-            this.FechaPago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FechaPago.Visible = false;
-            this.FechaPago.Width = 135;
             // 
             // groupBox1
             // 
@@ -424,6 +350,79 @@
             this.lblMonto.TabIndex = 11;
             this.lblMonto.Text = "Monto recargo:";
             // 
+            // NumeroCuota
+            // 
+            this.NumeroCuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NumeroCuota.DataPropertyName = "num_cuota";
+            this.NumeroCuota.HeaderText = "Numero cuota";
+            this.NumeroCuota.Name = "NumeroCuota";
+            this.NumeroCuota.ReadOnly = true;
+            this.NumeroCuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NumeroCuota.Width = 125;
+            // 
+            // FechaPactada
+            // 
+            this.FechaPactada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FechaPactada.DataPropertyName = "fecha_pactada";
+            this.FechaPactada.HeaderText = "Fecha pactada";
+            this.FechaPactada.Name = "FechaPactada";
+            this.FechaPactada.ReadOnly = true;
+            this.FechaPactada.Width = 125;
+            // 
+            // Cuota
+            // 
+            this.Cuota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Cuota.DataPropertyName = "monto";
+            this.Cuota.HeaderText = "Monto";
+            this.Cuota.Name = "Cuota";
+            this.Cuota.ReadOnly = true;
+            this.Cuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Saldo
+            // 
+            this.Saldo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Saldo.DataPropertyName = "saldo";
+            this.Saldo.HeaderText = "Saldo";
+            this.Saldo.Name = "Saldo";
+            this.Saldo.ReadOnly = true;
+            this.Saldo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Saldo.Width = 110;
+            // 
+            // id_cuota
+            // 
+            this.id_cuota.DataPropertyName = "id";
+            this.id_cuota.HeaderText = "id_cuota";
+            this.id_cuota.Name = "id_cuota";
+            this.id_cuota.ReadOnly = true;
+            this.id_cuota.Visible = false;
+            // 
+            // id_prestamo
+            // 
+            this.id_prestamo.DataPropertyName = "id_prestamos";
+            this.id_prestamo.HeaderText = "ID oPrestamo";
+            this.id_prestamo.Name = "id_prestamo";
+            this.id_prestamo.ReadOnly = true;
+            this.id_prestamo.Visible = false;
+            // 
+            // pago
+            // 
+            this.pago.DataPropertyName = "pago";
+            this.pago.HeaderText = "pago";
+            this.pago.Name = "pago";
+            this.pago.ReadOnly = true;
+            this.pago.Visible = false;
+            // 
+            // FechaPago
+            // 
+            this.FechaPago.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FechaPago.DataPropertyName = "fecha_pago";
+            this.FechaPago.HeaderText = "Fecha de pago";
+            this.FechaPago.Name = "FechaPago";
+            this.FechaPago.ReadOnly = true;
+            this.FechaPago.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FechaPago.Visible = false;
+            this.FechaPago.Width = 135;
+            // 
             // frmRecargoPrestamo
             // 
             this.AcceptButton = this.btnGuardar;
@@ -471,14 +470,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dtgCuotas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroCuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPactada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPago;
         private System.Windows.Forms.DataGridView dtgCuotasPrevias;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.MaskedTextBox txtMonto;
@@ -491,5 +482,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamoPre;
         private System.Windows.Forms.DataGridViewTextBoxColumn pagoPre;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_pagoPre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroCuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPactada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPago;
     }
 }

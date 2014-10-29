@@ -139,8 +139,9 @@ namespace Prestamos.Vista.Ventanas
                 {
                     double oMontoCuota = Convert.ToDouble(this.dtgPrestamos.CurrentRow.Cells["Cuotas"].Value);
                     double oSaldoPrestamo = Convert.ToDouble(this.dtgPrestamos.CurrentRow.Cells["Saldo"].Value);
+                    double oTotalPrestamo = Convert.ToDouble(this.dtgPrestamos.CurrentRow.Cells["Total"].Value);
                     int oDia_pago = Convert.ToInt32(this.dtgPrestamos.CurrentRow.Cells["dia_pago"].Value);
-                    frmRecargoPrestamo frmRecargoPrestamo = new frmRecargoPrestamo(this, oPrestamo, oMontoCuota, oSaldoPrestamo, oDia_pago, this.lblDescripcion.Text);
+                    frmRecargoPrestamo frmRecargoPrestamo = new frmRecargoPrestamo(this, oPrestamo, oMontoCuota, oSaldoPrestamo, oTotalPrestamo, oDia_pago, this.lblDescripcion.Text);
                     frmRecargoPrestamo.ShowDialog();
                 }
                 else

@@ -382,6 +382,9 @@
     <EmbeddedResource Include="Vista\Reportes\ReportesEstadoCuenta.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesClientes.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesCuentasCobrar.rdlc" />
+    <EmbeddedResource Include="Vista\Ventanas\frmAbonos.nqo-GN.resx">
+      <DependentUpon>frmAbonos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Ventanas\frmFechaPreliminarPagoCuota.resx">
       <DependentUpon>frmFechaPreliminarPagoCuota.cs</DependentUpon>
     </EmbeddedResource>

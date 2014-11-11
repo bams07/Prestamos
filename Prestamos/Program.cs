@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Prestamos.Vista.Ventanas;
 
 
+
 namespace Prestamos
 {
     static class Program
@@ -20,7 +21,7 @@ namespace Prestamos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDashBoard());
+            Application.Run(new frmCalendario());
         }
     }
 }

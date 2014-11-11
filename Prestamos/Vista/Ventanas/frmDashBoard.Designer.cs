@@ -51,6 +51,8 @@
             this.btnRPrestamos = new System.Windows.Forms.RibbonButton();
             this.btnRPrestamosClientes = new System.Windows.Forms.RibbonButton();
             this.btnRPrestamosCuotas = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
+            this.btnCalendario = new System.Windows.Forms.RibbonButton();
             this.Mantenimiento = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
             this.btnRespaldo = new System.Windows.Forms.RibbonButton();
@@ -131,6 +133,7 @@
             this.PanelGeneral.Panels.Add(this.ribbonPanel2);
             this.PanelGeneral.Panels.Add(this.ribbonPanel3);
             this.PanelGeneral.Panels.Add(this.ribbonPanel4);
+            this.PanelGeneral.Panels.Add(this.ribbonPanel7);
             this.PanelGeneral.Text = "Panel general";
             // 
             // ribbonPanel1
@@ -276,6 +279,20 @@
             this.btnRPrestamosCuotas.Text = "Estado de cuenta";
             this.btnRPrestamosCuotas.Click += new System.EventHandler(this.btnRPrestamosCuotas_Click);
             // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.ButtonMoreVisible = false;
+            this.ribbonPanel7.Items.Add(this.btnCalendario);
+            this.ribbonPanel7.Text = "Calendario";
+            // 
+            // btnCalendario
+            // 
+            this.btnCalendario.Image = ((System.Drawing.Image)(resources.GetObject("btnCalendario.Image")));
+            this.btnCalendario.MinimumSize = new System.Drawing.Size(150, 0);
+            this.btnCalendario.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCalendario.SmallImage")));
+            this.btnCalendario.Text = "Calendario";
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
+            // 
             // Mantenimiento
             // 
             this.Mantenimiento.Panels.Add(this.ribbonPanel5);
@@ -316,7 +333,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1028, 471);
+            this.ClientSize = new System.Drawing.Size(1028, 544);
             this.Controls.Add(this.ribbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -357,5 +374,7 @@
         private System.Windows.Forms.RibbonButton ribbonButton2;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton btnUsuarios;
+        private System.Windows.Forms.RibbonPanel ribbonPanel7;
+        private System.Windows.Forms.RibbonButton btnCalendario;
     }
 }

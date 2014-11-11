@@ -104,5 +104,12 @@ namespace Prestamos.Vista.Ventanas
 
             oUsuarios.ShowDialog();
         }
+
+        private void btnCalendario_Click(object sender, EventArgs e)
+        {
+            frmCalendario oCalendario = new frmCalendario();
+
+            oCalendario.ShowDialog();
+        }
     }
 }

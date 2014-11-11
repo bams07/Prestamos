@@ -907,6 +907,39 @@
         vAAADrwBlbxySQAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnCalendario.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAABOFJREFUaEPtl1tsFFUYx/ukDz7oi2/GV0z0RaMoeAuBRoRasFVANGJbkEotVJpU
+        sZehXZBlZ4ftGrW82PqkvWhci7al291e9kYUFd98MpHLbltaLpqQ+NLj+c58Zxxmzuye2U5ZSPwn/6T5
+        9sz/+31zOTMt+193imKJTFU0kbo8kcjMx6fPbMGyZ5qYyeyIzaQWoEcskd6GZe+kB2cI83RmDsueiWYu
+        8nzohWXvZMCjseyZVjr/zhwg26NtutS0O3fplfIla4NcxTOe2pZfvZ5kD749CwyI404M/tXyJccGpuZe
+        2CkfGIoaAs48D8lutjfIVjxtNFmuC+Vn39uTQyx5wW3DA86te9TW4Ny6x4wGy3XB/OoN7p8Jc4OZtY+Q
+        2Fj0vwYjp1nNvGY5ZvkjY0Z+/IdRWz5iyct8MIRN1b1B4qPjDH6ybidJeDzAZM1r+hAjo2Rq1zZbPmLJ
+        y3wwXM6pNQ/f5N88vYUK5yOWvMwHwwMFTeBMwZmBcE8fYol8xJKX+eDbwYglL1FIKY1Y8hKFlNKIJS9R
+        SCmNWPJauHad3E5GLHmJQkppxJKXKKSURix5iUJKacSSlzXA+A5C36o6N2LJyxrg1GCl69yIJS9rgFOD
+        la5zI5a8rAFODVa6zo1Y8rIGrJQvzM6RiVSK9A0MEvWzk6TrRIhZ7TlJemktlkyzNYglL1EzL51bWCSR
+        0+OkqztMlKCW174QrAkGmlX1HsQrLGtDp0tcTP3UeJz4P/lUB1Q18s4HCqms2U+erdpNvhgaJr3935Ln
+        6N9bag+QfYcOm4YJ/t52PLQKEfOLNzQ3dgJyUz8VjZMj3R8zoObOo2T99r3k8RffNMzXm2sbtteTZsW3
+        pA+szksNwRtym2HAxdSzlxeMM9/w4WHyZMVbN4GC+Xpr/amXakhDa6dxJQreThwkH5DbemRsnAEc7PxI
+        CA/m60W/wRD8SnSo2nFEFYuDeOXzuVnSFeqmt0CQ3jb1QkBwvgHA5Tvq9asQUG8cCofvR1y7RBDLcTSZ
+        ZI3hgRWBcRcaAGw82Kq2H3HtsgLwYG639d7+AdYUdhsRFDdfL/qNeyvdndgAQe17xLWLgzgBua3DSwqa
+        wlYpguLm60W/ccMWywYIaOcR1y4O4gTktg5vV2j6xOZdQijuz4e+YbYeD+4biLA1q2kGZLUHtX8Q1y4O
+        4gTkts4HWL0p/wA9X/aT3q/FA8ALDtZIDTB/5ZoB44WD9NsGmj5fvccG7daQoQ8Q/BNx7frjwkUhSLHu
+        GxxiTbfWNgmh3Liqroll0RdaBHHtSvx09sbc4lUhTDGeTJ9hTd9t7RJCuXFjm/5G7tC0vYhrV2w6M5z8
+        8RcCV2L+yvIHuTg3T7+B9C/PF3buE4LJeOPrDSyjPaBef9/vvxdx7ZpMpR6KJjJXRQ9Tse79apA1b/Ed
+        I2sqa4SA+by2spa0HD2mn/1gsBVRnRVLJldNJNIROsjfIiC3js6k6T8qPQzgQLvP1RAA39ThY8dSn1UU
+        5S7EvLVS/N0PwguIX4mNErcT3DYtR/QzDzuP4vc/gHGlEQxBQX7Fs0kf7E62O8H2CHs8GN62L9PdptH4
+        hGbwP5ccnqsxHL6b3scKBfuLAzoZHlj64dZWstsmn5RQ6D5FPVFP9/RhuD3g7aqb/h3QvoOtEtbgcovK
+        yv4FyriguaWnrLUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnCalendario.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnRespaldo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAEuBJREFUaEPF

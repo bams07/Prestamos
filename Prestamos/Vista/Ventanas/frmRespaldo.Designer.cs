@@ -33,21 +33,21 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnDireccionPostgre = new System.Windows.Forms.Button();
-            this.txtDireccionPostgre = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ckGDrive = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblClienSecret = new System.Windows.Forms.Label();
             this.lblClientID = new System.Windows.Forms.Label();
             this.txtClienSecret = new System.Windows.Forms.TextBox();
             this.txtClienteID = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.ckGDrive = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDireccionPostgre = new System.Windows.Forms.Button();
+            this.txtDireccionPostgre = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -108,6 +108,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Respaldo";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(125, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Respaldo de datos";
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightBlue;
@@ -127,43 +138,45 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Configuración";
             // 
-            // btnDireccionPostgre
+            // label2
             // 
-            this.btnDireccionPostgre.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnDireccionPostgre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDireccionPostgre.Image = ((System.Drawing.Image)(resources.GetObject("btnDireccionPostgre.Image")));
-            this.btnDireccionPostgre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDireccionPostgre.Location = new System.Drawing.Point(16, 43);
-            this.btnDireccionPostgre.Name = "btnDireccionPostgre";
-            this.btnDireccionPostgre.Size = new System.Drawing.Size(111, 47);
-            this.btnDireccionPostgre.TabIndex = 3;
-            this.btnDireccionPostgre.TabStop = false;
-            this.btnDireccionPostgre.Text = "Direccion";
-            this.btnDireccionPostgre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDireccionPostgre.UseVisualStyleBackColor = true;
-            this.btnDireccionPostgre.Click += new System.EventHandler(this.btnDireccionPostgre_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(142, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "* Direccion donde se encuentra el bin";
             // 
-            // txtDireccionPostgre
+            // btnCancelar
             // 
-            this.txtDireccionPostgre.Location = new System.Drawing.Point(133, 43);
-            this.txtDireccionPostgre.Multiline = true;
-            this.txtDireccionPostgre.Name = "txtDireccionPostgre";
-            this.txtDireccionPostgre.ReadOnly = true;
-            this.txtDireccionPostgre.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccionPostgre.Size = new System.Drawing.Size(269, 47);
-            this.txtDireccionPostgre.TabIndex = 4;
-            this.txtDireccionPostgre.TabStop = false;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(220, 348);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 56);
+            this.btnCancelar.TabIndex = 26;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // label3
+            // btnGuardar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(159, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Postgres SQL";
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(88, 348);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(116, 56);
+            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.Tag = "1";
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // pictureBox2
             // 
@@ -174,6 +187,19 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            // 
+            // ckGDrive
+            // 
+            this.ckGDrive.AutoSize = true;
+            this.ckGDrive.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckGDrive.ForeColor = System.Drawing.Color.Black;
+            this.ckGDrive.Location = new System.Drawing.Point(164, 181);
+            this.ckGDrive.Name = "ckGDrive";
+            this.ckGDrive.Size = new System.Drawing.Size(104, 21);
+            this.ckGDrive.TabIndex = 7;
+            this.ckGDrive.Text = "Google drive";
+            this.ckGDrive.UseVisualStyleBackColor = false;
+            this.ckGDrive.CheckStateChanged += new System.EventHandler(this.ckGDrive_CheckStateChanged_1);
             // 
             // groupBox2
             // 
@@ -229,69 +255,43 @@
             this.txtClienteID.Size = new System.Drawing.Size(223, 25);
             this.txtClienteID.TabIndex = 0;
             // 
-            // btnCancelar
+            // label3
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(220, 348);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(116, 56);
-            this.btnCancelar.TabIndex = 26;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(159, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Postgres SQL";
             // 
-            // btnGuardar
+            // btnDireccionPostgre
             // 
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(88, 348);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(116, 56);
-            this.btnGuardar.TabIndex = 25;
-            this.btnGuardar.Tag = "1";
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnDireccionPostgre.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnDireccionPostgre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDireccionPostgre.Image = ((System.Drawing.Image)(resources.GetObject("btnDireccionPostgre.Image")));
+            this.btnDireccionPostgre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDireccionPostgre.Location = new System.Drawing.Point(16, 43);
+            this.btnDireccionPostgre.Name = "btnDireccionPostgre";
+            this.btnDireccionPostgre.Size = new System.Drawing.Size(111, 47);
+            this.btnDireccionPostgre.TabIndex = 3;
+            this.btnDireccionPostgre.TabStop = false;
+            this.btnDireccionPostgre.Text = "Direccion";
+            this.btnDireccionPostgre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDireccionPostgre.UseVisualStyleBackColor = true;
+            this.btnDireccionPostgre.Click += new System.EventHandler(this.btnDireccionPostgre_Click);
             // 
-            // ckGDrive
+            // txtDireccionPostgre
             // 
-            this.ckGDrive.AutoSize = true;
-            this.ckGDrive.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckGDrive.ForeColor = System.Drawing.Color.Black;
-            this.ckGDrive.Location = new System.Drawing.Point(164, 181);
-            this.ckGDrive.Name = "ckGDrive";
-            this.ckGDrive.Size = new System.Drawing.Size(104, 21);
-            this.ckGDrive.TabIndex = 7;
-            this.ckGDrive.Text = "Google drive";
-            this.ckGDrive.UseVisualStyleBackColor = false;
-            this.ckGDrive.CheckStateChanged += new System.EventHandler(this.ckGDrive_CheckStateChanged_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(125, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Respaldo de datos";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 17);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "* Direccion donde se encuentra el bin";
+            this.txtDireccionPostgre.Location = new System.Drawing.Point(133, 43);
+            this.txtDireccionPostgre.Multiline = true;
+            this.txtDireccionPostgre.Name = "txtDireccionPostgre";
+            this.txtDireccionPostgre.ReadOnly = true;
+            this.txtDireccionPostgre.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDireccionPostgre.Size = new System.Drawing.Size(269, 47);
+            this.txtDireccionPostgre.TabIndex = 4;
+            this.txtDireccionPostgre.TabStop = false;
             // 
             // frmRespaldo
             // 

@@ -55,7 +55,7 @@ namespace Prestamos.Vista.Ventanas
         }
 
 
-
+        // METODO PARA RESPALDAR EN GOOGLE DRIVE
         public void GDrive(string archivo, string nombre)
         {
 
@@ -70,7 +70,7 @@ namespace Prestamos.Vista.Ventanas
                 "user",
                 CancellationToken.None).Result;
 
-            // Create the service.
+            // CREA EL SERVICIO
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
@@ -156,7 +156,7 @@ namespace Prestamos.Vista.Ventanas
                         }
                     }
 
-                    GDrive(oDireccion.FileName, NombreRespaldo);
+                   // GDrive(oDireccion.FileName, NombreRespaldo);
 
 
                 }

@@ -23,6 +23,7 @@ namespace Prestamos.Vista.Ventanas
             TraerPrestamos();
         }
 
+        #region METODOS
 
         public void OrdenarColumnas()
         {
@@ -55,17 +56,30 @@ namespace Prestamos.Vista.Ventanas
         {
             PrestamosCL oPrestamos = new PrestamosCL();
 
-            foreach (DataGridViewRow item in dtgPrestamos.Rows)
+            // CICLO QUE RECORRE LAS FILAS DEL DATAGRID
+            foreach (DataGridViewRow row in dtgPrestamos.Rows)
             {
-
-                DataSet oDatos = oPrestamos.TraerFechaFinalPrestamo(item.Cells["idPrestamo"].Value.ToString());
+                DataSet oDatos = oPrestamos.TraerFechaFinalPrestamo(row.Cells["idPrestamo"].Value.ToString());
 
                 DateTime fechaFinal = Convert.ToDateTime(oDatos.Tables[0].Rows[0].ItemArray.GetValue(0));
 
-                item.Cells["fechaFinalPrestamo"].Value = fechaFinal.ToShortDateString();
+                row.Cells["fechaFinalPrestamo"].Value = fechaFinal.ToShortDateString();
+
+                // CAMBIA DE COLOR DE COLOR LAS FILAS ROJO = VENCIDAS - VERDE: NO VENCIDAS
+
+                if (fechaFinal < DateTime.Today)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
 
             }
 
+            OrdenarColumnas();
+                
             
         }
         
@@ -107,13 +121,14 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
+        #endregion
 
         private void frmCalendario_Load(object sender, EventArgs e)
         {
             TraerFechaFinal();
 
             FechasCalendario();
-      
+
         }
 
         private void dtgPrestamos_Sorted(object sender, EventArgs e)

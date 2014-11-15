@@ -149,7 +149,7 @@ namespace Prestamos.Formatos
 						"\nMonto: ",
 						this.montoAbono.ToString("C",Moneda()),
 						"\nSaldo actual: ",
-						this.saldoPrestamo
+						this.saldoPrestamo.ToString("C",Moneda()),
 					});
                 }
                 else
@@ -191,23 +191,23 @@ namespace Prestamos.Formatos
         }
 
         public string Abonos()
-		{
-			Abonos_CuotasCL abonos_CuotasCL = new Abonos_CuotasCL();
+        {
+            Abonos_CuotasCL abonos_CuotasCL = new Abonos_CuotasCL();
 
-			DataTable dataTable = abonos_CuotasCL.TraerAbono_Cuotas(this.idCuota.ToString()).Tables[0];
+            DataTable dataTable = abonos_CuotasCL.TraerAbono_Cuotas(this.idCuota.ToString()).Tables[0];
 
-			string result;
+            string result;
 
-			if (dataTable.Rows.Count == 0)
-			{
-				result = "";
-			}
-			else
-			{
+            if (dataTable.Rows.Count == 0)
+            {
+                result = "";
+            }
+            else
+            {
                 // CICLO QUE RECORRE LOS ABONOS DE LAS CUTOAS 
-				foreach (DataRow dataRow in dataTable.Rows)
-				{                 
-					this.abonosCuota = string.Concat(new string[]
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    this.abonosCuota = string.Concat(new string[]
 					{
                         this.abonosCuota,
 						Convert.ToDateTime(dataRow.ItemArray.GetValue(3).ToString()).ToShortDateString(),
@@ -215,10 +215,10 @@ namespace Prestamos.Formatos
                         Convert.ToDouble(dataRow.ItemArray.GetValue(2).ToString()).ToString("C",Moneda()),
 						"\n"
 					});
-				}
-				result = this.abonosCuota;
-			}
-			return result;
-		}
+                }
+                result = this.abonosCuota;
+            }
+            return result;
+        }
     }
 }

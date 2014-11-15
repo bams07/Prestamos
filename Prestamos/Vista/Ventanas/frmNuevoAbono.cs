@@ -46,12 +46,14 @@ namespace Prestamos.Vista.Ventanas
         public void PagoCuotas()
         {
 
+            // INSTANCIAS
             Prestamos_CuotasCL oPrestamosCuotas = new Prestamos_CuotasCL();
 
             PrestamosCL oPrestamos = new PrestamosCL();
 
             Abonos_CuotasCL oAbonosCuotas = new Abonos_CuotasCL();
-
+            
+            // VARIABLE CONTIENE SALDO DEL PRESTAMO
             saldo = Convert.ToDouble(oPrestamos.TraerPrestamoSaldo(Convert.ToString(Prestamo)).Tables[0].Rows[0].ItemArray[0]);
 
             double saldoActual = saldo;
@@ -66,7 +68,6 @@ namespace Prestamos.Vista.Ventanas
 
             for (int i = NumCuota; i < Abonos.dtgCuotas.Rows.Count; i++)
             {
-
 
                 Monto = Convert.ToDouble(Abonos.dtgCuotas["monto_cuota", i].Value.ToString());
 

@@ -382,12 +382,8 @@ namespace Prestamos.Vista.Ventanas
         private void dtgPrestamosCuotas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1 && e.RowIndex != -1)
-            {
-                PlanillaCL oPlanilla = new PlanillaCL();
-
-                oPlanilla.EliminarPlanillaDetalle(dtgPrestamosCuotas.Rows[e.RowIndex].Cells["Prestamos_cuotas_id"].Value.ToString());
-
-                dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
+            {               
+               dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
 
                 TotalPlanilla();
             }

@@ -26,7 +26,7 @@ namespace Prestamos.Logica.SQL
 
         void EliminarPlanilla(string filtro);
 
-        void EliminarPlanillaDetalle(string filtro);
+        void EliminarPlanillaDetalle(string idCuota, string idPlanilla);
 
         DataSet TraerPlanilla(string filtro);
 

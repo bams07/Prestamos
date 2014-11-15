@@ -233,7 +233,11 @@ namespace Prestamos.Vista.Ventanas
             {
                 PlanillaCL oPlanilla = new PlanillaCL();
 
-                oPlanilla.EliminarPlanillaDetalle(dtgPrestamosCuotas.Rows[e.RowIndex].Cells["Prestamos_cuotas_id"].Value.ToString());
+
+                string idCuota = dtgPrestamosCuotas.Rows[e.RowIndex].Cells["Prestamos_cuotas_id"].Value.ToString();
+                string idPlanilla = numPlanilla;
+
+                oPlanilla.EliminarPlanillaDetalle(idCuota,idPlanilla);
 
                 dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
 
@@ -360,7 +364,7 @@ namespace Prestamos.Vista.Ventanas
 
         private void dtgPrestamosCuotas_Sorted(object sender, EventArgs e)
         {
-            CargarPlanilla();
+            CargarAbonosCuotas();
         }
 
         private void frmCargarPlanilla_Load(object sender, EventArgs e)

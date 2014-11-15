@@ -151,11 +151,11 @@ namespace Prestamos.Logica.Postgres
 
         }
 
-        public void EliminarPlanillaDetalle(string filtro)
+        public void EliminarPlanillaDetalle(string idCuota, string idPlanilla)
         {
 
             var sql = new StringBuilder();
-            sql.AppendLine("delete from planilla_cobro_detalle where id_cuota=@id_cuota");
+            sql.AppendLine("delete from planilla_cobro_detalle where id_cuota=@id_cuota and id_planilla=@id_planilla");
 
             var parametros = new List<NpgsqlParameter>
             {
@@ -163,7 +163,13 @@ namespace Prestamos.Logica.Postgres
                 {
                     ParameterName = "id_cuota",
                     NpgsqlDbType = NpgsqlDbType.Integer,
-                    NpgsqlValue = filtro
+                    NpgsqlValue = idCuota
+                },
+                new NpgsqlParameter
+                {
+                    ParameterName = "id_planilla",
+                    NpgsqlDbType = NpgsqlDbType.Integer,
+                    NpgsqlValue = idPlanilla
                 },
             };
 

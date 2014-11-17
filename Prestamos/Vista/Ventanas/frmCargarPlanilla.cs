@@ -69,7 +69,11 @@ namespace Prestamos.Vista.Ventanas
                 total += Convert.ToDouble(row.Cells["Monto"].Value.ToString());
             }
 
+            // MUESTRAS EL TOTOAL DE CUOTAS
+            lblTotalCuotas.Text = dtgPrestamosCuotas.Rows.Count.ToString();
+
             lblValorTotal.Text = "₡" + total.ToString();
+
 
         }
 

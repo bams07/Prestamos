@@ -23,8 +23,10 @@ namespace Prestamos.Vista.Ventanas
         public DateTime fechaPreliminarPago;
         int cuota;
         int numCuota;
+        int idCuota;
         int prestamo;
-        double MontoCuota;
+        double montoCuota;
+        double totalPrestamo;
         EPrestamos oEPrestamos;
 
         #endregion
@@ -156,10 +158,14 @@ namespace Prestamos.Vista.Ventanas
             cuota = Convert.ToInt32(dtgCuotas["id", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
             numCuota = Convert.ToInt32(dtgCuotas["num_cuota", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
             prestamo = Convert.ToInt32(dtgCuotas["id_prestamos", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
-            MontoCuota = Convert.ToDouble(dtgCuotas["monto_cuota", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
+            montoCuota = Convert.ToDouble(dtgCuotas["monto_cuota", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
+            totalPrestamo = Convert.ToDouble(dtgPrestamos["Total1", dtgPrestamos.CurrentCell.RowIndex].Value.ToString());
+
+            idCuota = Convert.ToInt32(this.dtgCuotas["id", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString());
+
 
             // INSTANCIA QUE LLAMA A LA VENTANA PARA GENERAR UN NUEVO ABONO
-            frmNuevoAbono oNuevoAbono = new frmNuevoAbono(this, prestamo, cuota, numCuota, fechaPactada, MontoCuota, dtgPrestamos.CurrentCell.RowIndex, txtCliente.Text);
+            frmNuevoAbono oNuevoAbono = new frmNuevoAbono(this, prestamo, cuota, idCuota, numCuota, fechaPactada, montoCuota, totalPrestamo, dtgPrestamos.CurrentCell.RowIndex, txtCliente.Text);
             oNuevoAbono.ShowDialog(this);
 
         }

@@ -39,6 +39,7 @@ namespace Prestamos.Vista.Ventanas
 
             #endregion
 
+            lblFecha.Text = fechaPlanilla;
             CargarCuotas(fechaPlanilla);
 
         }
@@ -382,8 +383,8 @@ namespace Prestamos.Vista.Ventanas
         private void dtgPrestamosCuotas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 1 && e.RowIndex != -1)
-            {               
-               dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
+            {
+                dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
 
                 TotalPlanilla();
             }

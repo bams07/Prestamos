@@ -151,6 +151,34 @@ namespace Prestamos.Logica.Postgres
 
         }
 
+        // ELIMINA TODAS LAS CUOTAS DE UNA PLANILLA EN ESPECIFICO
+        public void EliminarPlanillaDetalleTodas(string idPlanilla)
+        {
+            var sql = new StringBuilder();
+            sql.AppendLine("delete from planilla_cobro_detalle where id_planilla=@id_planilla");
+
+            var parametros = new List<NpgsqlParameter>
+            {
+                new NpgsqlParameter
+                {
+                    ParameterName = "id_planilla",
+                    NpgsqlDbType = NpgsqlDbType.Integer,
+                    NpgsqlValue = idPlanilla
+                },
+            };
+
+            AccesoDatos.Instance.accesoDatos.EjecutarSQL(sql.ToString(), parametros);
+            if (AccesoDatos.Instance.accesoDatos.IsError)
+            {
+                this.IsError = AccesoDatos.Instance.accesoDatos.IsError;
+                this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
+            }
+
+
+        }
+
+
+        // ELIMINA UNA CUOTA EN ESPECIFICO DE UNA PLANILLA
         public void EliminarPlanillaDetalle(string idCuota, string idPlanilla)
         {
 
@@ -230,7 +258,7 @@ namespace Prestamos.Logica.Postgres
             {
                 sql.AppendLine("where planilla_cobro.id_planilla=@id_planilla and planilla_cobro_detalle.id_cuota = prestamos_cuotas.id and ");
                 sql.AppendLine("planilla_cobro.id_planilla=planilla_cobro_detalle.id_planilla and ");
-                sql.AppendLine("prestamos.cliente = clientes.cedula and prestamos_cuotas.id_prestamos = prestamos.id order by id_prestamo asc");
+                sql.AppendLine("prestamos.cliente = clientes.cedula and prestamos_cuotas.id_prestamos = prestamos.id order by id_prestamo,num_cuota asc");
                 parametros.Add(
                     new NpgsqlParameter
                     {

@@ -19,7 +19,7 @@ namespace Prestamos.Vista.Ventanas
         {
 
             InitializeComponent();
-            CargarPlanilla("");
+            CargarPlanilla(null);
 
 
         }
@@ -31,16 +31,9 @@ namespace Prestamos.Vista.Ventanas
 
             DataSet oDatos;
 
-            // COMPRUEBA SI LA FECHA ES NULL
-            if (string.IsNullOrEmpty(fecha))
-            {
-                oDatos = oPlanilla.TraerPlanilla("");
-            }
-            else
-            {
-                oDatos = oPlanilla.TraerPlanilla(fecha);
+            oDatos = oPlanilla.TraerPlanilla(fecha);
 
-            }
+
             // ASIGNA LOS DATOS AL DATAGRID
             dtgPlanilla.DataSource = oDatos.Tables[0];
 
@@ -109,7 +102,7 @@ namespace Prestamos.Vista.Ventanas
                          dtgPlanilla.CurrentRow.Cells[1].Value.ToString(),
                          dtgPlanilla.CurrentRow.Cells[2].Value.ToString());
 
-                          oPlanilla.ShowDialog();
+                    oPlanilla.ShowDialog();
 
 
                 }
@@ -161,6 +154,37 @@ namespace Prestamos.Vista.Ventanas
                 oPlanilla.ShowDialog();
 
             }
+
+        }
+
+        private void btnCargarPlanillas_Click(object sender, EventArgs e)
+        {
+            CargarPlanilla(null);
+        }
+
+        private void eliminarPlanillaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string idPlanilla = dtgPlanilla.CurrentRow.Cells[0].Value.ToString();
+
+            PlanillaCL oPlanilla = new PlanillaCL();
+
+            oPlanilla.EliminarPlanillaTodas(idPlanilla);
+
+            oPlanilla.EliminarPlanilla(idPlanilla);
+
+            if (oPlanilla.IsError)
+            {
+                MessageBox.Show(oPlanilla.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+
+                MessageBox.Show("Planilla eliminada con exito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarPlanilla(null);
+            }
+
 
         }
 

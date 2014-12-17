@@ -120,6 +120,19 @@ namespace Prestamos.Logica
 			}
 			return result;
 		}
+
+        public DataSet TraerPrestamosNoCancelados()
+        {
+            IPrestamosSQL prestamosSQL = this.ObtenerInstancia();
+            DataSet result = prestamosSQL.TraerPrestamosNoCancelados();
+            if (prestamosSQL.IsError)
+            {
+                this.IsError = prestamosSQL.IsError;
+                this.ErrorDescripcion = prestamosSQL.ErrorDescripcion;
+            }
+            return result;
+        }
+
 		public DataSet TraerFechaFinalPrestamo(string filtro)
 		{
 			IPrestamosSQL prestamosSQL = this.ObtenerInstancia();

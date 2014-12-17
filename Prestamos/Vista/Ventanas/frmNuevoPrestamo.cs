@@ -394,12 +394,6 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
-        private void cmbDiaPago_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GenerarCuotas();
-        }
-
-
 
 
     }

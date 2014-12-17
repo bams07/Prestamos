@@ -253,7 +253,6 @@
             this.cmbDiaPago.Size = new System.Drawing.Size(121, 25);
             this.cmbDiaPago.TabIndex = 12;
             this.cmbDiaPago.Text = "Diario";
-            this.cmbDiaPago.SelectedIndexChanged += new System.EventHandler(this.cmbDiaPago_SelectedIndexChanged);
             // 
             // groupBox2
             // 

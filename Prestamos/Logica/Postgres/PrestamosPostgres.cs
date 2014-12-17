@@ -284,6 +284,18 @@ namespace Prestamos.Logica.Postgres
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString());
         }
 
+        // TRAE TODOS LOS PRESTAMOS NO CANCELADOS CON LA INFORMACION RESPECTIVA DEL CLIENTE
+        public DataSet TraerPrestamosNoCancelados()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("SELECT clientes.cedula,  clientes.nombre, prestamos.id, prestamos.fecha, prestamos.monto,  prestamos.interes,  prestamos.cuotas,  prestamos.saldo,  prestamos.total from clientes,prestamos ");
+            List<NpgsqlParameter> list = new List<NpgsqlParameter>();
+
+            stringBuilder.AppendLine("WHERE clientes.cedula = prestamos.cliente AND prestamos.saldo > 0 ");
+
+            return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString(), list);
+        }
+
         // TRAE LA FECHA FINAL DEL PRESTAMO
         public DataSet TraerFechaFinalPrestamo(string filtro)
         {

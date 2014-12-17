@@ -194,6 +194,7 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
+        // ELIMINA UN PRESTAMO DEL CLIENTE SIEMPRE Y CUANDO NO TENGA CUOTAS PAGADAS
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.dtgPrestamos.SelectedRows.Count > 0)
@@ -203,9 +204,9 @@ namespace Prestamos.Vista.Ventanas
 
                 DataTable dataTable = prestamosCL.TraerPrestamoSaldo(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString()).Tables[0];
 
-                string a = this.dtgPrestamos.CurrentRow.Cells["Total"].Value.ToString();
+                string totalPrestamo = this.dtgPrestamos.CurrentRow.Cells["Total"].Value.ToString();
 
-                if (a == dataTable.Rows[0].ItemArray.GetValue(0).ToString())
+                if (totalPrestamo == dataTable.Rows[0].ItemArray.GetValue(0).ToString())
                 {
                     prestamos_CuotasCL.EliminarPrestamo(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString());
 
@@ -223,7 +224,7 @@ namespace Prestamos.Vista.Ventanas
                 }
                 else
                 {
-                    MessageBox.Show("Este prestamo no se puede eliminar ya que presenta cuotas pagadas", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Este prestamo no se puede eliminar ya que presenta cuotas pagadas o algun registro previo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             else

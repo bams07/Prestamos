@@ -24,5 +24,6 @@ namespace Prestamos.Logica
 		DataSet TraerPrestamoSaldo(string filtro);
 		DataSet TraerFechaFinalPrestamo(string filtro);
 		DataSet TraerSecuencia();
+        DataSet TraerPrestamosNoCancelados();
 	}
 }

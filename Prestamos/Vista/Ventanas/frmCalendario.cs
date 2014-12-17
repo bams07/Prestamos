@@ -44,10 +44,11 @@ namespace Prestamos.Vista.Ventanas
         // TRAE LOS PRESTAMOS Y LOS MUESTRA EN LA TABLA
         public void TraerPrestamos()
         {
-            DataSet oDatos = DPrestamos.TraerPrestamosClientes(null, null, null, null);
+            PrestamosCL oPrestamos = new PrestamosCL();
+
+            DataSet oDatos = oPrestamos.TraerPrestamosNoCancelados();
 
             dtgPrestamos.DataSource = oDatos.Tables[0];
-
 
         }
 
@@ -78,8 +79,7 @@ namespace Prestamos.Vista.Ventanas
 
             }
 
-            OrdenarColumnas();
-                
+            OrdenarColumnas();           
             
         }
         
@@ -146,5 +146,7 @@ namespace Prestamos.Vista.Ventanas
 
 
         }
+
+     
     }
 }

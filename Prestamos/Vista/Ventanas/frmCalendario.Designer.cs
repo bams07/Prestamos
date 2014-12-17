@@ -42,7 +42,9 @@
             this.montoPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cuotasMontoPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.interesPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrestamos)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // calendario
@@ -51,7 +53,7 @@
             this.calendario.CalendarDimensions = new System.Drawing.Size(1, 3);
             this.calendario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calendario.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.calendario.Location = new System.Drawing.Point(33, 18);
+            this.calendario.Location = new System.Drawing.Point(9, 9);
             this.calendario.MaxSelectionCount = 1;
             this.calendario.Name = "calendario";
             this.calendario.TabIndex = 0;
@@ -65,7 +67,8 @@
             this.dtgPrestamos.AllowUserToDeleteRows = false;
             this.dtgPrestamos.AllowUserToResizeColumns = false;
             this.dtgPrestamos.AllowUserToResizeRows = false;
-            this.dtgPrestamos.BackgroundColor = System.Drawing.Color.White;
+            this.dtgPrestamos.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dtgPrestamos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtgPrestamos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -87,13 +90,14 @@
             this.montoPrestamo,
             this.cuotasMontoPrestamo,
             this.interesPrestamo});
+            this.dtgPrestamos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgPrestamos.EnableHeadersVisualStyles = false;
-            this.dtgPrestamos.Location = new System.Drawing.Point(237, 30);
+            this.dtgPrestamos.Location = new System.Drawing.Point(217, 3);
             this.dtgPrestamos.Name = "dtgPrestamos";
             this.dtgPrestamos.ReadOnly = true;
             this.dtgPrestamos.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgPrestamos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgPrestamos.Size = new System.Drawing.Size(784, 421);
+            this.dtgPrestamos.Size = new System.Drawing.Size(796, 458);
             this.dtgPrestamos.TabIndex = 1;
             this.dtgPrestamos.Sorted += new System.EventHandler(this.dtgPrestamos_Sorted);
             // 
@@ -178,15 +182,30 @@
             this.interesPrestamo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.interesPrestamo.Visible = false;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightBlue;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.16142F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.83858F));
+            this.tableLayoutPanel1.Controls.Add(this.dtgPrestamos, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.calendario, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1016, 464);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
             // frmCalendario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1033, 483);
-            this.Controls.Add(this.dtgPrestamos);
-            this.Controls.Add(this.calendario);
+            this.ClientSize = new System.Drawing.Size(1016, 464);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -196,6 +215,7 @@
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.frmCalendario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrestamos)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -214,6 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn montoPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cuotasMontoPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn interesPrestamo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 
     }
 }

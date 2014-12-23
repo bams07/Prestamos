@@ -18,6 +18,7 @@ namespace Prestamos.Vista.Ventanas
         frmAbonos abonos;
         frmRFiltroCuentaCobrar filtroPrestamos;
         frmRFiltroEstadoCuenta filtroPrestamos_Cuotas;
+        DataTable datosClientes;
 
 
         public frmListaClientes(frmClientes Clientes)
@@ -66,32 +67,29 @@ namespace Prestamos.Vista.Ventanas
 
             dtgClientes.DataSource = oDatos.Tables[0];
 
+            datosClientes = oDatos.Tables[0];
+
         }
 
         public void BuscarClientes()
         {
-            try
+            
+            // Realiza un consulta con LINQ busca por cedula y por nombre
+            var datos = from item in datosClientes.AsEnumerable()
+                        where item.Field<string>("cedula").ToUpper().Contains(txtBusqueda.Text.ToUpper()) ||
+                         item.Field<string>("nombre").ToUpper().Contains(txtBusqueda.Text.ToUpper())
+                        select item;
+
+            // Si hay valores asociados a esa busqueda los muetra si no muestra alerta
+            if (datos.Count() > 0)
             {
-                foreach (DataGridViewRow row in dtgClientes.Rows)
-                {
-
-                    if (row.Cells[0].Value.ToString().Contains(txtBusqueda.Text) ||
-                        row.Cells[1].Value.ToString().Contains(txtBusqueda.Text)
-                        )
-                    {
-
-
-
-                        row.Selected = true;
-                        break;
-                    }
-                }
+                dtgClientes.DataSource = datos.CopyToDataTable();
             }
-            catch (Exception exc)
+            else
             {
-                MessageBox.Show(exc.Message);
-            }
+                MessageBox.Show("No hay informacion", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

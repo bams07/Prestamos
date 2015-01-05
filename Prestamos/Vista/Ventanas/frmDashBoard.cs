@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Prestamos.Vista;
+using Prestamos.Logica;
+using Prestamos.Formatos;
 
 namespace Prestamos.Vista.Ventanas
 {
@@ -18,6 +20,34 @@ namespace Prestamos.Vista.Ventanas
         {
             InitializeComponent();
 
+            CargarTotalSaldo();
+            CargarTotalClientes();
+
+        }
+
+        // CARGA EL TOTAL DE SALDO DE TODOS LOS PRESTAMOS
+        public void CargarTotalSaldo()
+        {
+            PrestamosCL oPrestamos = new PrestamosCL();
+
+            DataRow oTotalSaldo = oPrestamos.TraerPrestamoSaldoTotal().Tables[0].Rows[0];
+
+            EPrestamos oPrestamosMoneda = new EPrestamos();
+
+            string totalSaldo = oTotalSaldo.ItemArray.GetValue(0).ToString();
+
+            lblTotalSaldoPrestamos.Text = Convert.ToDouble(totalSaldo).ToString("C", oPrestamosMoneda.Moneda());
+
+        }
+
+        // CARGA EL TOTAL DE CLIENTES REGISTRADOS
+        public void CargarTotalClientes()
+        {
+            ClientesCL oClientes = new ClientesCL();
+
+            DataRow oTotalClientes = oClientes.TraerTotalClientes().Tables[0].Rows[0];
+
+            lblTotalClientes.Text = oTotalClientes.ItemArray.GetValue(0).ToString();
 
         }
 

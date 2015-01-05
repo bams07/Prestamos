@@ -144,5 +144,17 @@ namespace Prestamos.Logica
 			}
 			return result;
 		}
+
+        public DataSet TraerPrestamoSaldoTotal()
+        {
+            IPrestamosSQL prestamosSQL = this.ObtenerInstancia();
+            DataSet result = prestamosSQL.TraerPrestamoSaldoTotal();
+            if (prestamosSQL.IsError)
+            {
+                this.IsError = prestamosSQL.IsError;
+                this.ErrorDescripcion = prestamosSQL.ErrorDescripcion;
+            }
+            return result;
+        }
 	}
 }

@@ -23,5 +23,6 @@ namespace Prestamos.Logica
 		void EditarCliente(string cedula, string nombre, string telefono, string celular, string direccion, bool moroso);
 		void EliminarCliente(string filtro);
 		DataSet TraerClientes(string filtro);
+        DataSet TraerTotalClientes();
 	}
 }

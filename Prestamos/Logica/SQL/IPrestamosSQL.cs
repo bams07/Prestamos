@@ -22,6 +22,7 @@ namespace Prestamos.Logica
 		DataSet TraerPrestamo(string cliente, bool recargo);
 		DataSet TraerPrestamo_planilla(string cliente, string prestamo, bool recargo);
 		DataSet TraerPrestamoSaldo(string filtro);
+        DataSet TraerPrestamoSaldoTotal();
 		DataSet TraerFechaFinalPrestamo(string filtro);
 		DataSet TraerSecuencia();
         DataSet TraerPrestamosNoCancelados();

@@ -314,5 +314,14 @@ namespace Prestamos.Logica.Postgres
             }
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString(), list);
         }
+
+
+        public DataSet TraerPrestamoSaldoTotal()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("SELECT SUM(saldo) FROM prestamos");
+
+            return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString());
+        }
     }
 }

@@ -11,6 +11,12 @@ namespace Prestamos.Logica
 {
     public static class ValidacionesCL
     {
+        #region VARIABLES
+
+        public static int contadorMeses;
+        public static DateTime fechaInicial;
+
+        #endregion
 
         #region VALIDACION FECHAS
 
@@ -381,10 +387,13 @@ namespace Prestamos.Logica
 
             if (tipo == 5)
             {
+                // TOMA LA FECHA INICIAL PARA REALIZAR LOS CALCULOS
+                if (contadorMeses == 1)
+                {
+                    fechaInicial = fecha;
+                }
 
-
-                return fecha.AddMonths(1);
-
+                return fechaInicial.AddMonths(contadorMeses);
             }
 
             #endregion
@@ -466,4 +475,6 @@ namespace Prestamos.Logica
         #endregion
 
     }
+
+
 }

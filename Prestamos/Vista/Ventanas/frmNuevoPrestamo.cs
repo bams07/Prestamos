@@ -166,8 +166,10 @@ namespace Prestamos.Vista.Ventanas
                             row["Monto"] = valorxcuotas;
                             row["Saldo"] = SaldoCuotas;
 
-                            // CONSULTA LA FECHA SIGUIENTE BASADO EN EL DIA PAGO ESCODIGO
+                            // LLEVA EL CONTROL DE LOS MESES PARA UNA FECHA ESPECIFICA
+                            ValidacionesCL.contadorMeses = cont;
 
+                            // CONSULTA LA FECHA SIGUIENTE BASADO EN EL DIA PAGO ESCODIGO
                             fecha = ValidacionesCL.validarFechaPago(fecha.Day, fecha.Month, fecha.Year, fecha, tipo);
 
                             cuotasGeneradas.Add(row);

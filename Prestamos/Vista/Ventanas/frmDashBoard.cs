@@ -141,5 +141,11 @@ namespace Prestamos.Vista.Ventanas
 
             oCalendario.ShowDialog();
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarTotalSaldo();
+            CargarTotalClientes();
+        }
     }
 }

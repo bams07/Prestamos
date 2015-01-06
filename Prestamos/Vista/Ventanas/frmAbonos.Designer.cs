@@ -55,8 +55,9 @@
             this.menuCuotas = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnNuevoAbono = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReimprimir = new System.Windows.Forms.ToolStripMenuItem();
-            this.imprimirPreliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnImprimirPreliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEliminarAbono = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnImprimirCuotas = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgPrestamos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,7 +109,6 @@
             // 
             // dtgCuotas
             // 
-            resources.ApplyResources(this.dtgCuotas, "dtgCuotas");
             this.dtgCuotas.AllowUserToAddRows = false;
             this.dtgCuotas.AllowUserToDeleteRows = false;
             this.dtgCuotas.AllowUserToResizeRows = false;
@@ -144,7 +144,7 @@
             this.dtgCuotas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgCuotas.EnableHeadersVisualStyles = false;
             this.dtgCuotas.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dtgCuotas.MultiSelect = false;
+            resources.ApplyResources(this.dtgCuotas, "dtgCuotas");
             this.dtgCuotas.Name = "dtgCuotas";
             this.dtgCuotas.ReadOnly = true;
             this.dtgCuotas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -246,38 +246,45 @@
             this.menuCuotas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevoAbono,
             this.btnReimprimir,
-            this.imprimirPreliminarToolStripMenuItem,
-            this.btnEliminarAbono});
+            this.btnImprimirPreliminar,
+            this.btnEliminarAbono,
+            this.btnImprimirCuotas});
             this.menuCuotas.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.menuCuotas.Name = "menuCuotas";
+            this.menuCuotas.Opening += new System.ComponentModel.CancelEventHandler(this.menuCuotas_Opening);
             // 
             // btnNuevoAbono
             // 
-            resources.ApplyResources(this.btnNuevoAbono, "btnNuevoAbono");
             this.btnNuevoAbono.Name = "btnNuevoAbono";
+            resources.ApplyResources(this.btnNuevoAbono, "btnNuevoAbono");
             this.btnNuevoAbono.Click += new System.EventHandler(this.btnNuevoAbono_Click);
             // 
             // btnReimprimir
             // 
-            resources.ApplyResources(this.btnReimprimir, "btnReimprimir");
             this.btnReimprimir.Name = "btnReimprimir";
+            resources.ApplyResources(this.btnReimprimir, "btnReimprimir");
             this.btnReimprimir.Click += new System.EventHandler(this.btnReimprimir_Click);
             // 
-            // imprimirPreliminarToolStripMenuItem
+            // btnImprimirPreliminar
             // 
-            resources.ApplyResources(this.imprimirPreliminarToolStripMenuItem, "imprimirPreliminarToolStripMenuItem");
-            this.imprimirPreliminarToolStripMenuItem.Name = "imprimirPreliminarToolStripMenuItem";
-            this.imprimirPreliminarToolStripMenuItem.Click += new System.EventHandler(this.imprimirPreliminarToolStripMenuItem_Click);
+            this.btnImprimirPreliminar.Name = "btnImprimirPreliminar";
+            resources.ApplyResources(this.btnImprimirPreliminar, "btnImprimirPreliminar");
+            this.btnImprimirPreliminar.Click += new System.EventHandler(this.btnImprimirPreliminar_Click);
             // 
             // btnEliminarAbono
             // 
-            resources.ApplyResources(this.btnEliminarAbono, "btnEliminarAbono");
             this.btnEliminarAbono.Name = "btnEliminarAbono";
+            resources.ApplyResources(this.btnEliminarAbono, "btnEliminarAbono");
             this.btnEliminarAbono.Click += new System.EventHandler(this.btnEliminarAbono_Click);
+            // 
+            // btnImprimirCuotas
+            // 
+            this.btnImprimirCuotas.Name = "btnImprimirCuotas";
+            resources.ApplyResources(this.btnImprimirCuotas, "btnImprimirCuotas");
+            this.btnImprimirCuotas.Click += new System.EventHandler(this.btnImprimirCuotas_Click);
             // 
             // dtgPrestamos
             // 
-            resources.ApplyResources(this.dtgPrestamos, "dtgPrestamos");
             this.dtgPrestamos.AllowUserToAddRows = false;
             this.dtgPrestamos.AllowUserToDeleteRows = false;
             this.dtgPrestamos.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -303,6 +310,7 @@
             this.Recargo});
             this.dtgPrestamos.EnableHeadersVisualStyles = false;
             this.dtgPrestamos.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            resources.ApplyResources(this.dtgPrestamos, "dtgPrestamos");
             this.dtgPrestamos.MultiSelect = false;
             this.dtgPrestamos.Name = "dtgPrestamos";
             this.dtgPrestamos.ReadOnly = true;
@@ -383,16 +391,16 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.dtgCuotas);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.dtgPrestamos);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -468,6 +476,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn saldoPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Recargo;
-        private System.Windows.Forms.ToolStripMenuItem imprimirPreliminarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnImprimirPreliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnImprimirCuotas;
     }
 }

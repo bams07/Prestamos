@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Prestamos.Logica;
 using Prestamos.Vista;
 using Prestamos.Formatos;
+using System.Windows.Documents;
 
 namespace Prestamos.Vista.Ventanas
 {
@@ -167,6 +168,51 @@ namespace Prestamos.Vista.Ventanas
             // INSTANCIA QUE LLAMA A LA VENTANA PARA GENERAR UN NUEVO ABONO
             frmNuevoAbono oNuevoAbono = new frmNuevoAbono(this, prestamo, cuota, idCuota, numCuota, fechaPactada, montoCuota, totalPrestamo, dtgPrestamos.CurrentCell.RowIndex, txtCliente.Text);
             oNuevoAbono.ShowDialog(this);
+
+        }
+
+        public void ImprimirCuotas()
+        {
+            // DATOS DE LA FECHA FINAL DEL PRESTAMO
+            PrestamosCL prestamosCL = new PrestamosCL();
+
+            DataTable fechaFinalPrestamo = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
+
+            // DATOS DEL CLIENTE
+            ClientesCL clientesCL = new ClientesCL();
+            DataTable clientesDatos = clientesCL.TraerClientes(this.cliente).Tables[0];
+
+            // DATOS DEL PRESTAMO 
+            this.oEPrestamos = new EPrestamos();
+            this.oEPrestamos.clientePrestamo = this.cliente;
+            this.oEPrestamos.nombreCliente = clientesDatos.Rows[0].ItemArray.GetValue(1).ToString();
+            this.oEPrestamos.telefonoCliente = clientesDatos.Rows[0].ItemArray.GetValue(4).ToString();
+            this.oEPrestamos.direccionCliente = clientesDatos.Rows[0].ItemArray.GetValue(2).ToString();
+
+            this.oEPrestamos.totalPrestamo = Convert.ToDouble(this.dtgPrestamos["Total1", this.dtgPrestamos.CurrentCell.RowIndex].Value.ToString());
+            this.oEPrestamos.fechaAbono = DateTime.Today;
+            this.oEPrestamos.fechaFinalPrestamo = Convert.ToDateTime(fechaFinalPrestamo.Rows[0].ItemArray.GetValue(0).ToString());
+
+            // ORDENA LAS CUOTAS BASADO EN EL INDICE 
+            var cuotasOrdenadas = dtgCuotas.SelectedRows.Cast<DataGridViewRow>().OrderBy(row => row.Index);
+
+
+            // CICLO QUE RECORRE LAS CUOTAS PARA SER IMPRESAS COMO PRELIMINARES
+            foreach (DataGridViewRow item in cuotasOrdenadas)
+            {
+
+                this.oEPrestamos.prestamo = Convert.ToString(item.Cells["id_prestamos"].Value.ToString());
+                this.oEPrestamos.saldoPrestamo = Convert.ToDouble(item.Cells["saldo"].Value.ToString());
+                this.oEPrestamos.fechaPactada = Convert.ToDateTime(item.Cells["fecha_pactada"].Value.ToString());
+                this.oEPrestamos.numeroCuota = Convert.ToInt32(item.Cells["num_cuota"].Value.ToString());
+                this.oEPrestamos.idCuota = Convert.ToInt32(item.Cells["id"].Value.ToString());
+                this.oEPrestamos.saldoPretamoAnterior = Convert.ToDouble(item.Cells["saldo"].Value.ToString()) + Convert.ToDouble(item.Cells["monto_cuota"].Value.ToString());
+                this.oEPrestamos.montoAbono = Convert.ToDouble(item.Cells["monto_cuota"].Value.ToString());
+                this.ImprimirTicket.Print();
+            }
+
+
+
 
         }
 
@@ -372,7 +418,7 @@ namespace Prestamos.Vista.Ventanas
             }
         }
 
-        private void imprimirPreliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnImprimirPreliminar_Click(object sender, EventArgs e)
         {
             frmFechaPreliminarPagoCuota frmFechaPreliminarPagoCuota = new frmFechaPreliminarPagoCuota(this);
             frmFechaPreliminarPagoCuota.ShowDialog();
@@ -400,6 +446,40 @@ namespace Prestamos.Vista.Ventanas
                 this.ImprimirTicket.Print();
             }
         }
+
+
+        private void menuCuotas_Opening(object sender, CancelEventArgs e)
+        {
+            // SI HAY MAS DE UNA CUOTA SELECCIONADA ESCONDE LOS DEMAS MENUS Y DEJA VISIBLE EL DE IMPRIMIR MULTIPLES CUOTAS
+            if (dtgCuotas.SelectedRows.Count > 1)
+            {
+                ContextMenuStrip item = sender as ContextMenuStrip;
+                item.Items["btnNuevoAbono"].Visible = false;
+                item.Items["btnReimprimir"].Visible = false;
+                item.Items["btnImprimirPreliminar"].Visible = false;
+                item.Items["btnEliminarAbono"].Visible = false;
+                item.Items["btnImprimirCuotas"].Visible = true;
+
+            }
+            else
+            {
+                ContextMenuStrip item = sender as ContextMenuStrip;
+                item.Items["btnNuevoAbono"].Visible = true;
+                item.Items["btnReimprimir"].Visible = true;
+                item.Items["btnImprimirPreliminar"].Visible = true;
+                item.Items["btnEliminarAbono"].Visible = true;
+                item.Items["btnImprimirCuotas"].Visible = false;
+
+            }
+        }
+
+        private void btnImprimirCuotas_Click(object sender, EventArgs e)
+        {
+            ImprimirCuotas();
+        }
+
+
+
 
 
 

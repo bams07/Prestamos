@@ -117,128 +117,500 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblClientes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblClientes.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
   </data>
-  <data name="monto_cuota.HeaderText" xml:space="preserve">
-    <value>Monto</value>
+  <data name="lblClientes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 26</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btnClientes.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="Total1.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="dtgPrestamos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>694, 135</value>
-  </data>
-  <data name="Interes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Total1.HeaderText" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="&gt;&gt;dtgPrestamos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="abonos.HeaderText" xml:space="preserve">
-    <value>Abonos</value>
-  </data>
-  <data name="&gt;&gt;pago.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnReimprimir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dtgPrestamos.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn2</value>
-  </data>
-  <data name="&gt;&gt;btnClientes.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imprimirPreliminarToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+P</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnClientes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumeroCuota.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Numero</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarAbono.Name" xml:space="preserve">
-    <value>btnEliminarAbono</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>866, 537</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fecha_pactada.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblDescripcion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="lblClientes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="fecha_pactada.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;id.Name" xml:space="preserve">
-    <value>id</value>
-  </data>
-  <data name="id_prestamos.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="saldoPrestamo.HeaderText" xml:space="preserve">
-    <value>Saldo</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;lblClientes.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="lblDescripcion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 17</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn4</value>
+  <data name="lblClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
   </data>
   <data name="lblClientes.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="lblClientes.Text" xml:space="preserve">
+    <value>Cliente:</value>
+  </data>
+  <data name="&gt;&gt;lblClientes.Name" xml:space="preserve">
+    <value>lblClientes</value>
+  </data>
+  <data name="&gt;&gt;lblClientes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblClientes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblClientes.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 62</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 17</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Descripcion:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblDescripcion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDescripcion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="lblDescripcion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 62</value>
+  </data>
+  <data name="lblDescripcion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 17</value>
+  </data>
+  <data name="lblDescripcion.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblDescripcion.Text" xml:space="preserve">
+    <value>----------------------------------</value>
+  </data>
+  <data name="lblDescripcion.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblDescripcion.Name" xml:space="preserve">
+    <value>lblDescripcion</value>
+  </data>
+  <data name="&gt;&gt;lblDescripcion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDescripcion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDescripcion.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnClientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAABFJJREFUOE+F
+        VFlInFcU/h/SWsUFXGd0dEYd9zXqCC5RKYyIuIIoiuJu3fct6ri1Im6D04jriwhFqg/FFSrSPsSHJpDi
+        6zjWoJOIImk1tibRcU6/+/d/qG0kB67Lf8797jnf+c7h/mtubm6KpqamFX9//9XAwMBVmUyWJrg4mcw9
+        rbOzc9XX13c1JCRkxdnZWSG47jexWJI7PT1t9PPzI6lUSk5OTirBxTk5Sb9eXFwkb29v8vLyMjo4OGQJ
+        rvstMTHxu62tLX1eXt5+a2urPiIi4gfBxRUVFT0FoL6wsHC/sbHxNbJUC677zUUia11ZWXkbHBx8LBaL
+        T3CmLCwsbNmRSKRz8/PzvwcEBBy7urqeOjo6NgvX7hp4a/Tw8Hjq7u6uBy+XU1NThrS0tOukpKRL+H7q
+        6Oi4AJcXUqns59nZ2T9TU1OvU1JSDBKJ5JLdYXcRVy/AcVxkRNSxSqXaLy4u1sJxmpWV9c7Hx+cNsjzx
+        9PR8DDPgokEu93xcUlxyEhsb+waNeYdvp6GhoVqlUvkyMjLyWIDjufljfX2d8DqBs1ulMv4aPN3iO6G8
+        DTx2i8xvAbJRXV1N29vbBviuo6Ojb7Ozswmdp/Ly8nMeDN38nAXt7u7S0tISVVZW0tDQMI2PjxP7jrJb
+        mpubb0DBDRrW0tbWRgcHBzQxMcH7VapuUqvVVFVVZUS2n3H4IWZBWq2W5ubm+KDh4REaGxujiooKiomJ
+        eZiZmfkcDz8LCwt72Nvbewewq6uLB6yrq6O4uDgRAwzo6+ujw8NDGh0dpZqaGhoZGeX/Lisr+yQgGsYD
+        QkYM0J8LCgqKZ5f1ej319PRQbW0twMZQ9hCVlpZ+EhAN4wFbWlooKipKySSjBvqNTqfjnfX19ShXTYOD
+        g4TGsGl5kZycfIWuX7m4uLzo7u7+H+DwyAjl5ubeQFpqDgJ9AlAjHEfIRodMDhSK8EP8/s3e3l4PYWtL
+        SkoIc83GkMnqCGXq0KSXeORALpfrmBaBY0SshnFolp+frx0YGHgOybxCFh/gJAS9RvD3GK9H4HIa5UyH
+        h4c/AkVLWB7HCQkJBCl9wAOvoMtfc3JydMjwC06hUPixji4vL/MNYXJh/4PLH3ldfcTa29s3Njc3mVQI
+        kqLJyUleiwyL6fDJwsIC7ezs8Bpk3CBbio+Pf4u7D/6BuGMPwNfF3t4erwLW3ZmZGcIiIay8bzlXqeta
+        f3//X0zUjGSNRsMaY8TYnZmYmHwFgC//fczMzMsxZqdra2tGxm1DQwONoiI08AqzvcaBh6OMjAzCujLY
+        2dmxTr4Hd6wBZGpqOg4QtmCThZNqaWmpAVdUUFDAJPXexsbmytnZhc06iUSiQwa4z15KT08nW1tbfqkK
+        gEZzc/N+gITjSISjsLKy+gaARiwSJmT+DjBYEwnrTMdh69pj0DVwnuG1c6R9ioBn1tbWDQD4qAGkHhvp
+        F5R+grhzkUh85uYmnxCJRHZ/A+E0T+1guPFwAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnClientes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 23</value>
+  </data>
+  <data name="btnClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 25</value>
+  </data>
+  <data name="btnClientes.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Name" xml:space="preserve">
+    <value>btnClientes</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnClientes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtCliente.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="txtCliente.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="txtCliente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 25</value>
+  </data>
+  <data name="txtCliente.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;txtCliente.Name" xml:space="preserve">
+    <value>txtCliente</value>
+  </data>
+  <data name="&gt;&gt;txtCliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCliente.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtCliente.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="num_cuota.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="num_cuota.HeaderText" xml:space="preserve">
+    <value>Numero cuota</value>
+  </data>
+  <data name="num_cuota.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <metadata name="fecha_pactada.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="fecha_pactada.HeaderText" xml:space="preserve">
+    <value>Fecha pactada</value>
+  </data>
+  <data name="fecha_pactada.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <metadata name="fecha_pago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="fecha_pago.HeaderText" xml:space="preserve">
+    <value>Fecha pago</value>
+  </data>
+  <data name="fecha_pago.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <metadata name="monto_cuota.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="monto_cuota.HeaderText" xml:space="preserve">
+    <value>Monto</value>
+  </data>
+  <metadata name="saldo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="saldo.HeaderText" xml:space="preserve">
+    <value>Saldo</value>
+  </data>
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <data name="id.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="id_prestamos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="id_prestamos.HeaderText" xml:space="preserve">
+    <value>id_prestamo</value>
+  </data>
+  <data name="id_prestamos.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="pago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="pago.HeaderText" xml:space="preserve">
+    <value>Pago</value>
+  </data>
+  <metadata name="abonos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="abonos.HeaderText" xml:space="preserve">
+    <value>Abonos</value>
+  </data>
+  <data name="abonos.Width" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="dtgCuotas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 26</value>
+  </data>
+  <metadata name="menuCuotas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="menuCuotas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnNuevoAbono.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+N</value>
+  </data>
+  <data name="btnNuevoAbono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 22</value>
+  </data>
+  <data name="btnNuevoAbono.Text" xml:space="preserve">
+    <value>Realizar abono</value>
+  </data>
   <data name="btnReimprimir.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+R</value>
   </data>
+  <data name="btnReimprimir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 22</value>
+  </data>
+  <data name="btnReimprimir.Text" xml:space="preserve">
+    <value>Reimprimir abono</value>
+  </data>
+  <data name="btnImprimirPreliminar.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+P</value>
+  </data>
+  <data name="btnImprimirPreliminar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 22</value>
+  </data>
+  <data name="btnImprimirPreliminar.Text" xml:space="preserve">
+    <value>Imprimir preliminar</value>
+  </data>
+  <data name="btnEliminarAbono.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+E</value>
+  </data>
+  <data name="btnEliminarAbono.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 22</value>
+  </data>
+  <data name="btnEliminarAbono.Text" xml:space="preserve">
+    <value>Eliminar abono</value>
+  </data>
+  <data name="btnImprimirCuotas.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+T</value>
+  </data>
+  <data name="btnImprimirCuotas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 22</value>
+  </data>
+  <data name="btnImprimirCuotas.Text" xml:space="preserve">
+    <value>Imprimir cuotas</value>
+  </data>
+  <data name="btnImprimirCuotas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuCuotas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 136</value>
+  </data>
+  <data name="&gt;&gt;menuCuotas.Name" xml:space="preserve">
+    <value>menuCuotas</value>
+  </data>
+  <data name="&gt;&gt;menuCuotas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dtgCuotas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>798, 157</value>
+  </data>
+  <data name="dtgCuotas.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;dtgCuotas.Name" xml:space="preserve">
+    <value>dtgCuotas</value>
+  </data>
+  <data name="&gt;&gt;dtgCuotas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtgCuotas.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dtgCuotas.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Numero</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <metadata name="monto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="monto.HeaderText" xml:space="preserve">
+    <value>Monto</value>
+  </data>
+  <data name="monto.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="fechaPrestamo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="fechaPrestamo.HeaderText" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <metadata name="client.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="client.HeaderText" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="client.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="Interes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Interes.HeaderText" xml:space="preserve">
+    <value>Interes</value>
+  </data>
+  <data name="Interes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
+    <value>Cuotas</value>
+  </data>
+  <metadata name="saldoPrestamo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="saldoPrestamo.HeaderText" xml:space="preserve">
+    <value>Saldo</value>
+  </data>
+  <data name="saldoPrestamo.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <metadata name="Total1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Total1.HeaderText" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Total1.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <metadata name="Recargo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Recargo.HeaderText" xml:space="preserve">
+    <value>Recargo</value>
+  </data>
+  <data name="dtgPrestamos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 32</value>
+  </data>
+  <data name="dtgPrestamos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>694, 135</value>
+  </data>
+  <data name="dtgPrestamos.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;dtgPrestamos.Name" xml:space="preserve">
+    <value>dtgPrestamos</value>
+  </data>
+  <data name="&gt;&gt;dtgPrestamos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtgPrestamos.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;dtgPrestamos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 301</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 13</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>837, 193</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Cuotas</value>
+  </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 111</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>713, 182</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Prestamos</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="ImprimirTicket.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>174, 19</value>
+  </metadata>
+  <data name="NumeroCuota.HeaderText" xml:space="preserve">
+    <value>Numero cuota</value>
+  </data>
+  <data name="NumeroCuota.Width" type="System.Int32, mscorlib">
+    <value>117</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>65</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>866, 537</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2789,520 +3161,166 @@
         ////////AAAA////////////AAAA////////////AAAA////////////AAAA////////////AAAA
 </value>
   </data>
-  <data name="lblDescripcion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 62</value>
-  </data>
-  <data name="btnEliminarAbono.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 22</value>
-  </data>
-  <data name="lblDescripcion.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuCuotas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 92</value>
-  </data>
-  <data name="lblClientes.Text" xml:space="preserve">
-    <value>Cliente:</value>
-  </data>
-  <data name="&gt;&gt;Recargo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblClientes.Name" xml:space="preserve">
-    <value>lblClientes</value>
-  </data>
-  <data name="fecha_pactada.HeaderText" xml:space="preserve">
-    <value>Fecha pactada</value>
-  </data>
-  <data name="&gt;&gt;Interes.Name" xml:space="preserve">
-    <value>Interes</value>
-  </data>
-  <data name="&gt;&gt;imprimirPreliminarToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnReimprimir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 22</value>
-  </data>
-  <data name="&gt;&gt;ImprimirTicket.Type" xml:space="preserve">
-    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="&gt;&gt;ImprimirTicket.Name" xml:space="preserve">
-    <value>ImprimirTicket</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;abonos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="dtgCuotas.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;lblClientes.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtgCuotas.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
-    <value>Cuotas</value>
-  </data>
-  <data name="txtCliente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 25</value>
-  </data>
-  <data name="&gt;&gt;lblDescripcion.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
-    <value>75</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarAbono.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;num_cuota.Name" xml:space="preserve">
-    <value>num_cuota</value>
-  </data>
-  <data name="txtCliente.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;Interes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnReimprimir.Text" xml:space="preserve">
-    <value>Reimprimir abono</value>
-  </data>
-  <data name="NumeroCuota.Width" type="System.Int32, mscorlib">
-    <value>117</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 62</value>
-  </data>
-  <data name="&gt;&gt;lblClientes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;client.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnNuevoAbono.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 22</value>
-  </data>
-  <data name="&gt;&gt;fecha_pago.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuCuotas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblClientes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 26</value>
-  </data>
-  <data name="Recargo.HeaderText" xml:space="preserve">
-    <value>Recargo</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;fecha_pago.Name" xml:space="preserve">
-    <value>fecha_pago</value>
-  </data>
-  <data name="abonos.Width" type="System.Int32, mscorlib">
-    <value>80</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;monto_cuota.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 111</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblDescripcion.Name" xml:space="preserve">
-    <value>lblDescripcion</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;Recargo.Name" xml:space="preserve">
-    <value>Recargo</value>
-  </data>
-  <data name="btnClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 25</value>
-  </data>
-  <data name="&gt;&gt;client.Name" xml:space="preserve">
-    <value>client</value>
-  </data>
-  <data name="saldo.HeaderText" xml:space="preserve">
-    <value>Saldo</value>
-  </data>
-  <data name="imprimirPreliminarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 22</value>
-  </data>
-  <data name="client.HeaderText" xml:space="preserve">
-    <value>Cliente</value>
-  </data>
-  <data name="dtgPrestamos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 32</value>
-  </data>
-  <data name="id.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;txtCliente.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 17</value>
-  </data>
-  <data name="&gt;&gt;btnClientes.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="txtCliente.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="imprimirPreliminarToolStripMenuItem.Text" xml:space="preserve">
-    <value>Imprimir preliminar</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 301</value>
-  </data>
-  <data name="&gt;&gt;num_cuota.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;monto_cuota.Name" xml:space="preserve">
-    <value>monto_cuota</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Descripcion:</value>
-  </data>
-  <data name="saldoPrestamo.Width" type="System.Int32, mscorlib">
-    <value>125</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Abonos</value>
   </data>
-  <data name="&gt;&gt;lblDescripcion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;num_cuota.Name" xml:space="preserve">
+    <value>num_cuota</value>
   </data>
-  <data name="fecha_pago.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="lblDescripcion.Text" xml:space="preserve">
-    <value>----------------------------------</value>
-  </data>
-  <data name="&gt;&gt;btnReimprimir.Name" xml:space="preserve">
-    <value>btnReimprimir</value>
-  </data>
-  <data name="fechaPrestamo.HeaderText" xml:space="preserve">
-    <value>Fecha</value>
-  </data>
-  <data name="Interes.HeaderText" xml:space="preserve">
-    <value>Interes</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoAbono.Name" xml:space="preserve">
-    <value>btnNuevoAbono</value>
-  </data>
-  <data name="NumeroCuota.HeaderText" xml:space="preserve">
-    <value>Numero cuota</value>
-  </data>
-  <data name="&gt;&gt;saldoPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtgCuotas.Name" xml:space="preserve">
-    <value>dtgCuotas</value>
-  </data>
-  <data name="lblDescripcion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;imprimirPreliminarToolStripMenuItem.Name" xml:space="preserve">
-    <value>imprimirPreliminarToolStripMenuItem</value>
-  </data>
-  <data name="btnNuevoAbono.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+N</value>
-  </data>
-  <data name="&gt;&gt;monto.Type" xml:space="preserve">
+  <data name="&gt;&gt;num_cuota.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fecha_pactada.Name" xml:space="preserve">
     <value>fecha_pactada</value>
   </data>
-  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 13</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmAbonos</value>
-  </data>
-  <data name="&gt;&gt;fechaPrestamo.Type" xml:space="preserve">
+  <data name="&gt;&gt;fecha_pactada.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dtgPrestamos.Name" xml:space="preserve">
-    <value>dtgPrestamos</value>
+  <data name="&gt;&gt;fecha_pago.Name" xml:space="preserve">
+    <value>fecha_pago</value>
   </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="num_cuota.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="&gt;&gt;pago.Name" xml:space="preserve">
-    <value>pago</value>
-  </data>
-  <data name="btnClientes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>284, 23</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="id_prestamos.HeaderText" xml:space="preserve">
-    <value>id_prestamo</value>
-  </data>
-  <data name="pago.HeaderText" xml:space="preserve">
-    <value>Pago</value>
-  </data>
-  <data name="num_cuota.HeaderText" xml:space="preserve">
-    <value>Numero cuota</value>
-  </data>
-  <data name="&gt;&gt;dtgCuotas.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="btnEliminarAbono.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+E</value>
-  </data>
-  <data name="&gt;&gt;NumeroCuota.Name" xml:space="preserve">
-    <value>NumeroCuota</value>
-  </data>
-  <data name="&gt;&gt;saldoPrestamo.Name" xml:space="preserve">
-    <value>saldoPrestamo</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 17</value>
-  </data>
-  <data name="btnClientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAABFJJREFUOE+F
-        VFlInFcU/h/SWsUFXGd0dEYd9zXqCC5RKYyIuIIoiuJu3fct6ri1Im6D04jriwhFqg/FFSrSPsSHJpDi
-        6zjWoJOIImk1tibRcU6/+/d/qG0kB67Lf8797jnf+c7h/mtubm6KpqamFX9//9XAwMBVmUyWJrg4mcw9
-        rbOzc9XX13c1JCRkxdnZWSG47jexWJI7PT1t9PPzI6lUSk5OTirBxTk5Sb9eXFwkb29v8vLyMjo4OGQJ
-        rvstMTHxu62tLX1eXt5+a2urPiIi4gfBxRUVFT0FoL6wsHC/sbHxNbJUC677zUUia11ZWXkbHBx8LBaL
-        T3CmLCwsbNmRSKRz8/PzvwcEBBy7urqeOjo6NgvX7hp4a/Tw8Hjq7u6uBy+XU1NThrS0tOukpKRL+H7q
-        6Oi4AJcXUqns59nZ2T9TU1OvU1JSDBKJ5JLdYXcRVy/AcVxkRNSxSqXaLy4u1sJxmpWV9c7Hx+cNsjzx
-        9PR8DDPgokEu93xcUlxyEhsb+waNeYdvp6GhoVqlUvkyMjLyWIDjufljfX2d8DqBs1ulMv4aPN3iO6G8
-        DTx2i8xvAbJRXV1N29vbBviuo6Ojb7Ozswmdp/Ly8nMeDN38nAXt7u7S0tISVVZW0tDQMI2PjxP7jrJb
-        mpubb0DBDRrW0tbWRgcHBzQxMcH7VapuUqvVVFVVZUS2n3H4IWZBWq2W5ubm+KDh4REaGxujiooKiomJ
-        eZiZmfkcDz8LCwt72Nvbewewq6uLB6yrq6O4uDgRAwzo6+ujw8NDGh0dpZqaGhoZGeX/Lisr+yQgGsYD
-        QkYM0J8LCgqKZ5f1ej319PRQbW0twMZQ9hCVlpZ+EhAN4wFbWlooKipKySSjBvqNTqfjnfX19ShXTYOD
-        g4TGsGl5kZycfIWuX7m4uLzo7u7+H+DwyAjl5ubeQFpqDgJ9AlAjHEfIRodMDhSK8EP8/s3e3l4PYWtL
-        SkoIc83GkMnqCGXq0KSXeORALpfrmBaBY0SshnFolp+frx0YGHgOybxCFh/gJAS9RvD3GK9H4HIa5UyH
-        h4c/AkVLWB7HCQkJBCl9wAOvoMtfc3JydMjwC06hUPixji4vL/MNYXJh/4PLH3ldfcTa29s3Njc3mVQI
-        kqLJyUleiwyL6fDJwsIC7ezs8Bpk3CBbio+Pf4u7D/6BuGMPwNfF3t4erwLW3ZmZGcIiIay8bzlXqeta
-        f3//X0zUjGSNRsMaY8TYnZmYmHwFgC//fczMzMsxZqdra2tGxm1DQwONoiI08AqzvcaBh6OMjAzCujLY
-        2dmxTr4Hd6wBZGpqOg4QtmCThZNqaWmpAVdUUFDAJPXexsbmytnZhc06iUSiQwa4z15KT08nW1tbfqkK
-        gEZzc/N+gITjSISjsLKy+gaARiwSJmT+DjBYEwnrTMdh69pj0DVwnuG1c6R9ioBn1tbWDQD4qAGkHhvp
-        F5R+grhzkUh85uYmnxCJRHZ/A+E0T+1guPFwAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;id_prestamos.Type" xml:space="preserve">
+  <data name="&gt;&gt;fecha_pago.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dtgPrestamos.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;monto_cuota.Name" xml:space="preserve">
+    <value>monto_cuota</value>
   </data>
-  <data name="&gt;&gt;abonos.Name" xml:space="preserve">
-    <value>abonos</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="&gt;&gt;txtCliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Total1.Name" xml:space="preserve">
-    <value>Total1</value>
-  </data>
-  <data name="txtCliente.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="btnNuevoAbono.Text" xml:space="preserve">
-    <value>Realizar abono</value>
-  </data>
-  <data name="&gt;&gt;monto.Name" xml:space="preserve">
-    <value>monto</value>
-  </data>
-  <data name="&gt;&gt;Total1.Type" xml:space="preserve">
+  <data name="&gt;&gt;monto_cuota.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtgPrestamos.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="id.HeaderText" xml:space="preserve">
-    <value>id</value>
-  </data>
-  <data name="&gt;&gt;btnClientes.Name" xml:space="preserve">
-    <value>btnClientes</value>
-  </data>
-  <data name="&gt;&gt;id_prestamos.Name" xml:space="preserve">
-    <value>id_prestamos</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Cuotas</value>
-  </data>
-  <data name="btnEliminarAbono.Text" xml:space="preserve">
-    <value>Eliminar abono</value>
-  </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoAbono.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;saldo.Name" xml:space="preserve">
     <value>saldo</value>
   </data>
-  <data name="&gt;&gt;fechaPrestamo.Name" xml:space="preserve">
-    <value>fechaPrestamo</value>
+  <data name="&gt;&gt;saldo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>837, 193</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
+  <data name="&gt;&gt;id.Name" xml:space="preserve">
+    <value>id</value>
   </data>
   <data name="&gt;&gt;id.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="monto.HeaderText" xml:space="preserve">
-    <value>Monto</value>
+  <data name="&gt;&gt;id_prestamos.Name" xml:space="preserve">
+    <value>id_prestamos</value>
   </data>
-  <data name="dtgCuotas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>798, 157</value>
-  </data>
-  <data name="&gt;&gt;menuCuotas.Name" xml:space="preserve">
-    <value>menuCuotas</value>
-  </data>
-  <data name="&gt;&gt;txtCliente.Name" xml:space="preserve">
-    <value>txtCliente</value>
-  </data>
-  <data name="&gt;&gt;saldo.Type" xml:space="preserve">
+  <data name="&gt;&gt;id_prestamos.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="monto.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;pago.Name" xml:space="preserve">
+    <value>pago</value>
   </data>
-  <data name="fecha_pago.HeaderText" xml:space="preserve">
-    <value>Fecha pago</value>
+  <data name="&gt;&gt;pago.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Prestamos</value>
+  <data name="&gt;&gt;abonos.Name" xml:space="preserve">
+    <value>abonos</value>
   </data>
-  <data name="dtgCuotas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 26</value>
+  <data name="&gt;&gt;abonos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblDescripcion.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnNuevoAbono.Name" xml:space="preserve">
+    <value>btnNuevoAbono</value>
   </data>
-  <data name="client.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;btnNuevoAbono.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuCuotas.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
+  <data name="&gt;&gt;btnReimprimir.Name" xml:space="preserve">
+    <value>btnReimprimir</value>
   </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>713, 182</value>
+  <data name="&gt;&gt;btnReimprimir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblDescripcion.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;btnImprimirPreliminar.Name" xml:space="preserve">
+    <value>btnImprimirPreliminar</value>
   </data>
-  <data name="&gt;&gt;txtCliente.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btnImprimirPreliminar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;btnEliminarAbono.Name" xml:space="preserve">
+    <value>btnEliminarAbono</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnEliminarAbono.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dtgCuotas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnImprimirCuotas.Name" xml:space="preserve">
+    <value>btnImprimirCuotas</value>
   </data>
-  <metadata name="saldoPrestamo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="fecha_pago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Total1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="saldo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="client.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="num_cuota.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Interes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Recargo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="fechaPrestamo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="id_prestamos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="menuCuotas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="fecha_pactada.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ImprimirTicket.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>174, 19</value>
-  </metadata>
-  <metadata name="monto_cuota.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="pago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="monto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>65</value>
-  </metadata>
-  <metadata name="abonos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;btnImprimirCuotas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn2</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;monto.Name" xml:space="preserve">
+    <value>monto</value>
+  </data>
+  <data name="&gt;&gt;monto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fechaPrestamo.Name" xml:space="preserve">
+    <value>fechaPrestamo</value>
+  </data>
+  <data name="&gt;&gt;fechaPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;client.Name" xml:space="preserve">
+    <value>client</value>
+  </data>
+  <data name="&gt;&gt;client.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Interes.Name" xml:space="preserve">
+    <value>Interes</value>
+  </data>
+  <data name="&gt;&gt;Interes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn4</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saldoPrestamo.Name" xml:space="preserve">
+    <value>saldoPrestamo</value>
+  </data>
+  <data name="&gt;&gt;saldoPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Total1.Name" xml:space="preserve">
+    <value>Total1</value>
+  </data>
+  <data name="&gt;&gt;Total1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Recargo.Name" xml:space="preserve">
+    <value>Recargo</value>
+  </data>
+  <data name="&gt;&gt;Recargo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ImprimirTicket.Name" xml:space="preserve">
+    <value>ImprimirTicket</value>
+  </data>
+  <data name="&gt;&gt;ImprimirTicket.Type" xml:space="preserve">
+    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="&gt;&gt;NumeroCuota.Name" xml:space="preserve">
+    <value>NumeroCuota</value>
+  </data>
+  <data name="&gt;&gt;NumeroCuota.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmAbonos</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

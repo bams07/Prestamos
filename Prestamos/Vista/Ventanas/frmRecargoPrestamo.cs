@@ -24,6 +24,7 @@ namespace Prestamos.Vista.Ventanas
         double totalPrestamo;
         int dia_pago;
         int prestamo;
+        int contadorMeses;
 
         #endregion
 
@@ -114,7 +115,7 @@ namespace Prestamos.Vista.Ventanas
 
                     double oSaldoCuota = saldoPrestamo + Convert.ToDouble(txtMonto.Text);
                     double valorxcuotas = montoCuota;
-                    saldoPrestamo += Convert.ToDouble(txtMonto.Text);
+                    // saldoPrestamo += Convert.ToDouble(txtMonto.Text);
                     totalPrestamo += Convert.ToDouble(txtMonto.Text);
                     Boolean terminarGenerarCuotas = true;
                     fecha = Convert.ToDateTime(dCuotas.Rows[dCuotas.Rows.Count - 1]["fecha_pactada"]);
@@ -133,19 +134,21 @@ namespace Prestamos.Vista.Ventanas
                     // CICLO QUE GENERA LAS CUOTAS DE RECARGO
                     while (terminarGenerarCuotas)
                     {
+
+
+                        /* SI EL SALDO ES MENOR AL VALOR DE LA CUOTA, ENTONCES EL VALOR DE
+                          LA CUOTA SE CONVIERTE EN EL SALDO RESTANTE */
+                        if (oSaldoCuota < valorxcuotas)
+                        {
+                            valorxcuotas = oSaldoCuota;
+                        }
+
                         // VA DISMINUYENDO EL SALDO EN CADA VUELTA, PARA DARLE UN SALDO A CADA CUOTA
                         oSaldoCuota -= valorxcuotas;
 
                         if (oSaldoCuota > 0)
                         {
                             valorxcuotas = montoCuota;
-
-                            /* SI EL SALDO ES MENOR AL VALOR DE LA CUOTA, ENTONCES EL VALOR DE
-                            LA CUOTA SE CONVIERTE EN EL SALDO RESTANTE */
-                            if (oSaldoCuota < valorxcuotas)
-                            {
-                                valorxcuotas = oSaldoCuota;
-                            }
 
                         }
                         else
@@ -164,12 +167,17 @@ namespace Prestamos.Vista.Ventanas
                         }
 
                         // CREA UNA NUEVA FILA PARA AGREGAR CUOTAS
-
                         else
                         {
                             numeroCuota = numeroCuota + 1;
 
                             DataRow row = dCuotasPre.Rows.Add(numeroCuota);
+
+                            // LLEVA EL CONTROL DE LOS MESES PARA UNA FECHA ESPECIFICA
+
+                            contadorMeses++;
+
+                            ValidacionesCL.contadorMeses = contadorMeses;
 
                             fecha = ValidacionesCL.validarFechaPago(fecha.Day, fecha.Month, fecha.Year, fecha, tipo);
 
@@ -181,13 +189,13 @@ namespace Prestamos.Vista.Ventanas
 
                         }
 
-
-
                         contador++;
                     }
 
 
                     dtgCuotasPrevias.DataSource = dCuotasPre;
+
+                    contadorMeses = 0;
 
                 }
                 else
@@ -246,14 +254,10 @@ namespace Prestamos.Vista.Ventanas
                         int num_cuota = Convert.ToInt32(dtgCuotasPrevias["num_cuotaPre", i].Value);
                         DateTime fecha_pactada = Convert.ToDateTime(dtgCuotasPrevias["fecha_pactadaPre", i].Value);
 
-
                         oCuotas.InsertarPrestamo_Cuotas(prestamo, num_cuota, fecha_pactada, monto, saldo);
-
                     }
 
-
                 }
-
 
                 if (oCuotas.IsError)
                 {
@@ -262,10 +266,11 @@ namespace Prestamos.Vista.Ventanas
                 }
                 else
                 {
-
+                    // CALCULA EL NUEVO SALDO DEL PRESTAMO
+                    double oSaldoPrestamo = saldoPrestamo + Convert.ToDouble(txtMonto.Text);
 
                     // EDITA EL PRESTAMO AGREGANDOLE UN NUEVO SALDO Y ESTABLECIENDOLO COMO TIPO RECARGO
-                    oPrestamos.EditarPrestamo_Recargo(prestamo, saldoPrestamo, totalPrestamo, true);
+                    oPrestamos.EditarPrestamo_Recargo(prestamo, oSaldoPrestamo, totalPrestamo, true);
 
                     if (oPrestamos.IsError)
                     {

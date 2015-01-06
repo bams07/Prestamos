@@ -21,7 +21,7 @@ namespace Prestamos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrestamos());
+            Application.Run(new frmDashBoard());
         }
     }
 }

@@ -73,7 +73,7 @@ namespace Prestamos.Vista.Ventanas
 
         public void BuscarClientes()
         {
-            
+
             // Realiza un consulta con LINQ busca por cedula y por nombre
             var datos = from item in datosClientes.AsEnumerable()
                         where item.Field<string>("cedula").ToUpper().Contains(txtBusqueda.Text.ToUpper()) ||
@@ -157,6 +157,7 @@ namespace Prestamos.Vista.Ventanas
                     clientes.DesactivarCajas();
                     clientes.MenuAgregar.Enabled = true;
                     clientes.MenuEditar.Enabled = true;
+                    clientes.btnFiadores.Enabled = false;
                 }
             }
 

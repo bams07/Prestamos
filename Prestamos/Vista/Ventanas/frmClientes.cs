@@ -41,6 +41,7 @@ namespace Prestamos.Vista.Ventanas
                 this.ckMoroso.Enabled = true;
                 this.btnGuardar.Enabled = true;
                 this.btnCancelar.Enabled = true;
+                this.btnFiadores.Enabled = true;
             }
         }
         public void DesactivarCajas()
@@ -53,6 +54,7 @@ namespace Prestamos.Vista.Ventanas
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Tag = "1";
             this.btnCancelar.Enabled = false;
+            this.btnFiadores.Enabled = false;
             this.ckMoroso.Enabled = false;
             this.txtCedula.Clear();
             this.txtDireccion.Clear();
@@ -158,9 +160,31 @@ namespace Prestamos.Vista.Ventanas
             }
             else
             {
-                MessageBox.Show("Cedula invalida para eliminar, dedes elegir algun cliente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Cedula invalida para eliminar, debes elegir algun cliente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+
+        private void frmClientes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFiadores_Click(object sender, EventArgs e)
+        {
+            if (!MenuAgregar.Enabled || !string.IsNullOrEmpty(txtCedula.Text))
+            {
+                frmFiadores oFiadores = new frmFiadores(this);
+                oFiadores.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar un cliente antes de ver sus fiadores", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+
+        }
+
+
 
 
     }

@@ -52,7 +52,10 @@
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.txtCelular = new System.Windows.Forms.MaskedTextBox();
             this.ckMoroso = new System.Windows.Forms.CheckBox();
+            this.btnFiadores = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.MenuCliente.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -200,7 +203,7 @@
             this.eliminarToolStripMenuItem});
             this.MenuCliente.Location = new System.Drawing.Point(0, 0);
             this.MenuCliente.Name = "MenuCliente";
-            this.MenuCliente.Size = new System.Drawing.Size(568, 32);
+            this.MenuCliente.Size = new System.Drawing.Size(598, 32);
             this.MenuCliente.TabIndex = 10;
             this.MenuCliente.Text = "menuStrip1";
             // 
@@ -284,6 +287,30 @@
             this.ckMoroso.Text = "Moroso";
             this.ckMoroso.UseVisualStyleBackColor = true;
             // 
+            // btnFiadores
+            // 
+            this.btnFiadores.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFiadores.Enabled = false;
+            this.btnFiadores.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiadores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFiadores.Location = new System.Drawing.Point(8, 13);
+            this.btnFiadores.Name = "btnFiadores";
+            this.btnFiadores.Size = new System.Drawing.Size(111, 38);
+            this.btnFiadores.TabIndex = 14;
+            this.btnFiadores.Tag = "1";
+            this.btnFiadores.Text = "Fiadores";
+            this.btnFiadores.UseVisualStyleBackColor = false;
+            this.btnFiadores.Click += new System.EventHandler(this.btnFiadores_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.btnFiadores);
+            this.panel1.Location = new System.Drawing.Point(458, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(128, 234);
+            this.panel1.TabIndex = 15;
+            // 
             // frmClientes
             // 
             this.AcceptButton = this.btnGuardar;
@@ -291,7 +318,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(568, 409);
+            this.ClientSize = new System.Drawing.Size(598, 383);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ckMoroso);
             this.Controls.Add(this.txtCelular);
             this.Controls.Add(this.txtTelefono);
@@ -314,8 +342,10 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.MenuCliente.ResumeLayout(false);
             this.MenuCliente.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +376,7 @@
         public System.Windows.Forms.MaskedTextBox txtCelular;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         public System.Windows.Forms.CheckBox ckMoroso;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Button btnFiadores;
     }
 }

@@ -200,8 +200,11 @@
     <Compile Include="Formatos\EClientes.cs" />
     <Compile Include="Formatos\EPrestamos.cs" />
     <Compile Include="Logica\Abonos_CuotasCL.cs" />
+    <Compile Include="Logica\FiadoresCL.cs" />
+    <Compile Include="Logica\Postgres\FiadoresPostgres.cs" />
     <Compile Include="Logica\RespaldoCL.cs" />
     <Compile Include="Logica\ErroresCl.cs" />
+    <Compile Include="Logica\SQL\IFiadoresSQL.cs" />
     <Compile Include="Logica\ValidacionesCL.cs" />
     <Compile Include="Logica\UsuariosCL.cs" />
     <Compile Include="Logica\GastosCL.cs" />
@@ -225,6 +228,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFiadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\frmFiadores.Designer.cs">
+      <DependentUpon>frmFiadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\Ventanas\frmCalendario.cs">
       <SubType>Form</SubType>
@@ -392,6 +401,9 @@
     <EmbeddedResource Include="Vista\Reportes\ReportesEstadoCuenta.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesClientes.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesCuentasCobrar.rdlc" />
+    <EmbeddedResource Include="Vista\Ventanas\frmFiadores.resx">
+      <DependentUpon>frmFiadores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\Ventanas\frmAbonos.nqo-GN.resx">
       <DependentUpon>frmAbonos.cs</DependentUpon>
     </EmbeddedResource>

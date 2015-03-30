@@ -22,6 +22,7 @@ namespace Prestamos.Vista.Ventanas
         private int Cuota;
         private int idCuota;
         private int NumCuota;
+        private DateTime fechaPactada;
         private int filaSelecionadaP;
         private double Monto;
         private double saldo;
@@ -48,7 +49,7 @@ namespace Prestamos.Vista.Ventanas
 
         public void mensajeImpresion()
         {
-             DialogResult mensajeImpresion = MessageBox.Show("Desea imprimir el ticket? ", "Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult mensajeImpresion = MessageBox.Show("Desea imprimir el ticket? ", "Informacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (mensajeImpresion == DialogResult.Yes)
             {
@@ -90,6 +91,8 @@ namespace Prestamos.Vista.Ventanas
                 saldo = Convert.ToDouble(Abonos.dtgCuotas["saldo", i].Value.ToString());
 
                 NumCuota = Convert.ToInt32(Abonos.dtgCuotas["num_cuota", i].Value.ToString());
+                fechaPactada = Convert.ToDateTime(Abonos.dtgCuotas["fecha_pactada", i].Value.ToString());
+
 
                 DataSet oAbonosCantidad = oAbonosCuotas.TraerCantidad_Abonos(Abonos.dtgCuotas["id", i].Value.ToString());
 
@@ -162,7 +165,7 @@ namespace Prestamos.Vista.Ventanas
 
                         MontoAbono -= Monto;
 
-                         mensajeImpresion();
+                        mensajeImpresion();
 
                     }
                     else
@@ -214,32 +217,32 @@ namespace Prestamos.Vista.Ventanas
 
         private void ImprimirTicket_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-           
 
-                FontFamily family = new FontFamily("Microsoft Sans Serif");
-                Font font = new Font(family, 9f);
-                EPrestamos ePrestamos = new EPrestamos();
-                ClientesCL clientesCL = new ClientesCL();
-                PrestamosCL prestamosCL = new PrestamosCL();
-                DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
-                DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(this.Prestamo.ToString()).Tables[0];
 
-                ePrestamos.clientePrestamo = this.cliente;
-                ePrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
-                ePrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
-                ePrestamos.direccionCliente = dataTable.Rows[0].ItemArray.GetValue(2).ToString();
-                ePrestamos.totalPrestamo = this.totalPrestamo;
-                ePrestamos.fechaPactada = Convert.ToDateTime(this.dtFechaPactada.Text);
-                ePrestamos.fechaAbono = Convert.ToDateTime(Convert.ToString(this.dtFechaPago.Value));
-                ePrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());           
-                ePrestamos.numeroCuota = Convert.ToInt32(Convert.ToString(this.NumCuota));
-                ePrestamos.idCuota = idCuota;
-                ePrestamos.prestamo = Convert.ToString(this.Prestamo);
-                ePrestamos.saldoPrestamo = this.saldo;
-                ePrestamos.saldoPretamoAnterior = this.saldo + this.Monto;
-                ePrestamos.montoAbono = this.Monto;
-                e.Graphics.PageUnit = GraphicsUnit.Pixel;
-                e.Graphics.DrawString(ePrestamos.ticket, font, Brushes.Black, 20f, 10f);            
+            FontFamily family = new FontFamily("Microsoft Sans Serif");
+            Font font = new Font(family, 9f);
+            EPrestamos ePrestamos = new EPrestamos();
+            ClientesCL clientesCL = new ClientesCL();
+            PrestamosCL prestamosCL = new PrestamosCL();
+            DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
+            DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(this.Prestamo.ToString()).Tables[0];
+
+            ePrestamos.clientePrestamo = this.cliente;
+            ePrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
+            ePrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
+            ePrestamos.direccionCliente = dataTable.Rows[0].ItemArray.GetValue(2).ToString();
+            ePrestamos.totalPrestamo = this.totalPrestamo;
+            ePrestamos.fechaPactada = fechaPactada;
+            ePrestamos.fechaAbono = Convert.ToDateTime(Convert.ToString(this.dtFechaPago.Value));
+            ePrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());
+            ePrestamos.numeroCuota = Convert.ToInt32(Convert.ToString(this.NumCuota));
+            ePrestamos.idCuota = idCuota;
+            ePrestamos.prestamo = Convert.ToString(this.Prestamo);
+            ePrestamos.saldoPrestamo = this.saldo;
+            ePrestamos.saldoPretamoAnterior = this.saldo + this.Monto;
+            ePrestamos.montoAbono = this.Monto;
+            e.Graphics.PageUnit = GraphicsUnit.Pixel;
+            e.Graphics.DrawString(ePrestamos.ticket, font, Brushes.Black, 20f, 10f);
 
         }
 

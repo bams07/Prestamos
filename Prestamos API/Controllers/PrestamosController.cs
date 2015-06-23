@@ -26,9 +26,10 @@ namespace Prestamos_API.Controllers
         [ResponseType(typeof(prestamos))]
         public IHttpActionResult Getprestamos(int id)
         {
-            prestamos prestamos = db.prestamos.Find(id);
+           prestamos prestamos = db.prestamos.Find(id);
 
-            var prestamosCuotas = db.prestamos_cuotas.ToList();
+            db.prestamos_cuotas.ToList();
+
 
             if (prestamos == null)
             {

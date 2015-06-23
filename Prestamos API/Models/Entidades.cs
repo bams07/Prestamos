@@ -35,11 +35,7 @@ namespace Prestamos_API.Models
         public DateTime fecha { get; set; }
         public int dia_pago { get; set; }
 
-        [ForeignKey("cliente")]
-        public clientes clientes { get; set; }
-
         public ICollection<prestamos_cuotas> prestamos_cuotas { get; set; }
-
 
     }
 

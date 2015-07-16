@@ -162,18 +162,23 @@ namespace Prestamos.Vista.Ventanas
 
             foreach (DataGridViewRow row in dtgPrestamosCuotas.Rows)
             {
-                int idCuota = Convert.ToInt32(row.Cells["Prestamos_cuotas_id"].Value.ToString());
+                int idPrestamo = Convert.ToInt32(row.Cells["Prestamo"].Value.ToString());
 
-                DataSet oDatos = oCuotas.TraerPrestamoCuotas_Pago(idCuota.ToString());
+                DataTable oDatos = oCuotas.TraerPrestamoCuotas_Pago(idPrestamo.ToString()).Tables[0];
 
-                DataTable oTable = oDatos.Tables[0];
-
-                DataRow orow = oTable.Rows[0];
-
-                if (Convert.ToBoolean(orow.ItemArray.GetValue(7)) == true)
+                foreach (DataRow cuota in oDatos.Rows)
                 {
-                    cont++;
-                    errores += "\n" + "La cuota numero " + row.Cells["Numero_cuota"].Value.ToString() + " del prestamo " + row.Cells["Prestamo"].Value.ToString();
+                    if (cuota["num_cuota"].ToString() == row.Cells["Numero_cuota"].Value.ToString())
+                    {
+                        cont++;
+                        errores += "\n" + "La cuota numero " + row.Cells["Numero_cuota"].Value.ToString() + " del prestamo " + row.Cells["Prestamo"].Value.ToString();
+                    }
+
+                    if (oDatos.Rows.Count - (int)row.Cells["Numero_cuota"].Value > 1)
+                    {
+
+                    }
+
 
                 }
 
@@ -241,7 +246,7 @@ namespace Prestamos.Vista.Ventanas
                 string idCuota = dtgPrestamosCuotas.Rows[e.RowIndex].Cells["Prestamos_cuotas_id"].Value.ToString();
                 string idPlanilla = numPlanilla;
 
-                oPlanilla.EliminarPlanillaDetalle(idCuota,idPlanilla);
+                oPlanilla.EliminarPlanillaDetalle(idCuota, idPlanilla);
 
                 dtgPrestamosCuotas.Rows.RemoveAt(e.RowIndex);
 

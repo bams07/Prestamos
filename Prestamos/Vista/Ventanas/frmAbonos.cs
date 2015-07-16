@@ -10,6 +10,7 @@ using Prestamos.Logica;
 using Prestamos.Vista;
 using Prestamos.Formatos;
 using System.Windows.Documents;
+using Prestamos.Vista.Ventanas.Ventanas_abonos;
 
 namespace Prestamos.Vista.Ventanas
 {
@@ -371,11 +372,24 @@ namespace Prestamos.Vista.Ventanas
             }
             else
             {
-                this.oEPrestamos = new EPrestamos();
+
+
                 ClientesCL clientesCL = new ClientesCL();
                 PrestamosCL prestamosCL = new PrestamosCL();
                 DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
                 DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
+                frmReimprimirAbono oReimprimir = new frmReimprimirAbono();
+                oReimprimir.ShowDialog();
+
+                if (oReimprimir.cancelar)
+                {
+                    oReimprimir.Dispose();
+                    return;
+                }
+
+                //VALORES DEL TICKET ABONO
+                this.oEPrestamos = new EPrestamos();
+                this.oEPrestamos.encabezado = oReimprimir.encabezado;
                 this.oEPrestamos.clientePrestamo = this.cliente;
                 this.oEPrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
                 this.oEPrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
@@ -391,6 +405,8 @@ namespace Prestamos.Vista.Ventanas
                 this.oEPrestamos.montoAbono = Convert.ToDouble(this.dtgCuotas["monto_cuota", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString());
                 this.oEPrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());
                 this.ImprimirTicket.Print();
+
+                oReimprimir.Dispose();
             }
         }
 

@@ -201,10 +201,10 @@ namespace Prestamos.Logica.Postgres
 			List<NpgsqlParameter> list = new List<NpgsqlParameter>();
 			if (!string.IsNullOrEmpty(filtro))
 			{
-				stringBuilder.AppendLine("where id=@id ");
+                stringBuilder.AppendLine("where id_prestamos=@id_prestamos and pago=true order by num_cuota asc ");
 				list.Add(new NpgsqlParameter
 				{
-					ParameterName = "id",
+                    ParameterName = "id_prestamos",
 					NpgsqlDbType = NpgsqlDbType.Integer,
 					NpgsqlValue = filtro
 				});

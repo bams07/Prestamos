@@ -112,6 +112,11 @@ namespace Prestamos.Formatos
             get;
             set;
         }
+        public string encabezado
+        {
+            get;
+            set;
+        }
 
         #endregion
 
@@ -124,6 +129,7 @@ namespace Prestamos.Formatos
                 {
                     result = string.Concat(new object[]
 					{
+                        this.mensajeEncabezado(),
 						"Fecha: ",
 						this.fechaAbono.ToShortDateString(),
 						"\nNombre: ",
@@ -156,7 +162,8 @@ namespace Prestamos.Formatos
                 {
                     result = string.Concat(new object[]
 					{
-						"Fecha: ",
+						this.mensajeEncabezado(),
+                        "Fecha: ",
 						this.fechaAbono.ToShortDateString(),
 						"\nNombre: ",
 						this.nombreCliente,
@@ -197,28 +204,49 @@ namespace Prestamos.Formatos
             DataTable dataTable = abonos_CuotasCL.TraerAbono_Cuotas(this.idCuota.ToString()).Tables[0];
 
             string result;
+            double totalAbonosCuota = 0;
 
             if (dataTable.Rows.Count == 0)
             {
-                result = "";
+                return result = "";
             }
             else
             {
                 // CICLO QUE RECORRE LOS ABONOS DE LAS CUTOAS 
                 foreach (DataRow dataRow in dataTable.Rows)
                 {
+                    this.saldoPrestamo -= Convert.ToDouble(dataRow["monto"].ToString());
+
+                    totalAbonosCuota += Convert.ToDouble(dataRow["monto"].ToString());
+
+
                     this.abonosCuota = string.Concat(new string[]
 					{
                         this.abonosCuota,
-						Convert.ToDateTime(dataRow.ItemArray.GetValue(3).ToString()).ToShortDateString(),
+						Convert.ToDateTime(dataRow["fecha_abono"].ToString()).ToShortDateString(),
 						" - ",
-                        Convert.ToDouble(dataRow.ItemArray.GetValue(2).ToString()).ToString("C",Moneda()),
+                        Convert.ToDouble(dataRow["monto"].ToString()).ToString("C",Moneda()),
 						"\n"
 					});
                 }
-                result = this.abonosCuota;
+
+                // EN EL CASO DE QUE EXISTAN ABONOS SE VEA REFLEJADO EL SALDO DE LA CUOTA EXISTENTE
+                this.saldoPrestamo = this.saldoPretamoAnterior - totalAbonosCuota;
+
+                return result = this.abonosCuota;
             }
             return result;
+        }
+
+        public string mensajeEncabezado()
+        {
+            if (!string.IsNullOrEmpty(encabezado))
+            {
+                this.encabezado = string.Format("----------{0}---------- \n", this.encabezado.ToUpper());
+
+            }
+
+            return encabezado;
         }
     }
 }

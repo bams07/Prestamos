@@ -396,6 +396,12 @@
     <Compile Include="Vista\Ventanas\frmRFiltroCuentaCobrar.Designer.cs">
       <DependentUpon>frmRFiltroCuentaCobrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Ventanas\Ventanas abonos\frmReimprimirAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventanas\Ventanas abonos\frmReimprimirAbono.Designer.cs">
+      <DependentUpon>frmReimprimirAbono.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vista\Reportes\ReportesCierreCajaSinGastos.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesCierreCaja.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportesEstadoCuenta.rdlc" />
@@ -489,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\Ventanas\frmRFiltroCuentaCobrar.resx">
       <DependentUpon>frmRFiltroCuentaCobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Ventanas\Ventanas abonos\frmReimprimirAbono.resx">
+      <DependentUpon>frmReimprimirAbono.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Prestamos.Formatos.EAbonos.datasource" />

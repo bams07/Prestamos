@@ -19,10 +19,11 @@ namespace Prestamos.Vista.Ventanas.Ventanas_abonos
         public bool cancelar;
         #endregion
 
-        public frmReimprimirAbono()
+        public frmReimprimirAbono(string tituloVentana)
         {
             InitializeComponent();
 
+            this.Text = tituloVentana;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

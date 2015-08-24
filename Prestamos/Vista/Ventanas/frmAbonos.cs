@@ -373,12 +373,7 @@ namespace Prestamos.Vista.Ventanas
             else
             {
 
-
-                ClientesCL clientesCL = new ClientesCL();
-                PrestamosCL prestamosCL = new PrestamosCL();
-                DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
-                DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
-                frmReimprimirAbono oReimprimir = new frmReimprimirAbono();
+                frmReimprimirAbono oReimprimir = new frmReimprimirAbono("Reimprimir abono");
                 oReimprimir.ShowDialog();
 
                 if (oReimprimir.cancelar)
@@ -388,6 +383,10 @@ namespace Prestamos.Vista.Ventanas
                 }
 
                 //VALORES DEL TICKET ABONO
+                ClientesCL clientesCL = new ClientesCL();
+                PrestamosCL prestamosCL = new PrestamosCL();
+                DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
+                DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
                 this.oEPrestamos = new EPrestamos();
                 this.oEPrestamos.encabezado = oReimprimir.encabezado;
                 this.oEPrestamos.clientePrestamo = this.cliente;
@@ -447,11 +446,22 @@ namespace Prestamos.Vista.Ventanas
             frmFechaPreliminarPagoCuota.ShowDialog();
             if (this.fechaPreliminarPago.ToShortDateString() != "01/01/0001")
             {
+                frmReimprimirAbono oReimprimir = new frmReimprimirAbono("Imprimir preliminar");
+                oReimprimir.ShowDialog();
+
+                if (oReimprimir.cancelar)
+                {
+                    oReimprimir.Dispose();
+                    return;
+                }
+
+                //VALORES DEL TICKET ABONO
                 this.oEPrestamos = new EPrestamos();
                 ClientesCL clientesCL = new ClientesCL();
                 PrestamosCL prestamosCL = new PrestamosCL();
                 DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
                 DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
+                this.oEPrestamos.encabezado = oReimprimir.encabezado;
                 this.oEPrestamos.clientePrestamo = this.cliente;
                 this.oEPrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
                 this.oEPrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();

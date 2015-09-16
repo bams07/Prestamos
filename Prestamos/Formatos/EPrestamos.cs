@@ -241,9 +241,8 @@ namespace Prestamos.Formatos
         public string mensajeEncabezado()
         {
             if (!string.IsNullOrEmpty(encabezado))
-            {
+            {             
                 this.encabezado = string.Format("----------{0}---------- \n", this.encabezado.ToUpper());
-
             }
 
             return encabezado;

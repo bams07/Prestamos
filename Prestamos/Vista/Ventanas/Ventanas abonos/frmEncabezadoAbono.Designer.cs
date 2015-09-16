@@ -1,6 +1,6 @@
 ﻿namespace Prestamos.Vista.Ventanas.Ventanas_abonos
 {
-    partial class frmReimprimirAbono
+    partial class frmEncabezadoAbono
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReimprimirAbono));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEncabezadoAbono));
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMensaje = new System.Windows.Forms.TextBox();
@@ -92,12 +92,13 @@
             this.BackColor = System.Drawing.Color.LightBlue;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(359, 152);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtMensaje);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnGuardar);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

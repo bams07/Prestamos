@@ -11,7 +11,7 @@ using Prestamos.Formatos;
 
 namespace Prestamos.Vista.Ventanas.Ventanas_abonos
 {
-    public partial class frmReimprimirAbono : Form
+    public partial class frmEncabezadoAbono : Form
     {
 
         #region Variables
@@ -19,7 +19,7 @@ namespace Prestamos.Vista.Ventanas.Ventanas_abonos
         public bool cancelar;
         #endregion
 
-        public frmReimprimirAbono(string tituloVentana)
+        public frmEncabezadoAbono(string tituloVentana)
         {
             InitializeComponent();
 

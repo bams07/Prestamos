@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Prestamos.Logica;
 using Prestamos.Formatos;
+using Prestamos.Vista.Ventanas.Ventanas_abonos;
 
 namespace Prestamos.Vista.Ventanas
 {
@@ -27,6 +28,12 @@ namespace Prestamos.Vista.Ventanas
         private double Monto;
         private double saldo;
         private double totalPrestamo;
+        EPrestamos oEPrestamos;
+        ClientesCL clientesCL;
+        PrestamosCL oPrestamos;
+        Prestamos_CuotasCL oPrestamosCuotas;
+        Abonos_CuotasCL oAbonosCuotas;
+        frmEncabezadoAbono oEncabezado;
 
         #endregion
 
@@ -53,6 +60,15 @@ namespace Prestamos.Vista.Ventanas
 
             if (mensajeImpresion == DialogResult.Yes)
             {
+                oEncabezado = new frmEncabezadoAbono("Reimprimir abono");
+                oEncabezado.ShowDialog();
+
+                if (oEncabezado.cancelar)
+                {
+                    oEncabezado.Dispose();
+                    return;
+                }
+
                 ImprimirTicket.Print();
             }
 
@@ -62,11 +78,11 @@ namespace Prestamos.Vista.Ventanas
         {
 
             // INSTANCIAS
-            Prestamos_CuotasCL oPrestamosCuotas = new Prestamos_CuotasCL();
+            oPrestamosCuotas = new Prestamos_CuotasCL();
 
-            PrestamosCL oPrestamos = new PrestamosCL();
+            oPrestamos = new PrestamosCL();
 
-            Abonos_CuotasCL oAbonosCuotas = new Abonos_CuotasCL();
+            oAbonosCuotas = new Abonos_CuotasCL();
 
             // VARIABLE CONTIENE SALDO DEL PRESTAMO
             saldo = Convert.ToDouble(oPrestamos.TraerPrestamoSaldo(Convert.ToString(Prestamo)).Tables[0].Rows[0].ItemArray[0]);
@@ -221,33 +237,29 @@ namespace Prestamos.Vista.Ventanas
 
             FontFamily family = new FontFamily("Microsoft Sans Serif");
             Font font = new Font(family, 9f);
-            EPrestamos ePrestamos = new EPrestamos();
-            ClientesCL clientesCL = new ClientesCL();
-            PrestamosCL prestamosCL = new PrestamosCL();
+            oEPrestamos = new EPrestamos();
+            clientesCL = new ClientesCL();
+            oPrestamos = new PrestamosCL();
             DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
-            DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(this.Prestamo.ToString()).Tables[0];
+            DataTable dataTable2 = oPrestamos.TraerFechaFinalPrestamo(this.Prestamo.ToString()).Tables[0];
 
-            ePrestamos.clientePrestamo = this.cliente;
-            ePrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
-            ePrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
-            ePrestamos.direccionCliente = dataTable.Rows[0].ItemArray.GetValue(2).ToString();
-            ePrestamos.totalPrestamo = this.totalPrestamo;
-            ePrestamos.fechaPactada = fechaPactada;
-            ePrestamos.fechaAbono = Convert.ToDateTime(Convert.ToString(this.dtFechaPago.Value));
-            ePrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());
-            ePrestamos.numeroCuota = Convert.ToInt32(Convert.ToString(this.NumCuota));
-            ePrestamos.idCuota = idCuota;
-            ePrestamos.prestamo = Convert.ToString(this.Prestamo);
-            ePrestamos.saldoPrestamo = this.saldo;
-            ePrestamos.saldoPretamoAnterior = this.saldo + this.Monto;
-            ePrestamos.montoAbono = this.Monto;
+            oEPrestamos.encabezado = oEncabezado.encabezado;
+            oEPrestamos.clientePrestamo = this.cliente;
+            oEPrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
+            oEPrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
+            oEPrestamos.direccionCliente = dataTable.Rows[0].ItemArray.GetValue(2).ToString();
+            oEPrestamos.totalPrestamo = this.totalPrestamo;
+            oEPrestamos.fechaPactada = fechaPactada;
+            oEPrestamos.fechaAbono = Convert.ToDateTime(Convert.ToString(this.dtFechaPago.Value));
+            oEPrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());
+            oEPrestamos.numeroCuota = Convert.ToInt32(Convert.ToString(this.NumCuota));
+            oEPrestamos.idCuota = idCuota;
+            oEPrestamos.prestamo = Convert.ToString(this.Prestamo);
+            oEPrestamos.saldoPrestamo = this.saldo;
+            oEPrestamos.saldoPretamoAnterior = this.saldo + this.Monto;
+            oEPrestamos.montoAbono = this.Monto;
             e.Graphics.PageUnit = GraphicsUnit.Pixel;
-            e.Graphics.DrawString(ePrestamos.ticket, font, Brushes.Black, 20f, 10f);
-
-        }
-
-        private void frmNuevoAbono_Load(object sender, EventArgs e)
-        {
+            e.Graphics.DrawString(oEPrestamos.ticket, font, Brushes.Black, 20f, 10f);
 
         }
 

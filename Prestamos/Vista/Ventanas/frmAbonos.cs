@@ -179,7 +179,14 @@ namespace Prestamos.Vista.Ventanas
             frmFechaPreliminarPagoCuota.ShowDialog();
             if (this.fechaPreliminarPago.ToShortDateString() != "01/01/0001")
             {
+                frmEncabezadoAbono oEncabezado = new frmEncabezadoAbono("Reimprimir abono");
+                oEncabezado.ShowDialog();
 
+                if (oEncabezado.cancelar)
+                {
+                    oEncabezado.Dispose();
+                    return;
+                }
 
                 // DATOS DE LA FECHA FINAL DEL PRESTAMO
                 PrestamosCL prestamosCL = new PrestamosCL();
@@ -208,7 +215,7 @@ namespace Prestamos.Vista.Ventanas
                 // CICLO QUE RECORRE LAS CUOTAS PARA SER IMPRESAS COMO PRELIMINARES
                 foreach (DataGridViewRow item in cuotasOrdenadas)
                 {
-
+                    this.oEPrestamos.encabezado = oEncabezado.encabezado;
                     this.oEPrestamos.prestamo = Convert.ToString(item.Cells["id_prestamos"].Value.ToString());
                     this.oEPrestamos.saldoPrestamo = Convert.ToDouble(item.Cells["saldo"].Value.ToString());
                     this.oEPrestamos.fechaPactada = Convert.ToDateTime(item.Cells["fecha_pactada"].Value.ToString());
@@ -373,12 +380,12 @@ namespace Prestamos.Vista.Ventanas
             else
             {
 
-                frmReimprimirAbono oReimprimir = new frmReimprimirAbono("Reimprimir abono");
-                oReimprimir.ShowDialog();
+                frmEncabezadoAbono oEncabezado = new frmEncabezadoAbono("Reimprimir abono");
+                oEncabezado.ShowDialog();
 
-                if (oReimprimir.cancelar)
+                if (oEncabezado.cancelar)
                 {
-                    oReimprimir.Dispose();
+                    oEncabezado.Dispose();
                     return;
                 }
 
@@ -388,7 +395,7 @@ namespace Prestamos.Vista.Ventanas
                 DataTable dataTable = clientesCL.TraerClientes(this.cliente).Tables[0];
                 DataTable dataTable2 = prestamosCL.TraerFechaFinalPrestamo(Convert.ToString(this.dtgCuotas["id_prestamos", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString())).Tables[0];
                 this.oEPrestamos = new EPrestamos();
-                this.oEPrestamos.encabezado = oReimprimir.encabezado;
+                this.oEPrestamos.encabezado = oEncabezado.encabezado;
                 this.oEPrestamos.clientePrestamo = this.cliente;
                 this.oEPrestamos.nombreCliente = dataTable.Rows[0].ItemArray.GetValue(1).ToString();
                 this.oEPrestamos.telefonoCliente = dataTable.Rows[0].ItemArray.GetValue(4).ToString();
@@ -405,7 +412,7 @@ namespace Prestamos.Vista.Ventanas
                 this.oEPrestamos.fechaFinalPrestamo = Convert.ToDateTime(dataTable2.Rows[0].ItemArray.GetValue(0).ToString());
                 this.ImprimirTicket.Print();
 
-                oReimprimir.Dispose();
+                oEncabezado.Dispose();
             }
         }
 
@@ -446,7 +453,7 @@ namespace Prestamos.Vista.Ventanas
             frmFechaPreliminarPagoCuota.ShowDialog();
             if (this.fechaPreliminarPago.ToShortDateString() != "01/01/0001")
             {
-                frmReimprimirAbono oReimprimir = new frmReimprimirAbono("Imprimir preliminar");
+                frmEncabezadoAbono oReimprimir = new frmEncabezadoAbono("Imprimir preliminar");
                 oReimprimir.ShowDialog();
 
                 if (oReimprimir.cancelar)

@@ -364,7 +364,7 @@
             this.MinimizeBox = false;
             this.Name = "frmCargarPlanillaProcesada";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Planilla cobro";
             this.Load += new System.EventHandler(this.frmCargarPlanillaProcesada_Load);
             this.Shown += new System.EventHandler(this.frmCargarPlanilla_Shown);

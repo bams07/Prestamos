@@ -168,10 +168,9 @@
   </data>
   <data name="btnCargarPlanillas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAABSSURBVDhP7cOxCYAwFEXRr7igCJIJxEbsxUZwGIuMY+Ew
-        QnL73z0sDOTAsepTLTtxQ+dkEu90Rl7ingVa+YhnOgtv8cQCBUbxQOfgK95Y/ZNZBifhSu1aQ1ObAAAA
-        AElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAFJJREFUOE/tw7EJgDAURdGvuKAIkgnERuzFRnAYi4xj4TBCcvvfPSwM5MCx6lMt
+        O3FD52QS73RGXuKeBVr5iGc6C2/xxAIFRvFA5+Ar3lj9k1kGJ+FK7VpDU5sAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

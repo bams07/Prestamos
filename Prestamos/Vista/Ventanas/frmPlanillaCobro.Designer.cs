@@ -36,8 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dtgPlanilla = new System.Windows.Forms.DataGridView();
-            this.btnCrear = new System.Windows.Forms.Button();
-            this.btnCargarPlanillas = new System.Windows.Forms.Button();
             this.Planilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +43,8 @@
             this.Cuotas = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MenuPlanilla = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eliminarPlanillaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnCargarPlanillas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPlanilla)).BeginInit();
             this.MenuPlanilla.SuspendLayout();
             this.SuspendLayout();
@@ -129,34 +129,6 @@
             this.dtgPlanilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPlanilla_CellContentClick);
             this.dtgPlanilla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPlanilla_CellDoubleClick);
             // 
-            // btnCrear
-            // 
-            this.btnCrear.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
-            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrear.Location = new System.Drawing.Point(462, 44);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(119, 38);
-            this.btnCrear.TabIndex = 31;
-            this.btnCrear.Text = "Crear planilla";
-            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
-            // 
-            // btnCargarPlanillas
-            // 
-            this.btnCargarPlanillas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarPlanillas.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarPlanillas.Image")));
-            this.btnCargarPlanillas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCargarPlanillas.Location = new System.Drawing.Point(378, 44);
-            this.btnCargarPlanillas.Name = "btnCargarPlanillas";
-            this.btnCargarPlanillas.Size = new System.Drawing.Size(78, 38);
-            this.btnCargarPlanillas.TabIndex = 32;
-            this.btnCargarPlanillas.Text = "Todas";
-            this.btnCargarPlanillas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCargarPlanillas.UseVisualStyleBackColor = true;
-            this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
-            // 
             // Planilla
             // 
             this.Planilla.DataPropertyName = "id_planilla";
@@ -206,7 +178,7 @@
             this.MenuPlanilla.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eliminarPlanillaToolStripMenuItem});
             this.MenuPlanilla.Name = "MenuPlanilla";
-            this.MenuPlanilla.Size = new System.Drawing.Size(206, 48);
+            this.MenuPlanilla.Size = new System.Drawing.Size(206, 26);
             // 
             // eliminarPlanillaToolStripMenuItem
             // 
@@ -216,6 +188,34 @@
             this.eliminarPlanillaToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.eliminarPlanillaToolStripMenuItem.Text = "Eliminar planilla";
             this.eliminarPlanillaToolStripMenuItem.Click += new System.EventHandler(this.eliminarPlanillaToolStripMenuItem_Click);
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrear.Image = ((System.Drawing.Image)(resources.GetObject("btnCrear.Image")));
+            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrear.Location = new System.Drawing.Point(462, 44);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(119, 38);
+            this.btnCrear.TabIndex = 31;
+            this.btnCrear.Text = "Crear planilla";
+            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
+            // btnCargarPlanillas
+            // 
+            this.btnCargarPlanillas.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarPlanillas.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarPlanillas.Image")));
+            this.btnCargarPlanillas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCargarPlanillas.Location = new System.Drawing.Point(378, 44);
+            this.btnCargarPlanillas.Name = "btnCargarPlanillas";
+            this.btnCargarPlanillas.Size = new System.Drawing.Size(78, 38);
+            this.btnCargarPlanillas.TabIndex = 32;
+            this.btnCargarPlanillas.Text = "Todas";
+            this.btnCargarPlanillas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCargarPlanillas.UseVisualStyleBackColor = true;
+            this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
             // 
             // frmPlanillaCobro
             // 
@@ -235,7 +235,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPlanillaCobro";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Planilla cobro";
             ((System.ComponentModel.ISupportInitialize)(this.dtgPlanilla)).EndInit();
             this.MenuPlanilla.ResumeLayout(false);

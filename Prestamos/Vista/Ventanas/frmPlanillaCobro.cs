@@ -78,7 +78,7 @@ namespace Prestamos.Vista.Ventanas
 
             frmCrearPlanilla oCrearPlanilla = new frmCrearPlanilla(pSecuencia, this, dtFecha.Value.ToShortDateString());
 
-            oCrearPlanilla.ShowDialog();
+            oCrearPlanilla.Show();
         }
 
         private void dtFecha_ValueChanged(object sender, EventArgs e)
@@ -102,8 +102,7 @@ namespace Prestamos.Vista.Ventanas
                          dtgPlanilla.CurrentRow.Cells[1].Value.ToString(),
                          dtgPlanilla.CurrentRow.Cells[2].Value.ToString());
 
-                    oPlanilla.ShowDialog();
-
+                    oPlanilla.Show();
 
                 }
                 else
@@ -116,7 +115,7 @@ namespace Prestamos.Vista.Ventanas
                   dtgPlanilla.CurrentRow.Cells[2].Value.ToString(),
                   Convert.ToBoolean(dtgPlanilla.CurrentRow.Cells[3].Value.ToString()));
 
-                    oPlanilla.ShowDialog();
+                    oPlanilla.Show();
 
                 }
             }
@@ -136,7 +135,7 @@ namespace Prestamos.Vista.Ventanas
                      dtgPlanilla.CurrentRow.Cells[1].Value.ToString(),
                      dtgPlanilla.CurrentRow.Cells[2].Value.ToString());
 
-                oPlanilla.ShowDialog();
+                oPlanilla.Show();
 
 
             }
@@ -144,14 +143,14 @@ namespace Prestamos.Vista.Ventanas
             else
             {
 
-                frmCargarPlanilla oPlanilla = new frmCargarPlanilla(
+              frmCargarPlanilla oPlanilla = new frmCargarPlanilla(
               dtgPlanilla.CurrentRow.Cells[0].Value.ToString(),
               this,
               dtgPlanilla.CurrentRow.Cells[1].Value.ToString(),
               dtgPlanilla.CurrentRow.Cells[2].Value.ToString(),
               Convert.ToBoolean(dtgPlanilla.CurrentRow.Cells[3].Value.ToString()));
 
-                oPlanilla.ShowDialog();
+                oPlanilla.Show();
 
             }
 

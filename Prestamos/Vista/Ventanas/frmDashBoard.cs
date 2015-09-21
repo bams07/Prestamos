@@ -80,22 +80,19 @@ namespace Prestamos.Vista.Ventanas
         private void btnRespaldo_Click(object sender, EventArgs e)
         {
             frmRespaldo oRespaldo = new frmRespaldo();
-
             oRespaldo.ShowDialog();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             frmReportes oReportes = new frmReportes();
-
             oReportes.ShowDialog();
         }
 
         private void btnPlanillaCobro_Click(object sender, EventArgs e)
         {
             frmPlanillaCobro oPlanilla = new frmPlanillaCobro();
-
-            oPlanilla.ShowDialog();
+            oPlanilla.Show();
         }
 
         private void btnCierreCaja_Click(object sender, EventArgs e)

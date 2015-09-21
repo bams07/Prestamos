@@ -315,7 +315,7 @@
             this.menuCuotas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.imprimirCuotas});
             this.menuCuotas.Name = "menuCuotas";
-            this.menuCuotas.Size = new System.Drawing.Size(208, 48);
+            this.menuCuotas.Size = new System.Drawing.Size(208, 26);
             // 
             // imprimirCuotas
             // 
@@ -394,7 +394,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCargarPlanilla";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Planilla cobro";
             this.Load += new System.EventHandler(this.frmCargarPlanilla_Load);
             this.Shown += new System.EventHandler(this.frmCargarPlanilla_Shown);

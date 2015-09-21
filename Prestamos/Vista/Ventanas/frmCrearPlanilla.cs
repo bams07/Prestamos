@@ -1,5 +1,6 @@
 ﻿using Prestamos.Formatos;
 using Prestamos.Logica;
+using Prestamos.Vista.Ventanas.Ventanas_abonos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace Prestamos.Vista.Ventanas
         string errores;
         int cRows;
         string ticket;
+        string encabezado;
 
         #endregion
 
@@ -136,6 +138,7 @@ namespace Prestamos.Vista.Ventanas
             ClientesCL clientesCL = new ClientesCL();
             DataTable dataTable3 = clientesCL.TraerClientes(this.dtgPrestamosCuotas.Rows[this.cRows].Cells["Cedula"].Value.ToString()).Tables[0];
             double saldoPretamoAnterior = Convert.ToDouble(this.dtgPrestamosCuotas.Rows[this.cRows].Cells["Saldo"].Value.ToString()) + Convert.ToDouble(this.dtgPrestamosCuotas.Rows[this.cRows].Cells["Monto"].Value.ToString());
+            ePrestamos.encabezado = this.encabezado;
             ePrestamos.clientePrestamo = this.dtgPrestamosCuotas.Rows[this.cRows].Cells["Cedula"].Value.ToString();
             ePrestamos.nombreCliente = dataTable3.Rows[0].ItemArray.GetValue(1).ToString();
             ePrestamos.telefonoCliente = dataTable3.Rows[0].ItemArray.GetValue(4).ToString();
@@ -221,6 +224,19 @@ namespace Prestamos.Vista.Ventanas
 
                 if (imprimir == DialogResult.Yes)
                 {
+
+                    frmEncabezadoAbono oEncabezado = new frmEncabezadoAbono("Reimprimir abono");
+                    oEncabezado.ShowDialog();
+
+                    if (oEncabezado.cancelar)
+                    {
+                        oEncabezado.Dispose();
+                        return;
+                    }
+
+                    // ENCABEZADO DE LA CUOTA
+                    this.encabezado = oEncabezado.encabezado;
+
                     cRows = 0;
 
                     // CONTIENE LAS FILAS SELECIONADAS

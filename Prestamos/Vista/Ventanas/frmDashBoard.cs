@@ -144,5 +144,11 @@ namespace Prestamos.Vista.Ventanas
             CargarTotalSaldo();
             CargarTotalClientes();
         }
+
+        private void btnNotas_Click(object sender, EventArgs e)
+        {
+            frmNotas oNotas = new frmNotas();
+            oNotas.ShowDialog();
+        }
     }
 }

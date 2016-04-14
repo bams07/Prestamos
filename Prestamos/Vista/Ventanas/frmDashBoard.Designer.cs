@@ -59,11 +59,13 @@
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.btnUsuarios = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.lblTotalClientes = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalSaldoPrestamos = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.ribbonPanel8 = new System.Windows.Forms.RibbonPanel();
+            this.btnNotas = new System.Windows.Forms.RibbonButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,6 +143,7 @@
             this.PanelGeneral.Panels.Add(this.ribbonPanel3);
             this.PanelGeneral.Panels.Add(this.ribbonPanel4);
             this.PanelGeneral.Panels.Add(this.ribbonPanel7);
+            this.PanelGeneral.Panels.Add(this.ribbonPanel8);
             this.PanelGeneral.Text = "Panel general";
             // 
             // ribbonPanel1
@@ -348,6 +351,27 @@
             this.panel1.Size = new System.Drawing.Size(1271, 44);
             this.panel1.TabIndex = 1;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnActualizar.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.Location = new System.Drawing.Point(1144, 0);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnActualizar.Size = new System.Drawing.Size(127, 44);
+            this.btnActualizar.TabIndex = 40;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // lblTotalClientes
             // 
             this.lblTotalClientes.AutoSize = true;
@@ -388,26 +412,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Total saldo:";
             // 
-            // btnActualizar
+            // ribbonPanel8
             // 
-            this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnActualizar.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
-            this.btnActualizar.Location = new System.Drawing.Point(1144, 0);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnActualizar.Size = new System.Drawing.Size(127, 44);
-            this.btnActualizar.TabIndex = 40;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.ribbonPanel8.ButtonMoreEnabled = false;
+            this.ribbonPanel8.ButtonMoreVisible = false;
+            this.ribbonPanel8.Items.Add(this.btnNotas);
+            this.ribbonPanel8.Text = "Notas";
+            // 
+            // btnNotas
+            // 
+            this.btnNotas.Image = ((System.Drawing.Image)(resources.GetObject("btnNotas.Image")));
+            this.btnNotas.MinimumSize = new System.Drawing.Size(150, 0);
+            this.btnNotas.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnNotas.SmallImage")));
+            this.btnNotas.Text = "Notas";
+            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
             // 
             // frmDashBoard
             // 
@@ -465,5 +483,7 @@
         private System.Windows.Forms.Label lblTotalClientes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.RibbonPanel ribbonPanel8;
+        private System.Windows.Forms.RibbonButton btnNotas;
     }
 }

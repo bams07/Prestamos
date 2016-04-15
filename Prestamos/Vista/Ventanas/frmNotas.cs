@@ -216,6 +216,7 @@ namespace Prestamos.Vista.Ventanas
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mantenimiento("Eliminar");
+            LimpiarCajas();
         }
 
         private void MenuNotas_Opening(object sender, CancelEventArgs e)

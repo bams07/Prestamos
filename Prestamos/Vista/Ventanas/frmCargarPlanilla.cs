@@ -164,34 +164,61 @@ namespace Prestamos.Vista.Ventanas
         {
             Prestamos_CuotasCL oCuotas = new Prestamos_CuotasCL();
 
-            int cont = 0;
-            errores = "La siguientes cuotas ya han sido pagadas:";
+            errores = "";
 
-            foreach (DataGridViewRow row in dtgPrestamosCuotas.Rows)
+            int cont_cuotas_pagadas = 0;
+            int cont_cuotas_pendientes = 0;
+            string errores_coutas_pagadas = "Las siguientes cuotas ya han sido pagadas:";
+            string errores_coutas_pendientes = "\nLos siguientes prestamos tienen cuotas pendientes: ";
+
+            var prestamos = dtgPrestamosCuotas.Rows.Cast<DataGridViewRow>().GroupBy(r => r.Cells["Prestamo"].Value);
+
+            foreach (var prestamo in prestamos)
             {
-                int idPrestamo = Convert.ToInt32(row.Cells["Prestamo"].Value.ToString());
+
+                int idPrestamo = Convert.ToInt32(prestamo.Key);
 
                 DataTable oDatos = oCuotas.TraerPrestamoCuotas_Pago(idPrestamo.ToString()).Tables[0];
 
-                foreach (DataRow cuota in oDatos.Rows)
+                var cuotas = prestamo.ToList();
+
+                DataGridViewRow primer_cuota = prestamo.First();
+
+                int diferencia_cuotas_pagadas = Math.Abs(oDatos.Rows.Count - (int)primer_cuota.Cells["Numero_cuota"].Value);
+
+                // CORROBORA ESTADO DE COUTAS YA PAGADAS
+
+                if (diferencia_cuotas_pagadas > 0)
                 {
-                    if (cuota["num_cuota"].ToString() == row.Cells["Numero_cuota"].Value.ToString())
+                    cont_cuotas_pendientes++;
+                    string pendienteTexto = diferencia_cuotas_pagadas > 1 ? "pendientes" : "pendiente";
+                    string cuotaTexto = diferencia_cuotas_pagadas > 1 ? "cuotas" : "cuota";
+
+                    errores_coutas_pendientes += String.Format("\nEl prestamo {0} tiene {1} {2} {3}", idPrestamo, diferencia_cuotas_pagadas, cuotaTexto, pendienteTexto);
+                }
+
+                // CORROBORA ESTADO DE COUTAS YA PAGADAS
+
+                foreach (DataGridViewRow cuota in cuotas)
+                {
+
+                    foreach (DataRow cuota_pagada in oDatos.Rows)
                     {
-                        cont++;
-                        errores += "\n" + "La cuota numero " + row.Cells["Numero_cuota"].Value.ToString() + " del prestamo " + row.Cells["Prestamo"].Value.ToString();
+                        if (cuota_pagada["num_cuota"].ToString() == cuota.Cells["Numero_cuota"].Value.ToString())
+                        {
+                            cont_cuotas_pagadas++;
+                            errores_coutas_pagadas += "\n" + "La cuota numero " + cuota.Cells["Numero_cuota"].Value.ToString() + " del prestamo " + cuota.Cells["Prestamo"].Value.ToString();
+                        }
                     }
-
-                    if (oDatos.Rows.Count - (int)row.Cells["Numero_cuota"].Value > 1)
-                    {
-
-                    }
-
 
                 }
 
             }
 
-            if (cont > 0)
+            errores += cont_cuotas_pagadas > 0 ? errores_coutas_pagadas : "";
+            errores += cont_cuotas_pendientes > 0 ? errores_coutas_pendientes : "";
+
+            if (cont_cuotas_pendientes > 0 || cont_cuotas_pagadas > 0)
             {
                 return false;
             }
@@ -277,45 +304,45 @@ namespace Prestamos.Vista.Ventanas
                 PlanillaCL planillaCL = new PlanillaCL();
                 if (this.ValidarPago())
                 {
-                    if (this.ObtenerFechaPago())
-                    {
-                        foreach (DataGridViewRow dataGridViewRow in dtgPrestamosCuotas.Rows)
-                        {
-                            int num = Convert.ToInt32(dataGridViewRow.Cells["Prestamos_cuotas_id"].Value.ToString());
-                            int id = Convert.ToInt32(dataGridViewRow.Cells["Prestamo"].Value.ToString());
-                            DataSet dataSet = prestamosCL.TraerPrestamoSaldo(id.ToString());
-                            DataTable dataTable = dataSet.Tables[0];
-                            DataRow dataRow = dataTable.Rows[0];
-                            double num2 = (double)Convert.ToInt32(dataRow.ItemArray.GetValue(0).ToString());
-                            DataSet dataSet2 = abonos_CuotasCL.TraerSuma_Abonos(dataGridViewRow.Cells["Prestamos_cuotas_id"].Value.ToString());
-                            DataTable dataTable2 = dataSet2.Tables[0];
-                            DataRow dataRow2 = dataTable2.Rows[0];
-                            if (!string.IsNullOrEmpty(dataRow2.ItemArray.GetValue(0).ToString()))
-                            {
-                                double num3 = Convert.ToDouble(dataRow2.ItemArray.GetValue(0).ToString());
-                                double monto = (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString()) - num3;
-                                abonos_CuotasCL.InsertarAbono_Cuotas(num, monto, this.fechaPago);
-                                num2 -= (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString()) - num3;
-                            }
-                            else
-                            {
-                                num2 -= (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString());
-                            }
-                            prestamosCL.EditarPrestamo(id, num2);
-                            prestamos_CuotasCL.EditarPrestamoCuotas(num, this.fechaPago, true, "");
-                        }
-                        planillaCL.EditarPlanilla(Convert.ToInt32(this.numPlanilla), true);
-                        if (planillaCL.IsError)
-                        {
-                            MessageBox.Show(planillaCL.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Planilla procesada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                            this.iPlanilla.CargarPlanilla("");
-                            base.Dispose();
-                        }
-                    }
+                    //if (this.ObtenerFechaPago())
+                    //{
+                    //    foreach (DataGridViewRow dataGridViewRow in dtgPrestamosCuotas.Rows)
+                    //    {
+                    //        int num = Convert.ToInt32(dataGridViewRow.Cells["Prestamos_cuotas_id"].Value.ToString());
+                    //        int id = Convert.ToInt32(dataGridViewRow.Cells["Prestamo"].Value.ToString());
+                    //        DataSet dataSet = prestamosCL.TraerPrestamoSaldo(id.ToString());
+                    //        DataTable dataTable = dataSet.Tables[0];
+                    //        DataRow dataRow = dataTable.Rows[0];
+                    //        double num2 = (double)Convert.ToInt32(dataRow.ItemArray.GetValue(0).ToString());
+                    //        DataSet dataSet2 = abonos_CuotasCL.TraerSuma_Abonos(dataGridViewRow.Cells["Prestamos_cuotas_id"].Value.ToString());
+                    //        DataTable dataTable2 = dataSet2.Tables[0];
+                    //        DataRow dataRow2 = dataTable2.Rows[0];
+                    //        if (!string.IsNullOrEmpty(dataRow2.ItemArray.GetValue(0).ToString()))
+                    //        {
+                    //            double num3 = Convert.ToDouble(dataRow2.ItemArray.GetValue(0).ToString());
+                    //            double monto = (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString()) - num3;
+                    //            abonos_CuotasCL.InsertarAbono_Cuotas(num, monto, this.fechaPago);
+                    //            num2 -= (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString()) - num3;
+                    //        }
+                    //        else
+                    //        {
+                    //            num2 -= (double)Convert.ToInt32(dataGridViewRow.Cells["Monto"].Value.ToString());
+                    //        }
+                    //        prestamosCL.EditarPrestamo(id, num2);
+                    //        prestamos_CuotasCL.EditarPrestamoCuotas(num, this.fechaPago, true, "");
+                    //    }
+                    //    planillaCL.EditarPlanilla(Convert.ToInt32(this.numPlanilla), true);
+                    //    if (planillaCL.IsError)
+                    //    {
+                    //        MessageBox.Show(planillaCL.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Planilla procesada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    //        this.iPlanilla.CargarPlanilla("");
+                    //        base.Dispose();
+                    //    }
+                    //}
                 }
                 else
                 {

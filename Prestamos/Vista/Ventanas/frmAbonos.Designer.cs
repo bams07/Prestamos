@@ -59,7 +59,13 @@
             this.btnEliminarAbono = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImprimirCuotas = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgPrestamos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ImprimirTicket = new System.Drawing.Printing.PrintDocument();
+            this.NumeroCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuPrestamo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnCancelarPrestamo = new System.Windows.Forms.ToolStripMenuItem();
+            this.idPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,15 +74,14 @@
             this.saldoPrestamo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Recargo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ImprimirTicket = new System.Drawing.Printing.PrintDocument();
-            this.NumeroCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCuotas)).BeginInit();
             this.menuCuotas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrestamos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuPrestamo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClientes
@@ -299,7 +304,7 @@
             this.dtgPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtgPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgPrestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
+            this.idPrestamo,
             this.monto,
             this.fechaPrestamo,
             this.client,
@@ -307,7 +312,9 @@
             this.dataGridViewTextBoxColumn4,
             this.saldoPrestamo,
             this.Total1,
-            this.Recargo});
+            this.Recargo,
+            this.DiaPago,
+            this.Eliminado});
             this.dtgPrestamos.EnableHeadersVisualStyles = false;
             this.dtgPrestamos.GridColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.dtgPrestamos, "dtgPrestamos");
@@ -321,73 +328,6 @@
             this.dtgPrestamos.ShowEditingIcon = false;
             this.dtgPrestamos.ShowRowErrors = false;
             this.dtgPrestamos.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgPrestamos_RowPostPaint);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // monto
-            // 
-            this.monto.DataPropertyName = "monto";
-            resources.ApplyResources(this.monto, "monto");
-            this.monto.Name = "monto";
-            this.monto.ReadOnly = true;
-            // 
-            // fechaPrestamo
-            // 
-            this.fechaPrestamo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.fechaPrestamo.DataPropertyName = "fecha";
-            resources.ApplyResources(this.fechaPrestamo, "fechaPrestamo");
-            this.fechaPrestamo.Name = "fechaPrestamo";
-            this.fechaPrestamo.ReadOnly = true;
-            // 
-            // client
-            // 
-            this.client.DataPropertyName = "cliente";
-            resources.ApplyResources(this.client, "client");
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            // 
-            // Interes
-            // 
-            this.Interes.DataPropertyName = "interes";
-            resources.ApplyResources(this.Interes, "Interes");
-            this.Interes.Name = "Interes";
-            this.Interes.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "cuotas";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // saldoPrestamo
-            // 
-            this.saldoPrestamo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.saldoPrestamo.DataPropertyName = "saldo";
-            resources.ApplyResources(this.saldoPrestamo, "saldoPrestamo");
-            this.saldoPrestamo.Name = "saldoPrestamo";
-            this.saldoPrestamo.ReadOnly = true;
-            // 
-            // Total1
-            // 
-            this.Total1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Total1.DataPropertyName = "total";
-            resources.ApplyResources(this.Total1, "Total1");
-            this.Total1.Name = "Total1";
-            this.Total1.ReadOnly = true;
-            // 
-            // Recargo
-            // 
-            this.Recargo.DataPropertyName = "recargo";
-            resources.ApplyResources(this.Recargo, "Recargo");
-            this.Recargo.Name = "Recargo";
-            this.Recargo.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -415,6 +355,112 @@
             resources.ApplyResources(this.NumeroCuota, "NumeroCuota");
             this.NumeroCuota.Name = "NumeroCuota";
             // 
+            // menuPrestamo
+            // 
+            resources.ApplyResources(this.menuPrestamo, "menuPrestamo");
+            this.menuPrestamo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnCancelarPrestamo});
+            this.menuPrestamo.Name = "menuPrestamo";
+            this.menuPrestamo.Opening += new System.ComponentModel.CancelEventHandler(this.menuPrestamo_Opening);
+            // 
+            // btnCancelarPrestamo
+            // 
+            this.btnCancelarPrestamo.Name = "btnCancelarPrestamo";
+            resources.ApplyResources(this.btnCancelarPrestamo, "btnCancelarPrestamo");
+            this.btnCancelarPrestamo.Click += new System.EventHandler(this.btnCancelarPrestamo_Click);
+            // 
+            // idPrestamo
+            // 
+            this.idPrestamo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idPrestamo.ContextMenuStrip = this.menuPrestamo;
+            this.idPrestamo.DataPropertyName = "id";
+            resources.ApplyResources(this.idPrestamo, "idPrestamo");
+            this.idPrestamo.Name = "idPrestamo";
+            this.idPrestamo.ReadOnly = true;
+            // 
+            // monto
+            // 
+            this.monto.ContextMenuStrip = this.menuPrestamo;
+            this.monto.DataPropertyName = "monto";
+            resources.ApplyResources(this.monto, "monto");
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
+            // 
+            // fechaPrestamo
+            // 
+            this.fechaPrestamo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.fechaPrestamo.ContextMenuStrip = this.menuPrestamo;
+            this.fechaPrestamo.DataPropertyName = "fecha";
+            resources.ApplyResources(this.fechaPrestamo, "fechaPrestamo");
+            this.fechaPrestamo.Name = "fechaPrestamo";
+            this.fechaPrestamo.ReadOnly = true;
+            // 
+            // client
+            // 
+            this.client.ContextMenuStrip = this.menuPrestamo;
+            this.client.DataPropertyName = "cliente";
+            resources.ApplyResources(this.client, "client");
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            // 
+            // Interes
+            // 
+            this.Interes.ContextMenuStrip = this.menuPrestamo;
+            this.Interes.DataPropertyName = "interes";
+            resources.ApplyResources(this.Interes, "Interes");
+            this.Interes.Name = "Interes";
+            this.Interes.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.ContextMenuStrip = this.menuPrestamo;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "cuotas";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // saldoPrestamo
+            // 
+            this.saldoPrestamo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.saldoPrestamo.ContextMenuStrip = this.menuPrestamo;
+            this.saldoPrestamo.DataPropertyName = "saldo";
+            resources.ApplyResources(this.saldoPrestamo, "saldoPrestamo");
+            this.saldoPrestamo.Name = "saldoPrestamo";
+            this.saldoPrestamo.ReadOnly = true;
+            // 
+            // Total1
+            // 
+            this.Total1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Total1.ContextMenuStrip = this.menuPrestamo;
+            this.Total1.DataPropertyName = "total";
+            resources.ApplyResources(this.Total1, "Total1");
+            this.Total1.Name = "Total1";
+            this.Total1.ReadOnly = true;
+            // 
+            // Recargo
+            // 
+            this.Recargo.ContextMenuStrip = this.menuPrestamo;
+            this.Recargo.DataPropertyName = "recargo";
+            resources.ApplyResources(this.Recargo, "Recargo");
+            this.Recargo.Name = "Recargo";
+            this.Recargo.ReadOnly = true;
+            // 
+            // DiaPago
+            // 
+            this.DiaPago.ContextMenuStrip = this.menuPrestamo;
+            this.DiaPago.DataPropertyName = "dia_pago";
+            resources.ApplyResources(this.DiaPago, "DiaPago");
+            this.DiaPago.Name = "DiaPago";
+            this.DiaPago.ReadOnly = true;
+            // 
+            // Eliminado
+            // 
+            this.Eliminado.ContextMenuStrip = this.menuPrestamo;
+            this.Eliminado.DataPropertyName = "eliminado";
+            resources.ApplyResources(this.Eliminado, "Eliminado");
+            this.Eliminado.Name = "Eliminado";
+            this.Eliminado.ReadOnly = true;
+            // 
             // frmAbonos
             // 
             resources.ApplyResources(this, "$this");
@@ -436,6 +482,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrestamos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.menuPrestamo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,7 +514,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn pago;
         private System.Windows.Forms.DataGridViewButtonColumn abonos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.ToolStripMenuItem btnImprimirPreliminar;
+        private System.Windows.Forms.ToolStripMenuItem btnImprimirCuotas;
+        private System.Windows.Forms.ContextMenuStrip menuPrestamo;
+        private System.Windows.Forms.ToolStripMenuItem btnCancelarPrestamo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn monto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
@@ -476,7 +527,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn saldoPrestamo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Recargo;
-        private System.Windows.Forms.ToolStripMenuItem btnImprimirPreliminar;
-        private System.Windows.Forms.ToolStripMenuItem btnImprimirCuotas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaPago;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminado;
     }
 }

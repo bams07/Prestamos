@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -17,12 +19,37 @@ namespace Prestamos.Vista.Ventanas
 
         string cliente;
         string nombre;
+        private double totalPrestamoMonto;
+        private double totalPrestamoGanancia;
+        private double totalPrestamoSaldos;
+        private double totalPrestamoRecargos;
 
         public frmPrestamos()
         {
             InitializeComponent();
         }
 
+        public NumberFormatInfo Moneda()
+        {
+            NumberFormatInfo moneda = new CultureInfo(ConfigurationManager.AppSettings["DefaultCulture"], false).NumberFormat;
+
+            return moneda;
+        }
+
+        public string getBusquedaCliente()
+        {
+            return txtCliente.Text;
+        }
+
+        public bool getMostrarRecargos()
+        {
+            return ckRecargos.Checked;
+        }
+
+        public bool getMostrarEliminados()
+        {
+            return ckBoxMostrarEliminados.Checked;
+        }
 
         public void CargarClientes()
         {
@@ -52,27 +79,45 @@ namespace Prestamos.Vista.Ventanas
 
         public void CargarPrestamos()
         {
-            PrestamosCL oPrestamos = new PrestamosCL();
-
             DataSet oDatos;
+            PrestamosCL oPrestamos = new PrestamosCL();
+            string busquedaCliente = getBusquedaCliente();
+            bool mostrarRecargos = getMostrarRecargos();
+            bool mostrarEliminados = getMostrarEliminados();
 
-            if (ckRecargos.Checked == true)
-            {
+            totalPrestamoMonto = 0000000;
+            totalPrestamoGanancia = 0000000;
+            totalPrestamoSaldos = 0000000;
+            totalPrestamoRecargos = 0000000;
 
-                oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, true);
-
-            }
-            else
-            {
-
-                oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, false);
-            }
-
-
-
+            oDatos = oPrestamos.TraerPrestamo(busquedaCliente, mostrarRecargos, mostrarEliminados);
 
             if (cliente != null)
             {
+                // NUEVA COLUMNA 
+                oDatos.Tables[0].Columns.Add("montoRecargo");
+
+                foreach (DataRow row in oDatos.Tables[0].Rows)
+                {
+                    // MONTO
+                    totalPrestamoMonto += Convert.ToDouble(row.ItemArray[2]);
+                    // MONTO * INTERES = GANANCIA
+                    totalPrestamoGanancia += Convert.ToDouble(row.ItemArray[2]) * (Convert.ToDouble(row.ItemArray[3]) / 100);
+                    // SALDO
+                    totalPrestamoSaldos += Convert.ToDouble(row.ItemArray[5]);
+                    // TOTAL - ((MONTO * INTERES) + MONTO) = RECARGOS
+                    totalPrestamoRecargos += Convert.ToDouble(row.ItemArray[6]) - ((Convert.ToDouble(row.ItemArray[2]) * (Convert.ToDouble(row.ItemArray[3]) / 100)) + Convert.ToDouble(row.ItemArray[2]));
+
+                    // MONTO DE RECARGOS
+                    row["montoRecargo"] = Convert.ToDouble(row.ItemArray[6]) - ((Convert.ToDouble(row.ItemArray[2]) * (Convert.ToDouble(row.ItemArray[3]) / 100)) + Convert.ToDouble(row.ItemArray[2]));
+
+                }
+
+                lblTotalPrestamoMonto.Text = totalPrestamoMonto.ToString("C", Moneda());
+                lblTotalPrestamoGanancia.Text = totalPrestamoGanancia.ToString("C", Moneda());
+                lblTotalSaldos.Text = totalPrestamoSaldos.ToString("C", Moneda());
+                lblTotalRecargos.Text = totalPrestamoRecargos.ToString("C", Moneda());
+
 
                 dtgPrestamos.DataSource = oDatos.Tables[0];
 
@@ -98,14 +143,10 @@ namespace Prestamos.Vista.Ventanas
 
                 MessageBox.Show("Debes elegir algun cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
             }
             else
             {
-
                 DialogResult dialogResult = new frmNuevoPrestamo(this, cliente, nombre).ShowDialog();
-
-
             }
 
         }
@@ -194,47 +235,64 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
-        // ELIMINA UN PRESTAMO DEL CLIENTE SIEMPRE Y CUANDO NO TENGA CUOTAS PAGADAS
+        // ELIMINA UN PRESTAMO DEL CLIENTE
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.dtgPrestamos.SelectedRows.Count > 0)
             {
+
                 PrestamosCL prestamosCL = new PrestamosCL();
-                Prestamos_CuotasCL prestamos_CuotasCL = new Prestamos_CuotasCL();
-
-                DataTable dataTable = prestamosCL.TraerPrestamoSaldo(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString()).Tables[0];
-
-                string totalPrestamo = this.dtgPrestamos.CurrentRow.Cells["Total"].Value.ToString();
-
-                if (totalPrestamo == dataTable.Rows[0].ItemArray.GetValue(0).ToString())
+                // Prestamo ID
+                int id = Convert.ToInt16(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString());
+                prestamosCL.EliminarPrestamo(id);
+                if (prestamosCL.IsError)
                 {
-                    prestamos_CuotasCL.EliminarPrestamo(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString());
-
-                    prestamosCL.EliminarPrestamo(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString());
-                    if (prestamosCL.IsError || prestamos_CuotasCL.IsError)
-                    {
-                        MessageBox.Show(prestamosCL.ErrorDescripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        MessageBox.Show(prestamos_CuotasCL.ErrorDescripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Prestamo eliminado con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.CargarPrestamos();
-                    }
+                    MessageBox.Show(prestamosCL.ErrorDescripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
-                    MessageBox.Show("Este prestamo no se puede eliminar ya que presenta cuotas pagadas o algun registro previo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Prestamo eliminado con éxito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.CargarPrestamos();
                 }
+
             }
             else
             {
-                MessageBox.Show("Debes seleccionar algun prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Debes seleccionar algún prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
+        // MUESTRA LOS PRESTAMOS ELIMINADOS
+        private void ckBoxMostrarEliminados_CheckStateChanged(object sender, EventArgs e)
+        {
+            CargarPrestamos();
+        }
 
+        private void restaurarPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dtgPrestamos.SelectedRows.Count > 0)
+            {
 
+                PrestamosCL prestamosCL = new PrestamosCL();
+                // Prestamo ID
+                int id = Convert.ToInt16(this.dtgPrestamos.CurrentRow.Cells["ID"].Value.ToString());
+                prestamosCL.RestaurarPrestamoEliminado(id);
+                if (prestamosCL.IsError)
+                {
+                    MessageBox.Show(prestamosCL.ErrorDescripcion, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    MessageBox.Show("Prestamo restaurado con éxito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.CargarPrestamos();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar algún prestamo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
 
     }
 }

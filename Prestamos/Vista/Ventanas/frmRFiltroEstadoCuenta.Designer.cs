@@ -51,6 +51,7 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Recargo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DiaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrestamos)).BeginInit();
             this.MenuPrestamos.SuspendLayout();
@@ -142,7 +143,8 @@
             this.saldoPrestamo,
             this.Total,
             this.Recargo,
-            this.DiaPago});
+            this.DiaPago,
+            this.Eliminado});
             this.dtgPrestamos.ContextMenuStrip = this.MenuPrestamos;
             this.dtgPrestamos.Enabled = false;
             this.dtgPrestamos.EnableHeadersVisualStyles = false;
@@ -289,6 +291,14 @@
             this.DiaPago.ReadOnly = true;
             this.DiaPago.Visible = false;
             // 
+            // Eliminado
+            // 
+            this.Eliminado.DataPropertyName = "eliminado";
+            this.Eliminado.HeaderText = "Eliminado";
+            this.Eliminado.Name = "Eliminado";
+            this.Eliminado.ReadOnly = true;
+            this.Eliminado.Visible = false;
+            // 
             // frmRFiltroEstadoCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,5 +350,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Recargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaPago;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminado;
     }
 }

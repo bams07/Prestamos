@@ -68,22 +68,34 @@ namespace Prestamos.Vista.Ventanas
 
         public void CargarPrestamos()
         {
-            PrestamosCL oPrestamos = new PrestamosCL();
+            var oPrestamos = new PrestamosCL();
 
-            DataSet oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, true);
+            var oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, true, false);
 
             if (cliente != null)
             {
 
                 dtgPrestamos.DataSource = oDatos.Tables[0];
 
-                if (oDatos.Tables[0].Rows.Count == 0)
+                foreach (DataGridViewRow row in dtgPrestamos.Rows)
                 {
-                    MessageBox.Show("Este cliente no presenta prestamos", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarPrestamosCuotas("0");
+                    if (Convert.ToInt32(row.Cells["saldoPrestamo"].Value.ToString()) == 0)
+                    {
+                        // ESTABLECE COLOR VERDE SI LA COLUMNA SALDO ES 0
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        // ESTABLECE COLOR SALMON SI AUN HAY PAGOS PENDIENTES
+                        row.DefaultCellStyle.BackColor = Color.Salmon;
+                    }
                 }
 
-
+                if (oDatos.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("Este cliente no presenta prestamos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarPrestamosCuotas("0");
+                }
             }
 
         }
@@ -231,7 +243,42 @@ namespace Prestamos.Vista.Ventanas
 
         }
 
+        public void CancelarPrestamo(int prestamoId)
+        {
+            PrestamosCL oPrestamos = new PrestamosCL();
+            Prestamos_CuotasCL oPrestamosCuotasCl = new Prestamos_CuotasCL(); ;
+
+            oPrestamos.CancelarPrestamo(prestamoId);
+
+            if (oPrestamos.IsError)
+            {
+                MessageBox.Show(string.Format("Error al cancelar el préstamo {0}", prestamoId), "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            else
+            {
+                oPrestamosCuotasCl.CancelarCuotasPrestamo(prestamoId);
+
+                if (oPrestamosCuotasCl.IsError)
+                {
+                    MessageBox.Show(string.Format("Error al cancelar el préstamo {0}", prestamoId), "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Préstamo cancelado con éxito {0}", prestamoId), "Información", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+
+            CargarPrestamos();
+
+        }
+
         #endregion
+
+        #region EVENTOS
 
         private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -255,7 +302,6 @@ namespace Prestamos.Vista.Ventanas
             CargarPrestamosCuotas(dtgPrestamos[0, dtgPrestamos.CurrentCell.RowIndex].Value.ToString());
         }
 
-
         private void btnNuevoAbono_Click(object sender, EventArgs e)
         {
             if (dtgCuotas.CurrentCell.RowIndex == 0)
@@ -264,7 +310,7 @@ namespace Prestamos.Vista.Ventanas
                 if (Convert.ToBoolean(dtgCuotas["pago", dtgCuotas.CurrentCell.RowIndex].Value.ToString()))
                 {
 
-                    MessageBox.Show("Esta cuota ya ha sido pagada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Esta cuota ya ha sido pagada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -280,7 +326,7 @@ namespace Prestamos.Vista.Ventanas
                 if (Convert.ToBoolean(dtgCuotas["pago", dtgCuotas.CurrentCell.RowIndex - 1].Value.ToString()) == false)
                 {
 
-                    MessageBox.Show("Hay cuotas anteriores pendientes", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Hay cuotas anteriores pendientes", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
 
@@ -288,7 +334,7 @@ namespace Prestamos.Vista.Ventanas
                 {   //COMPRUEBA SI LA FILA ACTUAL HA SIDO PAGADA
                     if (Convert.ToBoolean(dtgCuotas["pago", dtgCuotas.CurrentCell.RowIndex].Value.ToString()))
                     {
-                        MessageBox.Show("Esta cuota ya ha sido pagada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Esta cuota ya ha sido pagada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     { //AGREGA UN NUEVO ABONO LLAMANDO AL METODO
@@ -310,61 +356,66 @@ namespace Prestamos.Vista.Ventanas
                 {
                     // INSTANCIAS
                     Prestamos_CuotasCL oCuotas = new Prestamos_CuotasCL();
-
                     Abonos_CuotasCL oAbonos = new Abonos_CuotasCL();
-
                     PrestamosCL oPrestamos = new PrestamosCL();
 
+                    StringBuilder errores = new StringBuilder();
+                    int idPrestamo = Convert.ToInt32(dtgPrestamos["idPrestamo", dtgPrestamos.CurrentCell.RowIndex].Value.ToString());
+                    double saldo = Convert.ToInt32(dtgPrestamos["saldoPrestamo", dtgPrestamos.CurrentCell.RowIndex].Value.ToString());
 
-                    // EDITAMOS PRESTAMO CUOTAS
-                    oCuotas.EditarPrestamoCuotas(
-                        Convert.ToInt32(dtgCuotas["id", dtgCuotas.CurrentCell.RowIndex].Value.ToString()),
-                       Convert.ToDateTime(null),
-                        false,
-                        "eliminar"
-                        );
+                    foreach (DataGridViewRow dtg in dtgCuotas.SelectedRows)
+                    {
+                        // ELIMINA SOLO LOS ABONOS QUE HAN SIDO PAGADOS
+                        if (Convert.ToBoolean(dtg.Cells["pago"].Value) == true)
+                        {
+                            // EDITAMOS PRESTAMO CUOTAS
+                            oCuotas.EditarPrestamoCuotas(
+                                Convert.ToInt32(dtg.Cells["id"].Value.ToString()),
+                               Convert.ToDateTime(null),
+                                false,
+                                "eliminar"
+                                );
 
-                    // ELIMINA LOS ABONOS DE LA CUOTA
-                    oAbonos.EliminarAbono_Cuotas_Id_Cuota(dtgCuotas["id", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
+                            // ELIMINA LOS ABONOS DE LA CUOTA
+                            oAbonos.EliminarAbono_Cuotas_Id_Cuota(dtg.Cells["id"].Value.ToString());
 
-                    // CALCULA EL NUEVO SALDO
-                    double saldo =
-                        Convert.ToInt32(dtgPrestamos["saldoPrestamo", dtgPrestamos.CurrentCell.RowIndex].Value.ToString()) +
-                        Convert.ToInt32(dtgCuotas["monto_cuota", dtgCuotas.CurrentCell.RowIndex].Value.ToString());
+                            // CALCULA EL NUEVO SALDO
+                            saldo += Convert.ToInt32(dtg.Cells["monto_cuota"].Value.ToString());
+
+                            // SI ENCUENTRA ERRORES
+                            if (oCuotas.IsError)
+                            {
+                                errores.AppendLine(oCuotas.ErrorDescripcion);
+                            }
+                        }
+
+                    }
+
 
                     // EDITA EL PRESTAMO
-                    oPrestamos.EditarPrestamo(
-                   Convert.ToInt32(dtgCuotas["id_prestamos", dtgCuotas.CurrentCell.RowIndex].Value.ToString()),
-                   saldo);
+                    oPrestamos.EditarPrestamo(idPrestamo, saldo);
 
-                    // IMPRIME ERROR SI LO HAY
-                    if (oCuotas.IsError)
+                    // GUARDA LA POSICION DEL PRESTAMO EN EL DATAGRID
+                    int prestamoSelecion = dtgPrestamos.CurrentCell.RowIndex;
+
+                    // LLAMA AL METODO CARGAR PRESTAMO
+                    CargarPrestamos();
+
+                    //ESTABLECE LA SELECION DEL PRESTAMO EN EL DATAGRID
+                    dtgPrestamos.CurrentCell = dtgPrestamos.Rows[prestamoSelecion].Cells[0];
+
+                    if (errores.Length == 0)
                     {
-                        MessageBox.Show(oCuotas.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Abono eliminado con exito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
-                    else
-                    {
 
-                        // GUARDA LA POSICION DEL PRESTAMO EN EL DATAGRID
-                        int prestamoSelecion = dtgPrestamos.CurrentCell.RowIndex;
-
-                        // LLAMA AL METODO CARGAR PRESTAMO
-                        CargarPrestamos();
-
-                        //ESTABLECE LA SELECION DEL PRESTAMO EN EL DATAGRID
-                        dtgPrestamos.CurrentCell = dtgPrestamos.Rows[prestamoSelecion].Cells[0];
-
-                        MessageBox.Show("Abono eliminado con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                 }
-
-
             }
             else
             {
                 // EN CASO DE QUE LA CUOTA NO TUVIERA PAGOS REGISTRADOS 
-                MessageBox.Show("Esta cuota no tiene registros de pagos que eliminar", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Esta cuota no tiene registros de pagos que eliminar", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
 
@@ -375,7 +426,7 @@ namespace Prestamos.Vista.Ventanas
         {
             if (!Convert.ToBoolean(this.dtgCuotas["pago", this.dtgCuotas.CurrentCell.RowIndex].Value.ToString()))
             {
-                MessageBox.Show("Esta cuota no tiene registros de pagos que imprimir", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Esta cuota no tiene registros de pagos que imprimir", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -429,7 +480,6 @@ namespace Prestamos.Vista.Ventanas
                 20, 10);
 
         }
-
 
         private void dtgCuotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -487,7 +537,6 @@ namespace Prestamos.Vista.Ventanas
             }
         }
 
-
         private void menuCuotas_Opening(object sender, CancelEventArgs e)
         {
             // SI HAY MAS DE UNA CUOTA SELECCIONADA ESCONDE LOS DEMAS MENUS Y DEJA VISIBLE EL DE IMPRIMIR MULTIPLES CUOTAS
@@ -497,7 +546,7 @@ namespace Prestamos.Vista.Ventanas
                 item.Items["btnNuevoAbono"].Visible = false;
                 item.Items["btnReimprimir"].Visible = false;
                 item.Items["btnImprimirPreliminar"].Visible = false;
-                item.Items["btnEliminarAbono"].Visible = false;
+                item.Items["btnEliminarAbono"].Visible = true;
                 item.Items["btnImprimirCuotas"].Visible = true;
 
             }
@@ -518,10 +567,43 @@ namespace Prestamos.Vista.Ventanas
             ImprimirCuotas();
         }
 
+        private void btnCancelarPrestamo_Click(object sender, EventArgs e)
+        {
+            if (dtgPrestamos.SelectedRows.Count == 1)
+            {
+                var prestamoId = Convert.ToInt32(dtgPrestamos.SelectedRows[0].Cells["idPrestamo"].Value.ToString());
 
+                if (prestamoId > 0)
+                {
+                    CancelarPrestamo(prestamoId);
+                }
+            }
+        }
 
+        #endregion
 
+        private void menuPrestamo_Opening(object sender, CancelEventArgs e)
+        {
+            ContextMenuStrip item = sender as ContextMenuStrip;
 
+            if (dtgPrestamos.SelectedRows.Count == 0)
+            {
+                if (item != null) item.Items["btnCancelarPrestamo"].Enabled = false;
+            }
+            else
+            {
+                var prestamoSaldo = Convert.ToInt32(dtgPrestamos.SelectedRows[0].Cells["saldoPrestamo"].Value.ToString());
+
+                if (prestamoSaldo == 0)
+                {
+                    if (item != null) item.Items["btnCancelarPrestamo"].Enabled = false;
+                }
+                else
+                {
+                    if (item != null) item.Items["btnCancelarPrestamo"].Enabled = true;
+                }
+            }
+        }
 
     }
 }

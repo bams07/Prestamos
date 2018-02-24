@@ -66,6 +66,27 @@ namespace Prestamos.Logica
 				this.ErrorDescripcion = prestamos_CuotasSQL.ErrorDescripcion;
 			}
 		}
+        public void EliminarCuota(string id)
+        {
+            IPrestamos_CuotasSQL prestamos_CuotasSQL = this.ObtenerInstancia();
+            prestamos_CuotasSQL.EliminarCuota(id);
+            if (prestamos_CuotasSQL.IsError)
+            {
+                this.IsError = prestamos_CuotasSQL.IsError;
+                this.ErrorDescripcion = prestamos_CuotasSQL.ErrorDescripcion;
+            }
+        }
+        public void CancelarCuotasPrestamo(int id)
+	    {
+	        IPrestamos_CuotasSQL prestamos_CuotasSQL = this.ObtenerInstancia();
+	        prestamos_CuotasSQL.CancelarCuotasPrestamo(id);
+	        if (prestamos_CuotasSQL.IsError)
+	        {
+	            this.IsError = prestamos_CuotasSQL.IsError;
+	            this.ErrorDescripcion = prestamos_CuotasSQL.ErrorDescripcion;
+	        }
+	    }
+
 		public void EliminarPrestamo(string filtro)
 		{
 			IPrestamos_CuotasSQL prestamos_CuotasSQL = this.ObtenerInstancia();

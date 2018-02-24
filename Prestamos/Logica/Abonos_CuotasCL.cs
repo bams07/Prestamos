@@ -42,8 +42,6 @@ namespace Prestamos.Logica
             }
         }
 
-
-
         public void EliminarAbono_Cuotas_Id(string id)
         {
             IAbonos_CuotasSQL Abonos_CuotasSQL = this.ObtenerInstancia();

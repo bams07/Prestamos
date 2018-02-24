@@ -161,6 +161,7 @@ namespace Prestamos.Logica.Postgres
                     NpgsqlValue = filtro
                 });
             }
+            stringBuilder.AppendLine(" order by nombre");
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString(), list);
         }
 

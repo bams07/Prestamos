@@ -199,27 +199,6 @@ namespace Prestamos.Logica
 
             #endregion
 
-            #region CALCULA LA FECHA PARA DIAS EXCLUYE EL DOMINGO
-
-            if (tipo == 6)
-            {
-                if (fecha.DayOfWeek.ToString() == "Saturday")
-                {
-                    return fecha.AddDays(2);
-
-                }
-                else
-                {
-
-                    return fecha.AddDays(1);
-
-                }
-
-
-            }
-
-            #endregion
-
             #region CALCULA LA FECHA PARA LA SEMANAS
 
             if (tipo == 1)
@@ -243,10 +222,7 @@ namespace Prestamos.Logica
 
             if (tipo == 3)
             {
-
                 // CALCULA LA FECHA PARA ESTOS MESESS
-
-
                 //MESES CON DIAS 31
                 if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
                 {
@@ -394,6 +370,27 @@ namespace Prestamos.Logica
                 }
 
                 return fechaInicial.AddMonths(contadorMeses);
+            }
+
+            #endregion
+
+            #region CALCULA LA FECHA PARA DIAS EXCLUYE EL DOMINGO
+
+            if (tipo == 6)
+            {
+                if (fecha.DayOfWeek.ToString() == "Saturday")
+                {
+                    return fecha.AddDays(2);
+
+                }
+                else
+                {
+
+                    return fecha.AddDays(1);
+
+                }
+
+
             }
 
             #endregion

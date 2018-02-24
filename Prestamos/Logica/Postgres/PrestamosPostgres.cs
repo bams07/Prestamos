@@ -183,17 +183,23 @@ namespace Prestamos.Logica.Postgres
                 this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
             }
         }
-        public void EliminarPrestamo(string filtro)
+        public void EliminarPrestamo(int id)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("delete from prestamos where id=@id");
+            stringBuilder.AppendLine("update prestamos set eliminado=@eliminado where id=@id");
             List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
 			{
 				new NpgsqlParameter
 				{
 					ParameterName = "id",
 					NpgsqlDbType = NpgsqlDbType.Integer,
-					NpgsqlValue = filtro
+					NpgsqlValue = id
+				},
+                new NpgsqlParameter
+				{
+					ParameterName = "eliminado",
+					NpgsqlDbType = NpgsqlDbType.Boolean,
+					NpgsqlValue = true
 				}
 			};
             AccesoDatos.Instance.accesoDatos.EjecutarSQL(stringBuilder.ToString(), parametros);
@@ -203,11 +209,58 @@ namespace Prestamos.Logica.Postgres
                 this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
             }
         }
-        public DataSet TraerPrestamo(string cliente, bool recargo)
+        public void RestaurarPrestamoEliminado(int id)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("Select * from prestamos");
-            stringBuilder.AppendLine("where cliente=@cliente and (recargo=false or recargo=@recargo) order by id asc");
+            stringBuilder.AppendLine("update prestamos set eliminado=@eliminado where id=@id");
+            List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
+			{
+				new NpgsqlParameter
+				{
+					ParameterName = "id",
+					NpgsqlDbType = NpgsqlDbType.Integer,
+					NpgsqlValue = id
+				},
+                new NpgsqlParameter
+				{
+					ParameterName = "eliminado",
+					NpgsqlDbType = NpgsqlDbType.Boolean,
+					NpgsqlValue = false
+				}
+			};
+            AccesoDatos.Instance.accesoDatos.EjecutarSQL(stringBuilder.ToString(), parametros);
+            if (AccesoDatos.Instance.accesoDatos.IsError)
+            {
+                this.IsError = AccesoDatos.Instance.accesoDatos.IsError;
+                this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
+            }
+        }
+        public void CancelarPrestamo(int id)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("update prestamos set saldo=0 where id=@id");
+            List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
+            {
+                new NpgsqlParameter
+                {
+                    ParameterName = "id",
+                    NpgsqlDbType = NpgsqlDbType.Integer,
+                    NpgsqlValue = id
+                }
+            };
+            AccesoDatos.Instance.accesoDatos.EjecutarSQL(stringBuilder.ToString(), parametros);
+            if (AccesoDatos.Instance.accesoDatos.IsError)
+            {
+                this.IsError = AccesoDatos.Instance.accesoDatos.IsError;
+                this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
+            }
+        }
+        public DataSet TraerPrestamo(string cliente, bool recargo = true, bool eliminado = true)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("Select * from prestamos ");
+            stringBuilder.AppendLine("where cliente=@cliente and ");
+            stringBuilder.AppendLine("((recargo=false or recargo=@recargo) and (eliminado=false or eliminado IS NULL or eliminado=@eliminado)) order by id asc");
             List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
 			{
 				new NpgsqlParameter
@@ -221,6 +274,12 @@ namespace Prestamos.Logica.Postgres
 					ParameterName = "recargo",
 					NpgsqlDbType = NpgsqlDbType.Boolean,
 					NpgsqlValue = recargo
+				},
+                new NpgsqlParameter
+				{
+					ParameterName = "eliminado",
+					NpgsqlDbType = NpgsqlDbType.Boolean,
+					NpgsqlValue = eliminado
 				}
 			};
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString(), parametros);
@@ -291,7 +350,8 @@ namespace Prestamos.Logica.Postgres
             stringBuilder.AppendLine("SELECT clientes.cedula,  clientes.nombre, prestamos.id, prestamos.fecha, prestamos.monto,  prestamos.interes,  prestamos.cuotas,  prestamos.saldo,  prestamos.total from clientes,prestamos ");
             List<NpgsqlParameter> list = new List<NpgsqlParameter>();
 
-            stringBuilder.AppendLine("WHERE clientes.cedula = prestamos.cliente AND prestamos.saldo > 0 ");
+            stringBuilder.AppendLine("WHERE clientes.cedula = prestamos.cliente AND prestamos.saldo > 0 AND (eliminado=false or eliminado IS NULL) ");
+            stringBuilder.AppendLine("order by id asc");
 
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString(), list);
         }
@@ -319,7 +379,7 @@ namespace Prestamos.Logica.Postgres
         public DataSet TraerPrestamoSaldoTotal()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("SELECT SUM(saldo) FROM prestamos");
+            stringBuilder.AppendLine("SELECT SUM(saldo) FROM prestamos where eliminado=false or eliminado IS NULL");
 
             return AccesoDatos.Instance.accesoDatos.EjecutarConsultaSQL(stringBuilder.ToString());
         }

@@ -19,6 +19,8 @@ namespace Prestamos.Logica
 		void EditarPrestamoCuotas_RecargoPrestamo(int id, double monto, double saldo);
 		void EditarPrestamoCuotas_FechaPactada(int id, DateTime fecha_pactada);
 		void EliminarPrestamo(string filtro);
+        void EliminarCuota(string id);
+	    void CancelarCuotasPrestamo(int prestamoId);
 		DataSet TraerPrestamoCuotas(string filtro);
 		DataSet TraerPrestamoCuotas_Pago(string filtro);
 		DataSet TraerPrestamoCuotas_NoPago(string filtro);
@@ -26,5 +28,5 @@ namespace Prestamos.Logica
 		DataSet TraerPrestamoCuotas_FechaPago(string fecha_desde, string fecha_hasta);
 		DataSet TraerPrestamoCuotas_Cliente_Prestamo(string cedula, string prestamo);
 		DataSet TraerSecuencia();
-	}
+    }
 }

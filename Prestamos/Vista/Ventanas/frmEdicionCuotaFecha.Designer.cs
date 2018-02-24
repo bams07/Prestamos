@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEdicionCuotaFecha));
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblNumeroPrestamo = new System.Windows.Forms.Label();
@@ -46,7 +46,13 @@
             this.FechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgCuotasPrevias = new System.Windows.Forms.DataGridView();
+            this.NumeroCuotaPrevio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaPagoPrevio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoPrevio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaldoPrevio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtCuotas = new System.Windows.Forms.MaskedTextBox();
+            this.lblCuotas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbDiaPago = new System.Windows.Forms.ComboBox();
             this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
@@ -54,14 +60,9 @@
             this.btnGenerarPrevisualzacion = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_pactada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_prestamo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblSaldoPrestamo = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCuotas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,41 +75,48 @@
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCliente.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblCliente.Location = new System.Drawing.Point(298, 40);
+            this.lblCliente.Location = new System.Drawing.Point(321, 28);
+            this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(170, 21);
+            this.lblCliente.Size = new System.Drawing.Size(241, 32);
             this.lblCliente.TabIndex = 35;
-            this.lblCliente.Text = "Luis Miranda Bejarano";
+            this.lblCliente.Text = "Cliente del prestamo";
             // 
             // lblNumeroPrestamo
             // 
             this.lblNumeroPrestamo.AutoSize = true;
             this.lblNumeroPrestamo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroPrestamo.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblNumeroPrestamo.Location = new System.Drawing.Point(166, 40);
+            this.lblNumeroPrestamo.Location = new System.Drawing.Point(292, 86);
+            this.lblNumeroPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumeroPrestamo.Name = "lblNumeroPrestamo";
-            this.lblNumeroPrestamo.Size = new System.Drawing.Size(82, 21);
+            this.lblNumeroPrestamo.Size = new System.Drawing.Size(119, 32);
             this.lblNumeroPrestamo.TabIndex = 34;
             this.lblNumeroPrestamo.Text = "00000000";
+            this.lblNumeroPrestamo.Click += new System.EventHandler(this.lblNumeroPrestamo_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label3.Location = new System.Drawing.Point(62, 40);
+            this.label3.Location = new System.Drawing.Point(126, 86);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 21);
+            this.label3.Size = new System.Drawing.Size(158, 32);
             this.label3.TabIndex = 33;
             this.label3.Text = "N° prestamo:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtgCuotas);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(35, 183);
+            this.groupBox2.Location = new System.Drawing.Point(46, 312);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(534, 144);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(801, 221);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cuotas";
@@ -120,14 +128,14 @@
             this.dtgCuotas.AllowUserToResizeRows = false;
             this.dtgCuotas.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dtgCuotas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCuotas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCuotas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroCuota,
@@ -139,7 +147,8 @@
             this.pago,
             this.FechaPago});
             this.dtgCuotas.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dtgCuotas.Location = new System.Drawing.Point(6, 24);
+            this.dtgCuotas.Location = new System.Drawing.Point(9, 38);
+            this.dtgCuotas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgCuotas.MultiSelect = false;
             this.dtgCuotas.Name = "dtgCuotas";
             this.dtgCuotas.ReadOnly = true;
@@ -149,7 +158,7 @@
             this.dtgCuotas.ShowCellToolTips = false;
             this.dtgCuotas.ShowEditingIcon = false;
             this.dtgCuotas.ShowRowErrors = false;
-            this.dtgCuotas.Size = new System.Drawing.Size(522, 107);
+            this.dtgCuotas.Size = new System.Drawing.Size(783, 165);
             this.dtgCuotas.TabIndex = 0;
             this.dtgCuotas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCuotas_CellClick);
             // 
@@ -230,9 +239,11 @@
             // 
             this.groupBox1.Controls.Add(this.dtgCuotasPrevias);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 391);
+            this.groupBox1.Location = new System.Drawing.Point(46, 632);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 144);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(801, 221);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Previsualización cuotas";
@@ -244,26 +255,23 @@
             this.dtgCuotasPrevias.AllowUserToResizeRows = false;
             this.dtgCuotasPrevias.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dtgCuotasPrevias.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCuotasPrevias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCuotasPrevias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgCuotasPrevias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCuotasPrevias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.fecha_pactada,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.id,
-            this.id_prestamo2,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
+            this.NumeroCuotaPrevio,
+            this.FechaPagoPrevio,
+            this.MontoPrevio,
+            this.SaldoPrevio});
             this.dtgCuotasPrevias.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dtgCuotasPrevias.Location = new System.Drawing.Point(6, 24);
+            this.dtgCuotasPrevias.Location = new System.Drawing.Point(9, 38);
+            this.dtgCuotasPrevias.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgCuotasPrevias.MultiSelect = false;
             this.dtgCuotasPrevias.Name = "dtgCuotasPrevias";
             this.dtgCuotasPrevias.ReadOnly = true;
@@ -273,31 +281,100 @@
             this.dtgCuotasPrevias.ShowCellToolTips = false;
             this.dtgCuotasPrevias.ShowEditingIcon = false;
             this.dtgCuotasPrevias.ShowRowErrors = false;
-            this.dtgCuotasPrevias.Size = new System.Drawing.Size(522, 107);
+            this.dtgCuotasPrevias.Size = new System.Drawing.Size(783, 165);
             this.dtgCuotasPrevias.TabIndex = 1;
             this.dtgCuotasPrevias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCuotasPrevias_CellClick);
             // 
+            // NumeroCuotaPrevio
+            // 
+            this.NumeroCuotaPrevio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NumeroCuotaPrevio.DataPropertyName = "Numero couta";
+            this.NumeroCuotaPrevio.HeaderText = "Numero cuota";
+            this.NumeroCuotaPrevio.Name = "NumeroCuotaPrevio";
+            this.NumeroCuotaPrevio.ReadOnly = true;
+            this.NumeroCuotaPrevio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.NumeroCuotaPrevio.Width = 125;
+            // 
+            // FechaPagoPrevio
+            // 
+            this.FechaPagoPrevio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FechaPagoPrevio.DataPropertyName = "Fecha de pago";
+            this.FechaPagoPrevio.HeaderText = "Fecha pago";
+            this.FechaPagoPrevio.Name = "FechaPagoPrevio";
+            this.FechaPagoPrevio.ReadOnly = true;
+            this.FechaPagoPrevio.Width = 125;
+            // 
+            // MontoPrevio
+            // 
+            this.MontoPrevio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MontoPrevio.DataPropertyName = "Monto";
+            this.MontoPrevio.HeaderText = "Monto";
+            this.MontoPrevio.Name = "MontoPrevio";
+            this.MontoPrevio.ReadOnly = true;
+            this.MontoPrevio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // SaldoPrevio
+            // 
+            this.SaldoPrevio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SaldoPrevio.DataPropertyName = "Saldo";
+            this.SaldoPrevio.HeaderText = "Saldo";
+            this.SaldoPrevio.Name = "SaldoPrevio";
+            this.SaldoPrevio.ReadOnly = true;
+            this.SaldoPrevio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.SaldoPrevio.Width = 110;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtCuotas);
+            this.groupBox3.Controls.Add(this.lblCuotas);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.cmbDiaPago);
             this.groupBox3.Controls.Add(this.dtFechaInicial);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(35, 82);
+            this.groupBox3.Location = new System.Drawing.Point(46, 126);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(534, 77);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(801, 176);
             this.groupBox3.TabIndex = 38;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pagos";
+            // 
+            // txtCuotas
+            // 
+            this.txtCuotas.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCuotas.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCuotas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuotas.HidePromptOnLeave = true;
+            this.txtCuotas.Location = new System.Drawing.Point(152, 115);
+            this.txtCuotas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCuotas.Mask = "₡000000000";
+            this.txtCuotas.Name = "txtCuotas";
+            this.txtCuotas.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCuotas.Size = new System.Drawing.Size(162, 33);
+            this.txtCuotas.TabIndex = 30;
+            this.txtCuotas.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // lblCuotas
+            // 
+            this.lblCuotas.AutoSize = true;
+            this.lblCuotas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCuotas.Location = new System.Drawing.Point(22, 115);
+            this.lblCuotas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCuotas.Name = "lblCuotas";
+            this.lblCuotas.Size = new System.Drawing.Size(130, 28);
+            this.lblCuotas.TabIndex = 31;
+            this.lblCuotas.Text = "Monto cuota:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(303, 32);
+            this.label2.Location = new System.Drawing.Point(468, 49);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.Size = new System.Drawing.Size(123, 28);
             this.label2.TabIndex = 29;
             this.label2.Text = "Dia de pago:";
             // 
@@ -308,12 +385,16 @@
             this.cmbDiaPago.FormattingEnabled = true;
             this.cmbDiaPago.Items.AddRange(new object[] {
             "Diario",
+            "Diario N/Domingos",
             "Semanal",
+            "Bisemanal",
             "Quincenal",
+            "Quincena especial",
             "Mensual"});
-            this.cmbDiaPago.Location = new System.Drawing.Point(393, 29);
+            this.cmbDiaPago.Location = new System.Drawing.Point(597, 49);
+            this.cmbDiaPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbDiaPago.Name = "cmbDiaPago";
-            this.cmbDiaPago.Size = new System.Drawing.Size(121, 25);
+            this.cmbDiaPago.Size = new System.Drawing.Size(180, 36);
             this.cmbDiaPago.TabIndex = 12;
             this.cmbDiaPago.Text = "Diario";
             // 
@@ -321,27 +402,30 @@
             // 
             this.dtFechaInicial.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaInicial.Location = new System.Drawing.Point(97, 29);
+            this.dtFechaInicial.Location = new System.Drawing.Point(152, 49);
+            this.dtFechaInicial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtFechaInicial.Name = "dtFechaInicial";
-            this.dtFechaInicial.Size = new System.Drawing.Size(200, 25);
+            this.dtFechaInicial.Size = new System.Drawing.Size(298, 33);
             this.dtFechaInicial.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 32);
+            this.label1.Location = new System.Drawing.Point(22, 49);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(121, 28);
             this.label1.TabIndex = 27;
             this.label1.Text = "Fecha Inicial:";
             // 
             // btnGenerarPrevisualzacion
             // 
             this.btnGenerarPrevisualzacion.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarPrevisualzacion.Location = new System.Drawing.Point(187, 346);
+            this.btnGenerarPrevisualzacion.Location = new System.Drawing.Point(273, 564);
+            this.btnGenerarPrevisualzacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGenerarPrevisualzacion.Name = "btnGenerarPrevisualzacion";
-            this.btnGenerarPrevisualzacion.Size = new System.Drawing.Size(217, 30);
+            this.btnGenerarPrevisualzacion.Size = new System.Drawing.Size(325, 46);
             this.btnGenerarPrevisualzacion.TabIndex = 39;
             this.btnGenerarPrevisualzacion.Text = "Generar previsualización";
             this.btnGenerarPrevisualzacion.UseVisualStyleBackColor = true;
@@ -353,10 +437,10 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(302, 560);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 3, 3, 13);
+            this.btnCancelar.Location = new System.Drawing.Point(447, 892);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 20);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(116, 56);
+            this.btnCancelar.Size = new System.Drawing.Size(174, 86);
             this.btnCancelar.TabIndex = 41;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -368,98 +452,67 @@
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(170, 560);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 3, 3, 13);
+            this.btnGuardar.Location = new System.Drawing.Point(249, 892);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 20);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(116, 56);
+            this.btnGuardar.Size = new System.Drawing.Size(174, 86);
             this.btnGuardar.TabIndex = 40;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // lblSaldoPrestamo
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "num_cuota";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numero cuota";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 125;
+            this.lblSaldoPrestamo.AutoSize = true;
+            this.lblSaldoPrestamo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldoPrestamo.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblSaldoPrestamo.Location = new System.Drawing.Point(651, 86);
+            this.lblSaldoPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSaldoPrestamo.Name = "lblSaldoPrestamo";
+            this.lblSaldoPrestamo.Size = new System.Drawing.Size(119, 32);
+            this.lblSaldoPrestamo.TabIndex = 43;
+            this.lblSaldoPrestamo.Text = "00000000";
+            this.lblSaldoPrestamo.Click += new System.EventHandler(this.label4_Click);
             // 
-            // fecha_pactada
+            // label5
             // 
-            this.fecha_pactada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.fecha_pactada.DataPropertyName = "fecha_pactada";
-            this.fecha_pactada.HeaderText = "Fecha pactada";
-            this.fecha_pactada.Name = "fecha_pactada";
-            this.fecha_pactada.ReadOnly = true;
-            this.fecha_pactada.Width = 125;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label5.Location = new System.Drawing.Point(452, 86);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(191, 32);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Saldo prestamo:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // dataGridViewTextBoxColumn3
+            // label4
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "monto";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Monto";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "saldo";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Saldo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn4.Width = 110;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // id_prestamo2
-            // 
-            this.id_prestamo2.DataPropertyName = "id_prestamos";
-            this.id_prestamo2.HeaderText = "ID prestamo";
-            this.id_prestamo2.Name = "id_prestamo2";
-            this.id_prestamo2.ReadOnly = true;
-            this.id_prestamo2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "pago";
-            this.dataGridViewTextBoxColumn7.HeaderText = "pago";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "fecha_pago";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Fecha de pago";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            this.dataGridViewTextBoxColumn8.Width = 135;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label4.Location = new System.Drawing.Point(419, 86);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 32);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "-";
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // frmEdicionCuotaFecha
             // 
             this.AcceptButton = this.btnGuardar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(595, 647);
+            this.ClientSize = new System.Drawing.Size(892, 995);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblSaldoPrestamo);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnGenerarPrevisualzacion);
@@ -470,6 +523,7 @@
             this.Controls.Add(this.lblNumeroPrestamo);
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEdicionCuotaFecha";
@@ -512,13 +566,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pago;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaPago;
         private System.Windows.Forms.DataGridView dtgCuotasPrevias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_pactada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_prestamo2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.MaskedTextBox txtCuotas;
+        private System.Windows.Forms.Label lblCuotas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroCuotaPrevio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPagoPrevio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MontoPrevio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaldoPrevio;
+        private System.Windows.Forms.Label lblSaldoPrestamo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

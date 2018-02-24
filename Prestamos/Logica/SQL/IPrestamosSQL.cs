@@ -18,8 +18,10 @@ namespace Prestamos.Logica
 		void EditarPrestamo(int id, double saldo);
 		void EditarPrestamo_Recargo(int id, double saldo, double totlaPrestamo, bool recargo);
 		void EditarPrestamo_DiaPago(int id, int dia_pago);
-		void EliminarPrestamo(string filtro);
-		DataSet TraerPrestamo(string cliente, bool recargo);
+		void EliminarPrestamo(int id);
+        void RestaurarPrestamoEliminado(int id);
+	    void CancelarPrestamo(int id);
+		DataSet TraerPrestamo(string cliente, bool recargo, bool eliminados);
 		DataSet TraerPrestamo_planilla(string cliente, string prestamo, bool recargo);
 		DataSet TraerPrestamoSaldo(string filtro);
         DataSet TraerPrestamoSaldoTotal();

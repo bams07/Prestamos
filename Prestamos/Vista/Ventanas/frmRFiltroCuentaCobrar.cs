@@ -25,7 +25,7 @@ namespace Prestamos.Vista.Ventanas
         {
             PrestamosCL oPrestamos = new PrestamosCL();
 
-            DataSet oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, true);
+            DataSet oDatos = oPrestamos.TraerPrestamo(txtCliente.Text, true, false);
 
 
             if (oDatos.Tables[0].Rows.Count == 0)

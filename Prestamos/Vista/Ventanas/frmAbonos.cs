@@ -245,6 +245,7 @@ namespace Prestamos.Vista.Ventanas
 
         public void CancelarPrestamo(int prestamoId)
         {
+            DateTime fechaPago =  DateTime.Now;
             PrestamosCL oPrestamos = new PrestamosCL();
             Prestamos_CuotasCL oPrestamosCuotasCl = new Prestamos_CuotasCL(); ;
 
@@ -257,7 +258,7 @@ namespace Prestamos.Vista.Ventanas
             }
             else
             {
-                oPrestamosCuotasCl.CancelarCuotasPrestamo(prestamoId);
+                oPrestamosCuotasCl.CancelarCuotasPrestamo(prestamoId, fechaPago);
 
                 if (oPrestamosCuotasCl.IsError)
                 {

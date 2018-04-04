@@ -203,10 +203,10 @@ namespace Prestamos.Logica.Postgres
                 this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
             }
         }
-        public void CancelarCuotasPrestamo(int prestamoId)
+        public void CancelarCuotasPrestamo(int prestamoId, DateTime fecha_pago)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("update prestamos_cuotas set pago=@pago, saldo=@saldo where id_prestamos=@prestamoId");
+            stringBuilder.AppendLine("update prestamos_cuotas set pago=true, fecha_pago=@fecha_pago, saldo=@saldo where id_prestamos=@prestamoId and pago=false");
             List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
 	        {
 	            new NpgsqlParameter
@@ -223,9 +223,9 @@ namespace Prestamos.Logica.Postgres
 	            },
 	            new NpgsqlParameter
 	            {
-	                ParameterName = "pago",
-	                NpgsqlDbType = NpgsqlDbType.Boolean,
-	                NpgsqlValue = true
+	                ParameterName = "fecha_pago",
+	                NpgsqlDbType = NpgsqlDbType.Timestamp,
+	                NpgsqlValue = fecha_pago
 	            }
 	        };
             AccesoDatos.Instance.accesoDatos.EjecutarSQL(stringBuilder.ToString(), parametros);

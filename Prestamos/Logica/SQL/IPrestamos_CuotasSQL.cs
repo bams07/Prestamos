@@ -20,7 +20,7 @@ namespace Prestamos.Logica
 		void EditarPrestamoCuotas_FechaPactada(int id, DateTime fecha_pactada);
 		void EliminarPrestamo(string filtro);
         void EliminarCuota(string id);
-	    void CancelarCuotasPrestamo(int prestamoId);
+        void CancelarCuotasPrestamo(int prestamoId, DateTime fecha_pago);
 		DataSet TraerPrestamoCuotas(string filtro);
 		DataSet TraerPrestamoCuotas_Pago(string filtro);
 		DataSet TraerPrestamoCuotas_NoPago(string filtro);

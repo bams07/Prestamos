@@ -76,10 +76,10 @@ namespace Prestamos.Logica
                 this.ErrorDescripcion = prestamos_CuotasSQL.ErrorDescripcion;
             }
         }
-        public void CancelarCuotasPrestamo(int id)
+        public void CancelarCuotasPrestamo(int id, DateTime fecha_pago)
 	    {
 	        IPrestamos_CuotasSQL prestamos_CuotasSQL = this.ObtenerInstancia();
-	        prestamos_CuotasSQL.CancelarCuotasPrestamo(id);
+            prestamos_CuotasSQL.CancelarCuotasPrestamo(id, fecha_pago);
 	        if (prestamos_CuotasSQL.IsError)
 	        {
 	            this.IsError = prestamos_CuotasSQL.IsError;

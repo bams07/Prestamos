@@ -293,96 +293,106 @@ namespace Prestamos.Vista.Ventanas
 
         public void GenerarCuotasPrevias()
         {
-            // COMPRUEBA EL VALOR DE LOS CAMPOS
-            if (txtCuotas.Text == "")
+            try
             {
-                MessageBox.Show(@"LLene los campos faltantes", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                var dia = dtFechaInicial.Value.Day;
-                var mes = dtFechaInicial.Value.Month;
-                var ano = dtFechaInicial.Value.Year;
-                var tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
-                var validacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
 
-                // COMPRUEBA SI EL DIA DE PAGO NO ES QUINCENA
-                if (validacionQuincena == false)
+                // COMPRUEBA EL VALOR DE LOS CAMPOS
+                if (txtCuotas.Text == "")
                 {
-                    #region COLUMNAS DE LA TABLA
+                    MessageBox.Show(@"LLene los campos faltantes", @"Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    var dia = dtFechaInicial.Value.Day;
+                    var mes = dtFechaInicial.Value.Month;
+                    var ano = dtFechaInicial.Value.Year;
+                    var tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
+                    var validacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
 
-                    _dCuotasGeneradas = new DataTable();
-
-                    _dCuotasGeneradas.Columns.Add("Numero couta");
-                    _dCuotasGeneradas.Columns.Add("Fecha de pago");
-                    _dCuotasGeneradas.Columns.Add("Monto");
-                    _dCuotasGeneradas.Columns.Add("Saldo");
-
-                    #endregion
-
-                    #region GENERA LAS CUOTAS
-
-                    // TOMA LA FECHA INICIAL
-                    _fecha = dtFechaInicial.Value;
-
-                    // EL SALDO ES IGUAL AL TOTAL AL PRINCIPIO
-                    var saldoCuotas = _prestamoSaldo;
-
-                    // VARIABLE QUE SE ESTABLECE PARA DECIDIR CUANDO TERMINAR DE CALCULAR
-                    var terminarGenerarCuotas = true;
-
-                    // EMPIEZA A CONTAR DESDE EL PRIMER NUMERO DE CUOTA
-                    var contNumeroCuota = _primerNumeroCuota;
-                    var contMeses = 1;
-
-                    if (saldoCuotas > 0)
+                    // COMPRUEBA SI EL DIA DE PAGO NO ES QUINCENA
+                    if (validacionQuincena == false)
                     {
-                        // ESTABLECE LA FECHA INICIAL
-                        ValidacionesCL.fechaInicial = _fecha;
+                        #region COLUMNAS DE LA TABLA
 
-                        while (terminarGenerarCuotas)
+                        _dCuotasGeneradas = new DataTable();
+
+                        _dCuotasGeneradas.Columns.Add("Numero couta");
+                        _dCuotasGeneradas.Columns.Add("Fecha de pago");
+                        _dCuotasGeneradas.Columns.Add("Monto");
+                        _dCuotasGeneradas.Columns.Add("Saldo");
+
+                        #endregion
+
+                        #region GENERA LAS CUOTAS
+
+                        // TOMA LA FECHA INICIAL
+                        _fecha = dtFechaInicial.Value;
+
+                        // EL SALDO ES IGUAL AL TOTAL AL PRINCIPIO
+                        var saldoCuotas = _prestamoSaldo;
+
+                        // VARIABLE QUE SE ESTABLECE PARA DECIDIR CUANDO TERMINAR DE CALCULAR
+                        var terminarGenerarCuotas = true;
+
+                        // EMPIEZA A CONTAR DESDE EL PRIMER NUMERO DE CUOTA
+                        var contNumeroCuota = _primerNumeroCuota;
+                        var contMeses = 1;
+
+                        if (saldoCuotas > 0)
                         {
+                            // ESTABLECE LA FECHA INICIAL
+                            ValidacionesCL.fechaInicial = _fecha;
 
-                            if (saldoCuotas >= Convert.ToDouble(txtCuotas.Text))
+                            while (terminarGenerarCuotas)
                             {
-                                _valorxcuotas = Convert.ToDouble(txtCuotas.Text);
-                            }
-                            else
-                            {
-                                _valorxcuotas = saldoCuotas;
-                                terminarGenerarCuotas = false;
-                            }
 
-                            saldoCuotas -= _valorxcuotas;
+                                if (saldoCuotas >= Convert.ToDouble(txtCuotas.Text.Trim()))
+                                {
+                                    _valorxcuotas = Convert.ToDouble(txtCuotas.Text.Trim());
+                                }
+                                else
+                                {
+                                    _valorxcuotas = saldoCuotas;
+                                    terminarGenerarCuotas = false;
+                                }
 
-                            var row = _dCuotasGeneradas.Rows.Add();
+                                saldoCuotas -= _valorxcuotas;
 
-                            row["Numero couta"] = contNumeroCuota;
-                            row["Fecha de pago"] = _fecha.ToShortDateString();
-                            row["Monto"] = _valorxcuotas;
-                            row["Saldo"] = saldoCuotas;
+                                var row = _dCuotasGeneradas.Rows.Add();
 
-                            // LLEVA EL CONTROL DE LOS MESES PARA UNA FECHA ESPECIFICA
-                            ValidacionesCL.contadorMeses = contMeses;
+                                row["Numero couta"] = contNumeroCuota;
+                                row["Fecha de pago"] = _fecha.ToShortDateString();
+                                row["Monto"] = _valorxcuotas;
+                                row["Saldo"] = saldoCuotas;
 
-                            // CONSULTA LA FECHA SIGUIENTE BASADO EN EL DIA PAGO ESCODIGO
-                            _fecha = ValidacionesCL.validarFechaPago(_fecha.Day, _fecha.Month, _fecha.Year, _fecha, tipo);
+                                // LLEVA EL CONTROL DE LOS MESES PARA UNA FECHA ESPECIFICA
+                                ValidacionesCL.contadorMeses = contMeses;
 
-                            contNumeroCuota++;
-                            contMeses++;
+                                // CONSULTA LA FECHA SIGUIENTE BASADO EN EL DIA PAGO ESCODIGO
+                                _fecha = ValidacionesCL.validarFechaPago(_fecha.Day, _fecha.Month, _fecha.Year, _fecha,
+                                    tipo);
 
-                            if (saldoCuotas == 0)
-                            {
-                                break;
+                                contNumeroCuota++;
+                                contMeses++;
+
+                                if (saldoCuotas == 0)
+                                {
+                                    break;
+                                }
                             }
                         }
+
+                        #endregion
+
+                        dtgCuotasPrevias.DataSource = _dCuotasGeneradas;
+
                     }
-
-                    #endregion
-
-                    dtgCuotasPrevias.DataSource = _dCuotasGeneradas;
-
                 }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -399,43 +409,67 @@ namespace Prestamos.Vista.Ventanas
             var tipo = ValidacionesCL.ValidarDiaPagoIndex(cmbDiaPago.SelectedItem.ToString());
             var validacionQuincena = ValidacionesCL.validarQuincena(dia, mes, ano, tipo);
 
+            if (_dCuotasGeneradas == null || _dCuotasGeneradas.Rows.Count == 0)
+            {
+                MessageBox.Show("Debe hacer clic en Generar previsualización para poder procesar la edición", "Información", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+
+
             if (validacionQuincena == false)
             {
+                var countErrors = 0;
                 var oCuotas = new Prestamos_CuotasCL();
+                var oPlanilla = new PlanillaCL();
+                var oAbonosCuotas = new Abonos_CuotasCL();
+
 
                 foreach (DataRow item in _dCuotas.Rows)
                 {
                     var id = item["id"].ToString();
 
-                    // ELIMINA LA CUOTA EXISTENTE CAMBIANDO EL ESTADO ELIMINADO A TRUE
+                    // ELIMINAR ABONOS DE UNA CUOTA
+                    oAbonosCuotas.EliminarAbono_Cuotas_Id_Cuota(id);
+
+                    // ELIMINA DETALLE DE PLANILLA REFERENTE A UNA CUOTA
+                    oPlanilla.EliminarPlanillaDetalle(id);
+
+                    // ELIMINAR LA CUOTA
                     oCuotas.EliminarCuota(id);
 
                     if (oCuotas.IsError)
                     {
-                        MessageBox.Show(oCuotas.ErrorDescripcion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
+                        countErrors++;
                     }
                 }
 
-                if (!oCuotas.IsError)
+                foreach (DataRow item in _dCuotasGeneradas.Rows)
                 {
-                    foreach (DataRow item in _dCuotasGeneradas.Rows)
-                    {
-                        // INSERTA NUEVAS CUOTAS
-                        oCuotas.InsertarPrestamo_Cuotas(
-                            _prestamoId,
-                            Convert.ToInt32(item["Numero couta"].ToString()),
-                            Convert.ToDateTime(item["Fecha de pago"].ToString()),
-                            Convert.ToDouble(item["Monto"].ToString()),
-                            Convert.ToDouble(item["Saldo"].ToString()));
+                    // INSERTA NUEVAS CUOTAS
+                    oCuotas.InsertarPrestamo_Cuotas(
+                        _prestamoId,
+                        Convert.ToInt32(item["Numero couta"].ToString()),
+                        Convert.ToDateTime(item["Fecha de pago"].ToString()),
+                        Convert.ToDouble(item["Monto"].ToString()),
+                        Convert.ToDouble(item["Saldo"].ToString()));
 
-                        if (oCuotas.IsError)
-                        {
-                            MessageBox.Show(oCuotas.ErrorDescripcion, "Error", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                            break;
-                        }
+                    if (oCuotas.IsError)
+                    {
+                        countErrors++;
                     }
+                }
+
+                if (countErrors > 0)
+                {
+                    MessageBox.Show("Se presentaron errores al editar las cuotas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Préstamo modificado con éxito", "Información", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    this.Dispose();
                 }
             }
         }

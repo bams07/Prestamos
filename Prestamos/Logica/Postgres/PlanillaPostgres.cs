@@ -210,6 +210,32 @@ namespace Prestamos.Logica.Postgres
 
         }
 
+        // ELIMINA UNA CUOTA EN ESPECIFICO DE UNA PLANILLA
+        public void EliminarPlanillaDetalle(string idCuota)
+        {
+
+            var sql = new StringBuilder();
+            sql.AppendLine("delete from planilla_cobro_detalle where id_cuota=@id_cuota");
+
+            var parametros = new List<NpgsqlParameter>
+            {
+                new NpgsqlParameter
+                {
+                    ParameterName = "id_cuota",
+                    NpgsqlDbType = NpgsqlDbType.Integer,
+                    NpgsqlValue = idCuota
+                }
+            };
+
+            AccesoDatos.Instance.accesoDatos.EjecutarSQL(sql.ToString(), parametros);
+            if (AccesoDatos.Instance.accesoDatos.IsError)
+            {
+                this.IsError = AccesoDatos.Instance.accesoDatos.IsError;
+                this.ErrorDescripcion = AccesoDatos.Instance.accesoDatos.ErrorDescripcion;
+            }
+
+        }
+
         public DataSet TraerPlanilla(string filtro)
         {
 

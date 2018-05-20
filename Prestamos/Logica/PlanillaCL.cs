@@ -99,6 +99,17 @@ namespace Prestamos.Logica
             }
         }
 
+        public void EliminarPlanillaDetalle(string idCuota)
+        {
+            IPlanillaSQL IPlanillaSQL = this.ObtenerInstancia();
+            IPlanillaSQL.EliminarPlanillaDetalle(idCuota);
+            if (IPlanillaSQL.IsError)
+            {
+                this.IsError = IPlanillaSQL.IsError;
+                this.ErrorDescripcion = IPlanillaSQL.ErrorDescripcion;
+            }
+        }
+
         public DataSet TraerPlanilla(string filtro)
         {
             IPlanillaSQL IPlanillaSQL = this.ObtenerInstancia();

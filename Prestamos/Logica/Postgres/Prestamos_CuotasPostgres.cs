@@ -180,7 +180,7 @@ namespace Prestamos.Logica.Postgres
         public void EliminarCuota(string id)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("update prestamos_cuotas set eliminado=@eliminado where id=@id");
+            stringBuilder.AppendLine("delete from prestamos_cuotas where id=@id");
             List<NpgsqlParameter> parametros = new List<NpgsqlParameter>
 			{
 				new NpgsqlParameter
